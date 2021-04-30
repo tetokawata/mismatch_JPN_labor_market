@@ -13,3 +13,4 @@ description: "TBA"
 # Summary
 
 This page reports the mismatch index in Japanese job-search market.
+@@ proposes a tractable mismatch index, which allows heterogeneity.
