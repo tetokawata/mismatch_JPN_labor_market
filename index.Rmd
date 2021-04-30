@@ -10,6 +10,18 @@ link-citations: yes
 description: "TBA"
 ---
 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+```{r}
+library(knitr)
+```
+
+
 # Summary
 
 This page reports the mismatch index [@csahin2014mismatch] in Japanese job-search market.

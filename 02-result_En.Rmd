@@ -1,7 +1,8 @@
 # Result
 
+- Occupational mismatch by March, 2021.
+
 ```{r}
-library(tidyverse)
-library(haven)
+include_graphics("R/figure/occ_mismatch.png")
 ```
 

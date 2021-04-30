@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Data | Vacancy-Seeker Mismatch in Japan</title>
+  <meta name="description" content="TBA" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Data | Vacancy-Seeker Mismatch in Japan" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="TBA" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Data | Vacancy-Seeker Mismatch in Japan" />
+  
+  <meta name="twitter:description" content="TBA" />
+  
+
+<meta name="author" content="Keisuke Kawata" />
+
+
+<meta name="date" content="2021-05-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="result.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Summary</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Method</a></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#occupation"><i class="fa fa-check"></i><b>3.1</b> Occupation</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="data.html"><a href="data.html#full-time"><i class="fa fa-check"></i><b>3.1.1</b> Full time</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data.html"><a href="data.html#part-time"><i class="fa fa-check"></i><b>3.1.2</b> Part time</a></li>
+<li class="chapter" data-level="3.1.3" data-path="data.html"><a href="data.html#merge"><i class="fa fa-check"></i><b>3.1.3</b> Merge</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#prefecture"><i class="fa fa-check"></i><b>3.2</b> Prefecture</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data.html"><a href="data.html#full-time-1"><i class="fa fa-check"></i><b>3.2.1</b> Full time</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data.html"><a href="data.html#part-time-1"><i class="fa fa-check"></i><b>3.2.2</b> Part time</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data.html"><a href="data.html#merge-1"><i class="fa fa-check"></i><b>3.2.3</b> Merge</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>4</b> Result</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Vacancy-Seeker Mismatch in Japan</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Data</h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="data.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb2-2"><a href="data.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="data.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
+<div id="occupation" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Occupation</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="data.html#cb3-1" aria-hidden="true" tabindex="-1"></a>year <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">2012</span>,<span class="dv">10</span>),</span>
+<span id="cb3-2"><a href="data.html#cb3-2" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2013</span>,<span class="dv">12</span>),</span>
+<span id="cb3-3"><a href="data.html#cb3-3" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2014</span>,<span class="dv">12</span>),</span>
+<span id="cb3-4"><a href="data.html#cb3-4" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2015</span>,<span class="dv">12</span>),</span>
+<span id="cb3-5"><a href="data.html#cb3-5" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2016</span>,<span class="dv">12</span>),</span>
+<span id="cb3-6"><a href="data.html#cb3-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2017</span>,<span class="dv">12</span>),</span>
+<span id="cb3-7"><a href="data.html#cb3-7" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2018</span>,<span class="dv">12</span>),</span>
+<span id="cb3-8"><a href="data.html#cb3-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2019</span>,<span class="dv">12</span>),</span>
+<span id="cb3-9"><a href="data.html#cb3-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2020</span>,<span class="dv">11</span>)</span>
+<span id="cb3-10"><a href="data.html#cb3-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-11"><a href="data.html#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="data.html#cb3-12" aria-hidden="true" tabindex="-1"></a>month <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>),</span>
+<span id="cb3-13"><a href="data.html#cb3-13" aria-hidden="true" tabindex="-1"></a>           <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,<span class="dv">7</span>),</span>
+<span id="cb3-14"><a href="data.html#cb3-14" aria-hidden="true" tabindex="-1"></a>           <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>))</span>
+<span id="cb3-15"><a href="data.html#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="data.html#cb3-16" aria-hidden="true" tabindex="-1"></a>occ <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Management&quot;</span>,</span>
+<span id="cb3-17"><a href="data.html#cb3-17" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Technical specialist&quot;</span>,</span>
+<span id="cb3-18"><a href="data.html#cb3-18" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Office&quot;</span>,</span>
+<span id="cb3-19"><a href="data.html#cb3-19" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Sales&quot;</span>,</span>
+<span id="cb3-20"><a href="data.html#cb3-20" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Service&quot;</span>,</span>
+<span id="cb3-21"><a href="data.html#cb3-21" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Security&quot;</span>,</span>
+<span id="cb3-22"><a href="data.html#cb3-22" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Agriculture, Forestry, and Fisheries&quot;</span>,</span>
+<span id="cb3-23"><a href="data.html#cb3-23" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Production process&quot;</span>,</span>
+<span id="cb3-24"><a href="data.html#cb3-24" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Driver&quot;</span>,</span>
+<span id="cb3-25"><a href="data.html#cb3-25" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Construction and Mining&quot;</span>,</span>
+<span id="cb3-26"><a href="data.html#cb3-26" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;Others&quot;</span>)</span>
+<span id="cb3-27"><a href="data.html#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="data.html#cb3-28" aria-hidden="true" tabindex="-1"></a>sel.raw <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">19</span>,<span class="dv">27</span>,<span class="dv">31</span>,<span class="dv">40</span>,<span class="dv">41</span>,<span class="dv">42</span>,<span class="dv">54</span>,<span class="dv">60</span>,<span class="dv">66</span>)</span>
+<span id="cb3-29"><a href="data.html#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="data.html#cb3-30" aria-hidden="true" tabindex="-1"></a>sel.col <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">19</span><span class="sc">:</span><span class="dv">123</span>)</span></code></pre></div>
+<div id="full-time" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Full time</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="data.html#cb4-1" aria-hidden="true" tabindex="-1"></a>raw.new.vac <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx&quot;</span>,</span>
+<span id="cb4-2"><a href="data.html#cb4-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="st">&quot;第２１表ー８　 新規求人（パート除く常用）&quot;</span>)</span>
+<span id="cb4-3"><a href="data.html#cb4-3" aria-hidden="true" tabindex="-1"></a>raw.vac <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx&quot;</span>,</span>
+<span id="cb4-4"><a href="data.html#cb4-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="st">&quot;第２１表ー９　有効求人（パート除く常用）&quot;</span>)</span>
+<span id="cb4-5"><a href="data.html#cb4-5" aria-hidden="true" tabindex="-1"></a>raw.new.see <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx&quot;</span>,</span>
+<span id="cb4-6"><a href="data.html#cb4-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="st">&quot;第２１表ー１０　新規求職（パート除く常用）&quot;</span>)</span>
+<span id="cb4-7"><a href="data.html#cb4-7" aria-hidden="true" tabindex="-1"></a>raw.see <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx&quot;</span>,</span>
+<span id="cb4-8"><a href="data.html#cb4-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">sheet =</span> <span class="st">&quot;第２１表ー１１　有効求職（パート除く常用）&quot;</span>)</span>
+<span id="cb4-9"><a href="data.html#cb4-9" aria-hidden="true" tabindex="-1"></a>raw.hir <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx&quot;</span>,</span>
+<span id="cb4-10"><a href="data.html#cb4-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">sheet =</span> <span class="st">&quot;第２１表ー１２　就職件数（パート除く常用）&quot;</span>)</span>
+<span id="cb4-11"><a href="data.html#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="data.html#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="do">#####</span></span>
+<span id="cb4-13"><a href="data.html#cb4-13" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw.new.vac[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb4-14"><a href="data.html#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">occ =</span> occ)</span>
+<span id="cb4-15"><a href="data.html#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="data.html#cb4-16" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="fu">names</span>(raw)[<span class="sc">-</span><span class="dv">106</span>]</span>
+<span id="cb4-17"><a href="data.html#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="data.html#cb4-18" aria-hidden="true" tabindex="-1"></a>df.new.vac <span class="ot">&lt;-</span> <span class="fu">gather</span>(raw,</span>
+<span id="cb4-19"><a href="data.html#cb4-19" aria-hidden="true" tabindex="-1"></a>               name,</span>
+<span id="cb4-20"><a href="data.html#cb4-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">key =</span> <span class="st">&quot;date&quot;</span>, </span>
+<span id="cb4-21"><a href="data.html#cb4-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">value =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-22"><a href="data.html#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(occ) <span class="sc">%&gt;%</span></span>
+<span id="cb4-23"><a href="data.html#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> year,</span>
+<span id="cb4-24"><a href="data.html#cb4-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> month,</span>
+<span id="cb4-25"><a href="data.html#cb4-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;New Vacancy&quot;</span>)</span>
+<span id="cb4-26"><a href="data.html#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="data.html#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="do">#####</span></span>
+<span id="cb4-28"><a href="data.html#cb4-28" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw.new.see[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb4-29"><a href="data.html#cb4-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">occ =</span> occ)</span>
+<span id="cb4-30"><a href="data.html#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="data.html#cb4-31" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="fu">names</span>(raw)[<span class="sc">-</span><span class="dv">106</span>]</span>
+<span id="cb4-32"><a href="data.html#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="data.html#cb4-33" aria-hidden="true" tabindex="-1"></a>df.new.see <span class="ot">&lt;-</span> <span class="fu">gather</span>(raw,</span>
+<span id="cb4-34"><a href="data.html#cb4-34" aria-hidden="true" tabindex="-1"></a>               name,</span>
+<span id="cb4-35"><a href="data.html#cb4-35" aria-hidden="true" tabindex="-1"></a>         <span class="at">key =</span> <span class="st">&quot;date&quot;</span>, </span>
+<span id="cb4-36"><a href="data.html#cb4-36" aria-hidden="true" tabindex="-1"></a>         <span class="at">value =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-37"><a href="data.html#cb4-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(occ) <span class="sc">%&gt;%</span></span>
+<span id="cb4-38"><a href="data.html#cb4-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> year,</span>
+<span id="cb4-39"><a href="data.html#cb4-39" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> month,</span>
+<span id="cb4-40"><a href="data.html#cb4-40" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;New Seeker&quot;</span>)</span>
+<span id="cb4-41"><a href="data.html#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="data.html#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="do">#####</span></span>
+<span id="cb4-43"><a href="data.html#cb4-43" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw.vac[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb4-44"><a href="data.html#cb4-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">occ =</span> occ)</span>
+<span id="cb4-45"><a href="data.html#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="data.html#cb4-46" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="fu">names</span>(raw)[<span class="sc">-</span><span class="dv">106</span>]</span>
+<span id="cb4-47"><a href="data.html#cb4-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-48"><a href="data.html#cb4-48" aria-hidden="true" tabindex="-1"></a>df.vac <span class="ot">&lt;-</span> <span class="fu">gather</span>(raw,</span>
+<span id="cb4-49"><a href="data.html#cb4-49" aria-hidden="true" tabindex="-1"></a>               name,</span>
+<span id="cb4-50"><a href="data.html#cb4-50" aria-hidden="true" tabindex="-1"></a>         <span class="at">key =</span> <span class="st">&quot;date&quot;</span>, </span>
+<span id="cb4-51"><a href="data.html#cb4-51" aria-hidden="true" tabindex="-1"></a>         <span class="at">value =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-52"><a href="data.html#cb4-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(occ) <span class="sc">%&gt;%</span></span>
+<span id="cb4-53"><a href="data.html#cb4-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> year,</span>
+<span id="cb4-54"><a href="data.html#cb4-54" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> month,</span>
+<span id="cb4-55"><a href="data.html#cb4-55" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;Vacancy&quot;</span>)</span>
+<span id="cb4-56"><a href="data.html#cb4-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-57"><a href="data.html#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="do">#####</span></span>
+<span id="cb4-58"><a href="data.html#cb4-58" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw.see[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb4-59"><a href="data.html#cb4-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">occ =</span> occ)</span>
+<span id="cb4-60"><a href="data.html#cb4-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-61"><a href="data.html#cb4-61" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="fu">names</span>(raw)[<span class="sc">-</span><span class="dv">106</span>]</span>
+<span id="cb4-62"><a href="data.html#cb4-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-63"><a href="data.html#cb4-63" aria-hidden="true" tabindex="-1"></a>df.see <span class="ot">&lt;-</span> <span class="fu">gather</span>(raw,</span>
+<span id="cb4-64"><a href="data.html#cb4-64" aria-hidden="true" tabindex="-1"></a>                 name,</span>
+<span id="cb4-65"><a href="data.html#cb4-65" aria-hidden="true" tabindex="-1"></a>                 <span class="at">key =</span> <span class="st">&quot;date&quot;</span>, </span>
+<span id="cb4-66"><a href="data.html#cb4-66" aria-hidden="true" tabindex="-1"></a>                 <span class="at">value =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-67"><a href="data.html#cb4-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(occ) <span class="sc">%&gt;%</span></span>
+<span id="cb4-68"><a href="data.html#cb4-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> year,</span>
+<span id="cb4-69"><a href="data.html#cb4-69" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> month,</span>
+<span id="cb4-70"><a href="data.html#cb4-70" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;Seeker&quot;</span>)</span>
+<span id="cb4-71"><a href="data.html#cb4-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-72"><a href="data.html#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="do">#####</span></span>
+<span id="cb4-73"><a href="data.html#cb4-73" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw.hir[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb4-74"><a href="data.html#cb4-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">occ =</span> occ)</span>
+<span id="cb4-75"><a href="data.html#cb4-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-76"><a href="data.html#cb4-76" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="fu">names</span>(raw)[<span class="sc">-</span><span class="dv">106</span>]</span>
+<span id="cb4-77"><a href="data.html#cb4-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-78"><a href="data.html#cb4-78" aria-hidden="true" tabindex="-1"></a>df.hir <span class="ot">&lt;-</span> <span class="fu">gather</span>(raw,</span>
+<span id="cb4-79"><a href="data.html#cb4-79" aria-hidden="true" tabindex="-1"></a>                 name,</span>
+<span id="cb4-80"><a href="data.html#cb4-80" aria-hidden="true" tabindex="-1"></a>                 <span class="at">key =</span> <span class="st">&quot;date&quot;</span>, </span>
+<span id="cb4-81"><a href="data.html#cb4-81" aria-hidden="true" tabindex="-1"></a>                 <span class="at">value =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-82"><a href="data.html#cb4-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(occ) <span class="sc">%&gt;%</span></span>
+<span id="cb4-83"><a href="data.html#cb4-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> year,</span>
+<span id="cb4-84"><a href="data.html#cb4-84" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> month,</span>
+<span id="cb4-85"><a href="data.html#cb4-85" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;Hir&quot;</span>)</span>
+<span id="cb4-86"><a href="data.html#cb4-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-87"><a href="data.html#cb4-87" aria-hidden="true" tabindex="-1"></a>raw.full <span class="ot">&lt;-</span> </span>
+<span id="cb4-88"><a href="data.html#cb4-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(df.see,</span>
+<span id="cb4-89"><a href="data.html#cb4-89" aria-hidden="true" tabindex="-1"></a>        df.hir,</span>
+<span id="cb4-90"><a href="data.html#cb4-90" aria-hidden="true" tabindex="-1"></a>        df.vac,</span>
+<span id="cb4-91"><a href="data.html#cb4-91" aria-hidden="true" tabindex="-1"></a>        df.new.see,</span>
+<span id="cb4-92"><a href="data.html#cb4-92" aria-hidden="true" tabindex="-1"></a>        df.new.vac</span>
+<span id="cb4-93"><a href="data.html#cb4-93" aria-hidden="true" tabindex="-1"></a>        ) <span class="sc">%&gt;%</span></span>
+<span id="cb4-94"><a href="data.html#cb4-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">make_date</span>(year, month),</span>
+<span id="cb4-95"><a href="data.html#cb4-95" aria-hidden="true" tabindex="-1"></a>         <span class="at">n =</span> <span class="fu">as.numeric</span>(n),</span>
+<span id="cb4-96"><a href="data.html#cb4-96" aria-hidden="true" tabindex="-1"></a>         <span class="at">job_type =</span> <span class="st">&quot;Full-time&quot;</span>)</span></code></pre></div>
+</div>
+<div id="part-time" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Part time</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data.html#cb5-1" aria-hidden="true" tabindex="-1"></a>raw.new.vac <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx&quot;</span>,</span>
+<span id="cb5-2"><a href="data.html#cb5-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">sheet =</span> <span class="st">&quot;第２１表ー１５　新規求人（常用的パート）&quot;</span>)</span>
+<span id="cb5-3"><a href="data.html#cb5-3" aria-hidden="true" tabindex="-1"></a>raw.vac <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx&quot;</span>,</span>
+<span id="cb5-4"><a href="data.html#cb5-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">sheet =</span> <span class="st">&quot;第２１表ー１６　有効求人（常用的パート）&quot;</span>)</span>
+<span id="cb5-5"><a href="data.html#cb5-5" aria-hidden="true" tabindex="-1"></a>raw.new.see <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx&quot;</span>,</span>
+<span id="cb5-6"><a href="data.html#cb5-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">sheet =</span> <span class="st">&quot;第２１表ー１７　新規求職（常用的パート）&quot;</span>)</span>
+<span id="cb5-7"><a href="data.html#cb5-7" aria-hidden="true" tabindex="-1"></a>raw.see <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx&quot;</span>,</span>
+<span id="cb5-8"><a href="data.html#cb5-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">sheet =</span> <span class="st">&quot;第２１表ー１８　有効求職（常用的パート）&quot;</span>)</span>
+<span id="cb5-9"><a href="data.html#cb5-9" aria-hidden="true" tabindex="-1"></a>raw.hir <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx&quot;</span>,</span>
+<span id="cb5-10"><a href="data.html#cb5-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">sheet =</span> <span class="st">&quot;第２１表ー１９　就職件数（常用的パート）&quot;</span>)</span>
+<span id="cb5-11"><a href="data.html#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="data.html#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="do">#####</span></span>
+<span id="cb5-13"><a href="data.html#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="data.html#cb5-14" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw.new.vac[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb5-15"><a href="data.html#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">occ =</span> occ)</span>
+<span id="cb5-16"><a href="data.html#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="data.html#cb5-17" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="fu">names</span>(raw)[<span class="sc">-</span><span class="dv">106</span>]</span>
+<span id="cb5-18"><a href="data.html#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="data.html#cb5-19" aria-hidden="true" tabindex="-1"></a>df.new.vac <span class="ot">&lt;-</span> <span class="fu">gather</span>(raw,</span>
+<span id="cb5-20"><a href="data.html#cb5-20" aria-hidden="true" tabindex="-1"></a>               name,</span>
+<span id="cb5-21"><a href="data.html#cb5-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">key =</span> <span class="st">&quot;date&quot;</span>, </span>
+<span id="cb5-22"><a href="data.html#cb5-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">value =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-23"><a href="data.html#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(occ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-24"><a href="data.html#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> year,</span>
+<span id="cb5-25"><a href="data.html#cb5-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> month,</span>
+<span id="cb5-26"><a href="data.html#cb5-26" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;New Vacancy&quot;</span>)</span>
+<span id="cb5-27"><a href="data.html#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="data.html#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="do">#####</span></span>
+<span id="cb5-29"><a href="data.html#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="data.html#cb5-30" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw.new.see[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb5-31"><a href="data.html#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">occ =</span> occ)</span>
+<span id="cb5-32"><a href="data.html#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-33"><a href="data.html#cb5-33" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="fu">names</span>(raw)[<span class="sc">-</span><span class="dv">106</span>]</span>
+<span id="cb5-34"><a href="data.html#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="data.html#cb5-35" aria-hidden="true" tabindex="-1"></a>df.new.see <span class="ot">&lt;-</span> <span class="fu">gather</span>(raw,</span>
+<span id="cb5-36"><a href="data.html#cb5-36" aria-hidden="true" tabindex="-1"></a>               name,</span>
+<span id="cb5-37"><a href="data.html#cb5-37" aria-hidden="true" tabindex="-1"></a>         <span class="at">key =</span> <span class="st">&quot;date&quot;</span>, </span>
+<span id="cb5-38"><a href="data.html#cb5-38" aria-hidden="true" tabindex="-1"></a>         <span class="at">value =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-39"><a href="data.html#cb5-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(occ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-40"><a href="data.html#cb5-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> year,</span>
+<span id="cb5-41"><a href="data.html#cb5-41" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> month,</span>
+<span id="cb5-42"><a href="data.html#cb5-42" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;New Seeker&quot;</span>)</span>
+<span id="cb5-43"><a href="data.html#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-44"><a href="data.html#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="do">#####</span></span>
+<span id="cb5-45"><a href="data.html#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="data.html#cb5-46" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw.vac[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb5-47"><a href="data.html#cb5-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">occ =</span> occ)</span>
+<span id="cb5-48"><a href="data.html#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="data.html#cb5-49" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="fu">names</span>(raw)[<span class="sc">-</span><span class="dv">106</span>]</span>
+<span id="cb5-50"><a href="data.html#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-51"><a href="data.html#cb5-51" aria-hidden="true" tabindex="-1"></a>df.vac <span class="ot">&lt;-</span> <span class="fu">gather</span>(raw,</span>
+<span id="cb5-52"><a href="data.html#cb5-52" aria-hidden="true" tabindex="-1"></a>               name,</span>
+<span id="cb5-53"><a href="data.html#cb5-53" aria-hidden="true" tabindex="-1"></a>         <span class="at">key =</span> <span class="st">&quot;date&quot;</span>, </span>
+<span id="cb5-54"><a href="data.html#cb5-54" aria-hidden="true" tabindex="-1"></a>         <span class="at">value =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-55"><a href="data.html#cb5-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(occ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-56"><a href="data.html#cb5-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> year,</span>
+<span id="cb5-57"><a href="data.html#cb5-57" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> month,</span>
+<span id="cb5-58"><a href="data.html#cb5-58" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;Vacancy&quot;</span>)</span>
+<span id="cb5-59"><a href="data.html#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-60"><a href="data.html#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-61"><a href="data.html#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="do">#####</span></span>
+<span id="cb5-62"><a href="data.html#cb5-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-63"><a href="data.html#cb5-63" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw.vac[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb5-64"><a href="data.html#cb5-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">occ =</span> occ)</span>
+<span id="cb5-65"><a href="data.html#cb5-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-66"><a href="data.html#cb5-66" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="fu">names</span>(raw)[<span class="sc">-</span><span class="dv">106</span>]</span>
+<span id="cb5-67"><a href="data.html#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-68"><a href="data.html#cb5-68" aria-hidden="true" tabindex="-1"></a>df.vac <span class="ot">&lt;-</span> <span class="fu">gather</span>(raw,</span>
+<span id="cb5-69"><a href="data.html#cb5-69" aria-hidden="true" tabindex="-1"></a>               name,</span>
+<span id="cb5-70"><a href="data.html#cb5-70" aria-hidden="true" tabindex="-1"></a>         <span class="at">key =</span> <span class="st">&quot;date&quot;</span>, </span>
+<span id="cb5-71"><a href="data.html#cb5-71" aria-hidden="true" tabindex="-1"></a>         <span class="at">value =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-72"><a href="data.html#cb5-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(occ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-73"><a href="data.html#cb5-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> year,</span>
+<span id="cb5-74"><a href="data.html#cb5-74" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> month,</span>
+<span id="cb5-75"><a href="data.html#cb5-75" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;Vacancy&quot;</span>)</span>
+<span id="cb5-76"><a href="data.html#cb5-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-77"><a href="data.html#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="do">#####</span></span>
+<span id="cb5-78"><a href="data.html#cb5-78" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw.see[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb5-79"><a href="data.html#cb5-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">occ =</span> occ)</span>
+<span id="cb5-80"><a href="data.html#cb5-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-81"><a href="data.html#cb5-81" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="fu">names</span>(raw)[<span class="sc">-</span><span class="dv">106</span>]</span>
+<span id="cb5-82"><a href="data.html#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-83"><a href="data.html#cb5-83" aria-hidden="true" tabindex="-1"></a>df.see <span class="ot">&lt;-</span> <span class="fu">gather</span>(raw,</span>
+<span id="cb5-84"><a href="data.html#cb5-84" aria-hidden="true" tabindex="-1"></a>                 name,</span>
+<span id="cb5-85"><a href="data.html#cb5-85" aria-hidden="true" tabindex="-1"></a>                 <span class="at">key =</span> <span class="st">&quot;date&quot;</span>, </span>
+<span id="cb5-86"><a href="data.html#cb5-86" aria-hidden="true" tabindex="-1"></a>                 <span class="at">value =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-87"><a href="data.html#cb5-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(occ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-88"><a href="data.html#cb5-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> year,</span>
+<span id="cb5-89"><a href="data.html#cb5-89" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> month,</span>
+<span id="cb5-90"><a href="data.html#cb5-90" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;Seeker&quot;</span>)</span>
+<span id="cb5-91"><a href="data.html#cb5-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-92"><a href="data.html#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="do">#####</span></span>
+<span id="cb5-93"><a href="data.html#cb5-93" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw.hir[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb5-94"><a href="data.html#cb5-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">occ =</span> occ)</span>
+<span id="cb5-95"><a href="data.html#cb5-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-96"><a href="data.html#cb5-96" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="fu">names</span>(raw)[<span class="sc">-</span><span class="dv">106</span>]</span>
+<span id="cb5-97"><a href="data.html#cb5-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-98"><a href="data.html#cb5-98" aria-hidden="true" tabindex="-1"></a>df.hir <span class="ot">&lt;-</span> <span class="fu">gather</span>(raw,</span>
+<span id="cb5-99"><a href="data.html#cb5-99" aria-hidden="true" tabindex="-1"></a>                 name,</span>
+<span id="cb5-100"><a href="data.html#cb5-100" aria-hidden="true" tabindex="-1"></a>                 <span class="at">key =</span> <span class="st">&quot;date&quot;</span>, </span>
+<span id="cb5-101"><a href="data.html#cb5-101" aria-hidden="true" tabindex="-1"></a>                 <span class="at">value =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-102"><a href="data.html#cb5-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(occ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-103"><a href="data.html#cb5-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> year,</span>
+<span id="cb5-104"><a href="data.html#cb5-104" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> month,</span>
+<span id="cb5-105"><a href="data.html#cb5-105" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;Hir&quot;</span>)</span>
+<span id="cb5-106"><a href="data.html#cb5-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-107"><a href="data.html#cb5-107" aria-hidden="true" tabindex="-1"></a>raw.part <span class="ot">&lt;-</span> </span>
+<span id="cb5-108"><a href="data.html#cb5-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(df.see,</span>
+<span id="cb5-109"><a href="data.html#cb5-109" aria-hidden="true" tabindex="-1"></a>        df.hir,</span>
+<span id="cb5-110"><a href="data.html#cb5-110" aria-hidden="true" tabindex="-1"></a>        df.vac,</span>
+<span id="cb5-111"><a href="data.html#cb5-111" aria-hidden="true" tabindex="-1"></a>        df.new.vac,</span>
+<span id="cb5-112"><a href="data.html#cb5-112" aria-hidden="true" tabindex="-1"></a>        df.new.see</span>
+<span id="cb5-113"><a href="data.html#cb5-113" aria-hidden="true" tabindex="-1"></a>        ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-114"><a href="data.html#cb5-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">make_date</span>(year, month),</span>
+<span id="cb5-115"><a href="data.html#cb5-115" aria-hidden="true" tabindex="-1"></a>         <span class="at">n =</span> <span class="fu">as.numeric</span>(n),</span>
+<span id="cb5-116"><a href="data.html#cb5-116" aria-hidden="true" tabindex="-1"></a>         <span class="at">job_type =</span> <span class="st">&quot;Part-time&quot;</span>)</span></code></pre></div>
+</div>
+<div id="merge" class="section level3" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Merge</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="data.html#cb6-1" aria-hidden="true" tabindex="-1"></a>df.occ <span class="ot">&lt;-</span></span>
+<span id="cb6-2"><a href="data.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  raw.full <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="data.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(raw.part) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="data.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(type,n) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="data.html#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> Hir<span class="sc">/</span>Seeker,</span>
+<span id="cb6-6"><a href="data.html#cb6-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">q =</span> Hir<span class="sc">/</span>Vacancy,</span>
+<span id="cb6-7"><a href="data.html#cb6-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">t =</span> Vacancy<span class="sc">/</span>Seeker,</span>
+<span id="cb6-8"><a href="data.html#cb6-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">date =</span> <span class="fu">make_date</span>(year, month))</span></code></pre></div>
+</div>
+</div>
+<div id="prefecture" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Prefecture</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="data.html#cb7-1" aria-hidden="true" tabindex="-1"></a>period.num <span class="ot">&lt;-</span> <span class="dv">96</span></span>
+<span id="cb7-2"><a href="data.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="data.html#cb7-3" aria-hidden="true" tabindex="-1"></a>sel.raw <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">18</span><span class="sc">:</span><span class="dv">112</span>)</span>
+<span id="cb7-4"><a href="data.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="data.html#cb7-5" aria-hidden="true" tabindex="-1"></a>sel.col <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">50</span>)</span>
+<span id="cb7-6"><a href="data.html#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="data.html#cb7-7" aria-hidden="true" tabindex="-1"></a>pref.id <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">47</span>)</span>
+<span id="cb7-8"><a href="data.html#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="data.html#cb7-9" aria-hidden="true" tabindex="-1"></a>year <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">2013</span>,<span class="dv">12</span>),</span>
+<span id="cb7-10"><a href="data.html#cb7-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2014</span>,<span class="dv">12</span>),</span>
+<span id="cb7-11"><a href="data.html#cb7-11" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2015</span>,<span class="dv">12</span>),</span>
+<span id="cb7-12"><a href="data.html#cb7-12" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2016</span>,<span class="dv">12</span>),</span>
+<span id="cb7-13"><a href="data.html#cb7-13" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2017</span>,<span class="dv">12</span>),</span>
+<span id="cb7-14"><a href="data.html#cb7-14" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2018</span>,<span class="dv">12</span>),</span>
+<span id="cb7-15"><a href="data.html#cb7-15" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2019</span>,<span class="dv">12</span>),</span>
+<span id="cb7-16"><a href="data.html#cb7-16" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2020</span>,<span class="dv">11</span>)</span>
+<span id="cb7-17"><a href="data.html#cb7-17" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb7-18"><a href="data.html#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="data.html#cb7-19" aria-hidden="true" tabindex="-1"></a>month <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,<span class="dv">7</span>),</span>
+<span id="cb7-20"><a href="data.html#cb7-20" aria-hidden="true" tabindex="-1"></a>           <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>)</span></code></pre></div>
+<div id="full-time-1" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Full time</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="data.html#cb8-1" aria-hidden="true" tabindex="-1"></a>raw<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第12表.xlsx&quot;</span>,</span>
+<span id="cb8-2"><a href="data.html#cb8-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">sheet =</span> <span class="st">&quot;第１２表ー２（パート除く一般）&quot;</span>)</span>
+<span id="cb8-3"><a href="data.html#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="data.html#cb8-4" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw<span class="fl">.0</span>[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="data.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  as.matrix</span>
+<span id="cb8-6"><a href="data.html#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="data.html#cb8-7" aria-hidden="true" tabindex="-1"></a>raw.new.vac <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb8-8"><a href="data.html#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="data.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">47</span>){</span>
+<span id="cb8-10"><a href="data.html#cb8-10" aria-hidden="true" tabindex="-1"></a>raw.new.vac <span class="ot">&lt;-</span> </span>
+<span id="cb8-11"><a href="data.html#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">n =</span> raw[,i],</span>
+<span id="cb8-12"><a href="data.html#cb8-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">pref.id =</span> pref.id[i],</span>
+<span id="cb8-13"><a href="data.html#cb8-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> year,</span>
+<span id="cb8-14"><a href="data.html#cb8-14" aria-hidden="true" tabindex="-1"></a>           <span class="at">month =</span> month,</span>
+<span id="cb8-15"><a href="data.html#cb8-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;New Vacancy&quot;</span></span>
+<span id="cb8-16"><a href="data.html#cb8-16" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span></span>
+<span id="cb8-17"><a href="data.html#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(raw.new.vac)</span>
+<span id="cb8-18"><a href="data.html#cb8-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-19"><a href="data.html#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="data.html#cb8-20" aria-hidden="true" tabindex="-1"></a>raw<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第13表.xlsx&quot;</span>,</span>
+<span id="cb8-21"><a href="data.html#cb8-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">sheet =</span> <span class="st">&quot;第１３表ー２（パート除く一般）&quot;</span>)</span>
+<span id="cb8-22"><a href="data.html#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="data.html#cb8-23" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw<span class="fl">.0</span>[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb8-24"><a href="data.html#cb8-24" aria-hidden="true" tabindex="-1"></a>  as.matrix</span>
+<span id="cb8-25"><a href="data.html#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="data.html#cb8-26" aria-hidden="true" tabindex="-1"></a>raw.new.see <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb8-27"><a href="data.html#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="data.html#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">47</span>){</span>
+<span id="cb8-29"><a href="data.html#cb8-29" aria-hidden="true" tabindex="-1"></a>raw.new.see <span class="ot">&lt;-</span> </span>
+<span id="cb8-30"><a href="data.html#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">n =</span> raw[,i],</span>
+<span id="cb8-31"><a href="data.html#cb8-31" aria-hidden="true" tabindex="-1"></a>           <span class="at">pref.id =</span> pref.id[i],</span>
+<span id="cb8-32"><a href="data.html#cb8-32" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> year,</span>
+<span id="cb8-33"><a href="data.html#cb8-33" aria-hidden="true" tabindex="-1"></a>           <span class="at">month =</span> month,</span>
+<span id="cb8-34"><a href="data.html#cb8-34" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;New Seeker&quot;</span></span>
+<span id="cb8-35"><a href="data.html#cb8-35" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span></span>
+<span id="cb8-36"><a href="data.html#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(raw.new.see)</span>
+<span id="cb8-37"><a href="data.html#cb8-37" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-38"><a href="data.html#cb8-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-39"><a href="data.html#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-40"><a href="data.html#cb8-40" aria-hidden="true" tabindex="-1"></a>raw<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第14表.xlsx&quot;</span>,</span>
+<span id="cb8-41"><a href="data.html#cb8-41" aria-hidden="true" tabindex="-1"></a>                <span class="at">sheet =</span> <span class="st">&quot;第１４表ー２（パート除く一般）&quot;</span>)</span>
+<span id="cb8-42"><a href="data.html#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-43"><a href="data.html#cb8-43" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw<span class="fl">.0</span>[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb8-44"><a href="data.html#cb8-44" aria-hidden="true" tabindex="-1"></a>  as.matrix</span>
+<span id="cb8-45"><a href="data.html#cb8-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-46"><a href="data.html#cb8-46" aria-hidden="true" tabindex="-1"></a>raw.vac <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb8-47"><a href="data.html#cb8-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-48"><a href="data.html#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">47</span>){</span>
+<span id="cb8-49"><a href="data.html#cb8-49" aria-hidden="true" tabindex="-1"></a>raw.vac <span class="ot">&lt;-</span> </span>
+<span id="cb8-50"><a href="data.html#cb8-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">n =</span> raw[,i],</span>
+<span id="cb8-51"><a href="data.html#cb8-51" aria-hidden="true" tabindex="-1"></a>           <span class="at">pref.id =</span> pref.id[i],</span>
+<span id="cb8-52"><a href="data.html#cb8-52" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> year,</span>
+<span id="cb8-53"><a href="data.html#cb8-53" aria-hidden="true" tabindex="-1"></a>           <span class="at">month =</span> month,</span>
+<span id="cb8-54"><a href="data.html#cb8-54" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;Vacancy&quot;</span></span>
+<span id="cb8-55"><a href="data.html#cb8-55" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span></span>
+<span id="cb8-56"><a href="data.html#cb8-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(raw.vac)</span>
+<span id="cb8-57"><a href="data.html#cb8-57" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-58"><a href="data.html#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-59"><a href="data.html#cb8-59" aria-hidden="true" tabindex="-1"></a>raw<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第14表.xlsx&quot;</span>,</span>
+<span id="cb8-60"><a href="data.html#cb8-60" aria-hidden="true" tabindex="-1"></a>                <span class="at">sheet =</span> <span class="st">&quot;第１４表ー２（パート除く一般）&quot;</span>)</span>
+<span id="cb8-61"><a href="data.html#cb8-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-62"><a href="data.html#cb8-62" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw<span class="fl">.0</span>[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb8-63"><a href="data.html#cb8-63" aria-hidden="true" tabindex="-1"></a>  as.matrix</span>
+<span id="cb8-64"><a href="data.html#cb8-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-65"><a href="data.html#cb8-65" aria-hidden="true" tabindex="-1"></a>raw.vac <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb8-66"><a href="data.html#cb8-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-67"><a href="data.html#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">47</span>){</span>
+<span id="cb8-68"><a href="data.html#cb8-68" aria-hidden="true" tabindex="-1"></a>raw.vac <span class="ot">&lt;-</span> </span>
+<span id="cb8-69"><a href="data.html#cb8-69" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">n =</span> raw[,i],</span>
+<span id="cb8-70"><a href="data.html#cb8-70" aria-hidden="true" tabindex="-1"></a>           <span class="at">pref.id =</span> pref.id[i],</span>
+<span id="cb8-71"><a href="data.html#cb8-71" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> year,</span>
+<span id="cb8-72"><a href="data.html#cb8-72" aria-hidden="true" tabindex="-1"></a>           <span class="at">month =</span> month,</span>
+<span id="cb8-73"><a href="data.html#cb8-73" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;Vacancy&quot;</span></span>
+<span id="cb8-74"><a href="data.html#cb8-74" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span></span>
+<span id="cb8-75"><a href="data.html#cb8-75" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(raw.vac)</span>
+<span id="cb8-76"><a href="data.html#cb8-76" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-77"><a href="data.html#cb8-77" aria-hidden="true" tabindex="-1"></a><span class="do">###</span></span>
+<span id="cb8-78"><a href="data.html#cb8-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-79"><a href="data.html#cb8-79" aria-hidden="true" tabindex="-1"></a>raw<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第15表.xlsx&quot;</span>,</span>
+<span id="cb8-80"><a href="data.html#cb8-80" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="st">&quot;第１５表ー２（パート除く一般）&quot;</span>)</span>
+<span id="cb8-81"><a href="data.html#cb8-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-82"><a href="data.html#cb8-82" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw<span class="fl">.0</span>[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb8-83"><a href="data.html#cb8-83" aria-hidden="true" tabindex="-1"></a>  as.matrix</span>
+<span id="cb8-84"><a href="data.html#cb8-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-85"><a href="data.html#cb8-85" aria-hidden="true" tabindex="-1"></a>raw.see <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb8-86"><a href="data.html#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-87"><a href="data.html#cb8-87" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">47</span>){</span>
+<span id="cb8-88"><a href="data.html#cb8-88" aria-hidden="true" tabindex="-1"></a>  raw.see <span class="ot">&lt;-</span> </span>
+<span id="cb8-89"><a href="data.html#cb8-89" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">n =</span> raw[,i],</span>
+<span id="cb8-90"><a href="data.html#cb8-90" aria-hidden="true" tabindex="-1"></a>           <span class="at">pref.id =</span> pref.id[i],</span>
+<span id="cb8-91"><a href="data.html#cb8-91" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> year,</span>
+<span id="cb8-92"><a href="data.html#cb8-92" aria-hidden="true" tabindex="-1"></a>           <span class="at">month =</span> month,</span>
+<span id="cb8-93"><a href="data.html#cb8-93" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;Seeker&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-94"><a href="data.html#cb8-94" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(raw.see)</span>
+<span id="cb8-95"><a href="data.html#cb8-95" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-96"><a href="data.html#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="do">###</span></span>
+<span id="cb8-97"><a href="data.html#cb8-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-98"><a href="data.html#cb8-98" aria-hidden="true" tabindex="-1"></a>raw<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第16表.xlsx&quot;</span>,</span>
+<span id="cb8-99"><a href="data.html#cb8-99" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="st">&quot;第１６表ー２（パート除く一般）&quot;</span>)</span>
+<span id="cb8-100"><a href="data.html#cb8-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-101"><a href="data.html#cb8-101" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw<span class="fl">.0</span>[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb8-102"><a href="data.html#cb8-102" aria-hidden="true" tabindex="-1"></a>  as.matrix</span>
+<span id="cb8-103"><a href="data.html#cb8-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-104"><a href="data.html#cb8-104" aria-hidden="true" tabindex="-1"></a>raw.hir <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb8-105"><a href="data.html#cb8-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-106"><a href="data.html#cb8-106" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">47</span>){</span>
+<span id="cb8-107"><a href="data.html#cb8-107" aria-hidden="true" tabindex="-1"></a>  raw.hir <span class="ot">&lt;-</span> </span>
+<span id="cb8-108"><a href="data.html#cb8-108" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">n =</span> raw[,i],</span>
+<span id="cb8-109"><a href="data.html#cb8-109" aria-hidden="true" tabindex="-1"></a>           <span class="at">pref.id =</span> pref.id[i],</span>
+<span id="cb8-110"><a href="data.html#cb8-110" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> year,</span>
+<span id="cb8-111"><a href="data.html#cb8-111" aria-hidden="true" tabindex="-1"></a>           <span class="at">month =</span> month,</span>
+<span id="cb8-112"><a href="data.html#cb8-112" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;Hir&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-113"><a href="data.html#cb8-113" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(raw.hir)</span>
+<span id="cb8-114"><a href="data.html#cb8-114" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-115"><a href="data.html#cb8-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-116"><a href="data.html#cb8-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-117"><a href="data.html#cb8-117" aria-hidden="true" tabindex="-1"></a>raw.full <span class="ot">&lt;-</span> </span>
+<span id="cb8-118"><a href="data.html#cb8-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(raw.hir,</span>
+<span id="cb8-119"><a href="data.html#cb8-119" aria-hidden="true" tabindex="-1"></a>        raw.vac,</span>
+<span id="cb8-120"><a href="data.html#cb8-120" aria-hidden="true" tabindex="-1"></a>        raw.see,</span>
+<span id="cb8-121"><a href="data.html#cb8-121" aria-hidden="true" tabindex="-1"></a>        raw.new.vac,</span>
+<span id="cb8-122"><a href="data.html#cb8-122" aria-hidden="true" tabindex="-1"></a>        raw.new.see) <span class="sc">%&gt;%</span></span>
+<span id="cb8-123"><a href="data.html#cb8-123" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> <span class="fu">as.numeric</span>(n),</span>
+<span id="cb8-124"><a href="data.html#cb8-124" aria-hidden="true" tabindex="-1"></a>         <span class="at">job_type =</span> <span class="st">&quot;Full-time&quot;</span>)</span></code></pre></div>
+</div>
+<div id="part-time-1" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Part time</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data.html#cb9-1" aria-hidden="true" tabindex="-1"></a>raw<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第12表.xlsx&quot;</span>,</span>
+<span id="cb9-2"><a href="data.html#cb9-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">sheet =</span> <span class="st">&quot;第１２表－３（一般パート）&quot;</span>)</span>
+<span id="cb9-3"><a href="data.html#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="data.html#cb9-4" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw<span class="fl">.0</span>[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="data.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  as.matrix</span>
+<span id="cb9-6"><a href="data.html#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="data.html#cb9-7" aria-hidden="true" tabindex="-1"></a>raw.new.vac <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb9-8"><a href="data.html#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="data.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">47</span>){</span>
+<span id="cb9-10"><a href="data.html#cb9-10" aria-hidden="true" tabindex="-1"></a>raw.new.vac <span class="ot">&lt;-</span> </span>
+<span id="cb9-11"><a href="data.html#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">n =</span> raw[,i],</span>
+<span id="cb9-12"><a href="data.html#cb9-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">pref.id =</span> pref.id[i],</span>
+<span id="cb9-13"><a href="data.html#cb9-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> year,</span>
+<span id="cb9-14"><a href="data.html#cb9-14" aria-hidden="true" tabindex="-1"></a>           <span class="at">month =</span> month,</span>
+<span id="cb9-15"><a href="data.html#cb9-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;New Vacancy&quot;</span></span>
+<span id="cb9-16"><a href="data.html#cb9-16" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-17"><a href="data.html#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(raw.new.vac)</span>
+<span id="cb9-18"><a href="data.html#cb9-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-19"><a href="data.html#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="data.html#cb9-20" aria-hidden="true" tabindex="-1"></a>raw<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第13表.xlsx&quot;</span>,</span>
+<span id="cb9-21"><a href="data.html#cb9-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">sheet =</span> <span class="st">&quot;第１３表ー３（一般パート）&quot;</span>)</span>
+<span id="cb9-22"><a href="data.html#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="data.html#cb9-23" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw<span class="fl">.0</span>[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb9-24"><a href="data.html#cb9-24" aria-hidden="true" tabindex="-1"></a>  as.matrix</span>
+<span id="cb9-25"><a href="data.html#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="data.html#cb9-26" aria-hidden="true" tabindex="-1"></a>raw.new.see <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb9-27"><a href="data.html#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="data.html#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">47</span>){</span>
+<span id="cb9-29"><a href="data.html#cb9-29" aria-hidden="true" tabindex="-1"></a>raw.new.see <span class="ot">&lt;-</span> </span>
+<span id="cb9-30"><a href="data.html#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">n =</span> raw[,i],</span>
+<span id="cb9-31"><a href="data.html#cb9-31" aria-hidden="true" tabindex="-1"></a>           <span class="at">pref.id =</span> pref.id[i],</span>
+<span id="cb9-32"><a href="data.html#cb9-32" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> year,</span>
+<span id="cb9-33"><a href="data.html#cb9-33" aria-hidden="true" tabindex="-1"></a>           <span class="at">month =</span> month,</span>
+<span id="cb9-34"><a href="data.html#cb9-34" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;New Seeker&quot;</span></span>
+<span id="cb9-35"><a href="data.html#cb9-35" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-36"><a href="data.html#cb9-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(raw.new.see)</span>
+<span id="cb9-37"><a href="data.html#cb9-37" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-38"><a href="data.html#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-39"><a href="data.html#cb9-39" aria-hidden="true" tabindex="-1"></a>raw<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第14表.xlsx&quot;</span>,</span>
+<span id="cb9-40"><a href="data.html#cb9-40" aria-hidden="true" tabindex="-1"></a>                <span class="at">sheet =</span> <span class="st">&quot;第１４表－３（一般パート）&quot;</span>)</span>
+<span id="cb9-41"><a href="data.html#cb9-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-42"><a href="data.html#cb9-42" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw<span class="fl">.0</span>[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb9-43"><a href="data.html#cb9-43" aria-hidden="true" tabindex="-1"></a>  as.matrix</span>
+<span id="cb9-44"><a href="data.html#cb9-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-45"><a href="data.html#cb9-45" aria-hidden="true" tabindex="-1"></a>raw.vac <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb9-46"><a href="data.html#cb9-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-47"><a href="data.html#cb9-47" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">47</span>){</span>
+<span id="cb9-48"><a href="data.html#cb9-48" aria-hidden="true" tabindex="-1"></a>raw.vac <span class="ot">&lt;-</span> </span>
+<span id="cb9-49"><a href="data.html#cb9-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">n =</span> raw[,i],</span>
+<span id="cb9-50"><a href="data.html#cb9-50" aria-hidden="true" tabindex="-1"></a>           <span class="at">pref.id =</span> pref.id[i],</span>
+<span id="cb9-51"><a href="data.html#cb9-51" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> year,</span>
+<span id="cb9-52"><a href="data.html#cb9-52" aria-hidden="true" tabindex="-1"></a>           <span class="at">month =</span> month,</span>
+<span id="cb9-53"><a href="data.html#cb9-53" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;Vacancy&quot;</span></span>
+<span id="cb9-54"><a href="data.html#cb9-54" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-55"><a href="data.html#cb9-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(raw.vac)</span>
+<span id="cb9-56"><a href="data.html#cb9-56" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-57"><a href="data.html#cb9-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-58"><a href="data.html#cb9-58" aria-hidden="true" tabindex="-1"></a><span class="do">###</span></span>
+<span id="cb9-59"><a href="data.html#cb9-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-60"><a href="data.html#cb9-60" aria-hidden="true" tabindex="-1"></a>raw<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第15表.xlsx&quot;</span>,</span>
+<span id="cb9-61"><a href="data.html#cb9-61" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="st">&quot;第１５表ー３（一般パート）&quot;</span>)</span>
+<span id="cb9-62"><a href="data.html#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-63"><a href="data.html#cb9-63" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw<span class="fl">.0</span>[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb9-64"><a href="data.html#cb9-64" aria-hidden="true" tabindex="-1"></a>  as.matrix</span>
+<span id="cb9-65"><a href="data.html#cb9-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-66"><a href="data.html#cb9-66" aria-hidden="true" tabindex="-1"></a>raw.see <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb9-67"><a href="data.html#cb9-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-68"><a href="data.html#cb9-68" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">47</span>){</span>
+<span id="cb9-69"><a href="data.html#cb9-69" aria-hidden="true" tabindex="-1"></a>  raw.see <span class="ot">&lt;-</span> </span>
+<span id="cb9-70"><a href="data.html#cb9-70" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">n =</span> raw[,i],</span>
+<span id="cb9-71"><a href="data.html#cb9-71" aria-hidden="true" tabindex="-1"></a>           <span class="at">pref.id =</span> pref.id[i],</span>
+<span id="cb9-72"><a href="data.html#cb9-72" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> year,</span>
+<span id="cb9-73"><a href="data.html#cb9-73" aria-hidden="true" tabindex="-1"></a>           <span class="at">month =</span> month,</span>
+<span id="cb9-74"><a href="data.html#cb9-74" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;Seeker&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-75"><a href="data.html#cb9-75" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(raw.see)</span>
+<span id="cb9-76"><a href="data.html#cb9-76" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-77"><a href="data.html#cb9-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-78"><a href="data.html#cb9-78" aria-hidden="true" tabindex="-1"></a><span class="do">###</span></span>
+<span id="cb9-79"><a href="data.html#cb9-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-80"><a href="data.html#cb9-80" aria-hidden="true" tabindex="-1"></a>raw<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;C:/Users/kawata/Dropbox/data/RPPERS/第16表.xlsx&quot;</span>,</span>
+<span id="cb9-81"><a href="data.html#cb9-81" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="st">&quot;第１６表ー３（一般パート）&quot;</span>)</span>
+<span id="cb9-82"><a href="data.html#cb9-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-83"><a href="data.html#cb9-83" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> raw<span class="fl">.0</span>[sel.raw,sel.col] <span class="sc">%&gt;%</span></span>
+<span id="cb9-84"><a href="data.html#cb9-84" aria-hidden="true" tabindex="-1"></a>  as.matrix</span>
+<span id="cb9-85"><a href="data.html#cb9-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-86"><a href="data.html#cb9-86" aria-hidden="true" tabindex="-1"></a>raw.hir <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb9-87"><a href="data.html#cb9-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-88"><a href="data.html#cb9-88" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">47</span>){</span>
+<span id="cb9-89"><a href="data.html#cb9-89" aria-hidden="true" tabindex="-1"></a>  raw.hir <span class="ot">&lt;-</span> </span>
+<span id="cb9-90"><a href="data.html#cb9-90" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">n =</span> raw[,i],</span>
+<span id="cb9-91"><a href="data.html#cb9-91" aria-hidden="true" tabindex="-1"></a>           <span class="at">pref.id =</span> pref.id[i],</span>
+<span id="cb9-92"><a href="data.html#cb9-92" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> year,</span>
+<span id="cb9-93"><a href="data.html#cb9-93" aria-hidden="true" tabindex="-1"></a>           <span class="at">month =</span> month,</span>
+<span id="cb9-94"><a href="data.html#cb9-94" aria-hidden="true" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;Hir&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-95"><a href="data.html#cb9-95" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(raw.hir)</span>
+<span id="cb9-96"><a href="data.html#cb9-96" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-97"><a href="data.html#cb9-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-98"><a href="data.html#cb9-98" aria-hidden="true" tabindex="-1"></a>raw.part <span class="ot">&lt;-</span> </span>
+<span id="cb9-99"><a href="data.html#cb9-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(raw.hir,</span>
+<span id="cb9-100"><a href="data.html#cb9-100" aria-hidden="true" tabindex="-1"></a>        raw.vac,</span>
+<span id="cb9-101"><a href="data.html#cb9-101" aria-hidden="true" tabindex="-1"></a>        raw.see,</span>
+<span id="cb9-102"><a href="data.html#cb9-102" aria-hidden="true" tabindex="-1"></a>        raw.new.see,</span>
+<span id="cb9-103"><a href="data.html#cb9-103" aria-hidden="true" tabindex="-1"></a>        raw.new.vac) <span class="sc">%&gt;%</span></span>
+<span id="cb9-104"><a href="data.html#cb9-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> <span class="fu">as.numeric</span>(n),</span>
+<span id="cb9-105"><a href="data.html#cb9-105" aria-hidden="true" tabindex="-1"></a>         <span class="at">job_type =</span> <span class="st">&quot;Part-time&quot;</span>)</span></code></pre></div>
+</div>
+<div id="merge-1" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Merge</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data.html#cb10-1" aria-hidden="true" tabindex="-1"></a>df.pref <span class="ot">&lt;-</span></span>
+<span id="cb10-2"><a href="data.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  raw.full <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="data.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(raw.part) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="data.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(type,n) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="data.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> Hir<span class="sc">/</span>Seeker,</span>
+<span id="cb10-6"><a href="data.html#cb10-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">q =</span> Hir<span class="sc">/</span>Vacancy,</span>
+<span id="cb10-7"><a href="data.html#cb10-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">t =</span> Vacancy<span class="sc">/</span>Seeker,</span>
+<span id="cb10-8"><a href="data.html#cb10-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">date =</span> <span class="fu">make_date</span>(year, month)</span>
+<span id="cb10-9"><a href="data.html#cb10-9" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span></span>
+<span id="cb10-10"><a href="data.html#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">large.pref =</span> <span class="fu">if_else</span>(pref.id <span class="sc">==</span> <span class="dv">1</span>,</span>
+<span id="cb10-11"><a href="data.html#cb10-11" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Hokkaido&quot;</span>,</span>
+<span id="cb10-12"><a href="data.html#cb10-12" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;A&quot;</span>),</span>
+<span id="cb10-13"><a href="data.html#cb10-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">large.pref =</span> <span class="fu">if_else</span>(pref.id <span class="sc">&gt;=</span> <span class="dv">2</span> <span class="sc">&amp;</span></span>
+<span id="cb10-14"><a href="data.html#cb10-14" aria-hidden="true" tabindex="-1"></a>                                pref.id <span class="sc">&lt;=</span> <span class="dv">7</span>,</span>
+<span id="cb10-15"><a href="data.html#cb10-15" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Tohoku&quot;</span>,</span>
+<span id="cb10-16"><a href="data.html#cb10-16" aria-hidden="true" tabindex="-1"></a>                              large.pref),</span>
+<span id="cb10-17"><a href="data.html#cb10-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">large.pref =</span> <span class="fu">if_else</span>(pref.id <span class="sc">&gt;=</span> <span class="dv">8</span> <span class="sc">&amp;</span></span>
+<span id="cb10-18"><a href="data.html#cb10-18" aria-hidden="true" tabindex="-1"></a>                                pref.id <span class="sc">&lt;=</span> <span class="dv">10</span>,</span>
+<span id="cb10-19"><a href="data.html#cb10-19" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Kita Kanto &amp; Koushin&quot;</span>,</span>
+<span id="cb10-20"><a href="data.html#cb10-20" aria-hidden="true" tabindex="-1"></a>                              large.pref),</span>
+<span id="cb10-21"><a href="data.html#cb10-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">large.pref =</span> <span class="fu">if_else</span>(pref.id <span class="sc">&gt;=</span> <span class="dv">11</span> <span class="sc">&amp;</span></span>
+<span id="cb10-22"><a href="data.html#cb10-22" aria-hidden="true" tabindex="-1"></a>                                pref.id <span class="sc">&lt;=</span> <span class="dv">14</span>,</span>
+<span id="cb10-23"><a href="data.html#cb10-23" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Minami Kanto&quot;</span>,</span>
+<span id="cb10-24"><a href="data.html#cb10-24" aria-hidden="true" tabindex="-1"></a>                              large.pref),</span>
+<span id="cb10-25"><a href="data.html#cb10-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">large.pref =</span> <span class="fu">if_else</span>(pref.id <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span></span>
+<span id="cb10-26"><a href="data.html#cb10-26" aria-hidden="true" tabindex="-1"></a>                                pref.id <span class="sc">&lt;=</span> <span class="dv">18</span>,</span>
+<span id="cb10-27"><a href="data.html#cb10-27" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Hokuriku&quot;</span>,</span>
+<span id="cb10-28"><a href="data.html#cb10-28" aria-hidden="true" tabindex="-1"></a>                              large.pref),</span>
+<span id="cb10-29"><a href="data.html#cb10-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">large.pref =</span> <span class="fu">if_else</span>(pref.id <span class="sc">&gt;=</span> <span class="dv">19</span> <span class="sc">&amp;</span></span>
+<span id="cb10-30"><a href="data.html#cb10-30" aria-hidden="true" tabindex="-1"></a>                                pref.id <span class="sc">&lt;=</span> <span class="dv">20</span>,</span>
+<span id="cb10-31"><a href="data.html#cb10-31" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Kita Kanto &amp; Koushin&quot;</span>,</span>
+<span id="cb10-32"><a href="data.html#cb10-32" aria-hidden="true" tabindex="-1"></a>                              large.pref),</span>
+<span id="cb10-33"><a href="data.html#cb10-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">large.pref =</span> <span class="fu">if_else</span>(pref.id <span class="sc">&gt;=</span> <span class="dv">21</span> <span class="sc">&amp;</span></span>
+<span id="cb10-34"><a href="data.html#cb10-34" aria-hidden="true" tabindex="-1"></a>                                pref.id <span class="sc">&lt;=</span> <span class="dv">24</span>,</span>
+<span id="cb10-35"><a href="data.html#cb10-35" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Tokai&quot;</span>,</span>
+<span id="cb10-36"><a href="data.html#cb10-36" aria-hidden="true" tabindex="-1"></a>                              large.pref),</span>
+<span id="cb10-37"><a href="data.html#cb10-37" aria-hidden="true" tabindex="-1"></a>         <span class="at">large.pref =</span> <span class="fu">if_else</span>(pref.id <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span></span>
+<span id="cb10-38"><a href="data.html#cb10-38" aria-hidden="true" tabindex="-1"></a>                                pref.id <span class="sc">&lt;=</span> <span class="dv">30</span>,</span>
+<span id="cb10-39"><a href="data.html#cb10-39" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Kinki&quot;</span>,</span>
+<span id="cb10-40"><a href="data.html#cb10-40" aria-hidden="true" tabindex="-1"></a>                              large.pref),</span>
+<span id="cb10-41"><a href="data.html#cb10-41" aria-hidden="true" tabindex="-1"></a>         <span class="at">large.pref =</span> <span class="fu">if_else</span>(pref.id <span class="sc">&gt;=</span> <span class="dv">31</span> <span class="sc">&amp;</span></span>
+<span id="cb10-42"><a href="data.html#cb10-42" aria-hidden="true" tabindex="-1"></a>                                pref.id <span class="sc">&lt;=</span> <span class="dv">35</span>,</span>
+<span id="cb10-43"><a href="data.html#cb10-43" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Chugoku&quot;</span>,</span>
+<span id="cb10-44"><a href="data.html#cb10-44" aria-hidden="true" tabindex="-1"></a>                              large.pref),</span>
+<span id="cb10-45"><a href="data.html#cb10-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">large.pref =</span> <span class="fu">if_else</span>(pref.id <span class="sc">&gt;=</span> <span class="dv">36</span> <span class="sc">&amp;</span></span>
+<span id="cb10-46"><a href="data.html#cb10-46" aria-hidden="true" tabindex="-1"></a>                                pref.id <span class="sc">&lt;=</span> <span class="dv">39</span>,</span>
+<span id="cb10-47"><a href="data.html#cb10-47" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Shikoku&quot;</span>,</span>
+<span id="cb10-48"><a href="data.html#cb10-48" aria-hidden="true" tabindex="-1"></a>                              large.pref),</span>
+<span id="cb10-49"><a href="data.html#cb10-49" aria-hidden="true" tabindex="-1"></a>         <span class="at">large.pref =</span> <span class="fu">if_else</span>(pref.id <span class="sc">&gt;=</span> <span class="dv">40</span> <span class="sc">&amp;</span></span>
+<span id="cb10-50"><a href="data.html#cb10-50" aria-hidden="true" tabindex="-1"></a>                                pref.id <span class="sc">&lt;=</span> <span class="dv">46</span>,</span>
+<span id="cb10-51"><a href="data.html#cb10-51" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Kyusyu&quot;</span>,</span>
+<span id="cb10-52"><a href="data.html#cb10-52" aria-hidden="true" tabindex="-1"></a>                              large.pref),</span>
+<span id="cb10-53"><a href="data.html#cb10-53" aria-hidden="true" tabindex="-1"></a>         <span class="at">large.pref =</span> <span class="fu">if_else</span>(pref.id <span class="sc">==</span> <span class="dv">47</span>,</span>
+<span id="cb10-54"><a href="data.html#cb10-54" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Okinawa&quot;</span>,</span>
+<span id="cb10-55"><a href="data.html#cb10-55" aria-hidden="true" tabindex="-1"></a>                              large.pref),</span>
+<span id="cb10-56"><a href="data.html#cb10-56" aria-hidden="true" tabindex="-1"></a>         <span class="at">large.pref =</span> <span class="fu">factor</span>(large.pref,</span>
+<span id="cb10-57"><a href="data.html#cb10-57" aria-hidden="true" tabindex="-1"></a>                             <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Hokkaido&quot;</span>,</span>
+<span id="cb10-58"><a href="data.html#cb10-58" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;Tohoku&quot;</span>,</span>
+<span id="cb10-59"><a href="data.html#cb10-59" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;Kita Kanto &amp; Koushin&quot;</span>,</span>
+<span id="cb10-60"><a href="data.html#cb10-60" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;Minami Kanto&quot;</span>,</span>
+<span id="cb10-61"><a href="data.html#cb10-61" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;Hokuriku&quot;</span>,</span>
+<span id="cb10-62"><a href="data.html#cb10-62" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;Tokai&quot;</span>,</span>
+<span id="cb10-63"><a href="data.html#cb10-63" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;Kinki&quot;</span>,</span>
+<span id="cb10-64"><a href="data.html#cb10-64" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;Chugoku&quot;</span>,</span>
+<span id="cb10-65"><a href="data.html#cb10-65" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;Shikoku&quot;</span>,</span>
+<span id="cb10-66"><a href="data.html#cb10-66" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;Kyusyu&quot;</span>,</span>
+<span id="cb10-67"><a href="data.html#cb10-67" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;Okinawa&quot;</span>))</span>
+<span id="cb10-68"><a href="data.html#cb10-68" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="result.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["test.pdf", "test.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
