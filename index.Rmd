@@ -12,4 +12,4 @@ description: "TBA"
 
 # Summary
 
-TBA
+This page reports the mismatch index in Japanese job-search market.
