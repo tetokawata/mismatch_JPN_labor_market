@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Method | Labor Market Mismatch</title>
+  <title>Chapter 2 Method | Vacancy-Seeker Mismatch in Japan</title>
   <meta name="description" content="TBA" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Method | Labor Market Mismatch" />
+  <meta property="og:title" content="Chapter 2 Method | Vacancy-Seeker Mismatch in Japan" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Method | Labor Market Mismatch" />
+  <meta name="twitter:title" content="Chapter 2 Method | Vacancy-Seeker Mismatch in Japan" />
   
   <meta name="twitter:description" content="TBA" />
   
@@ -85,7 +85,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Labor Market Mismatch</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Vacancy-Seeker Mismatch in Japan</a>
           </h1>
         </div>
 
@@ -95,6 +95,39 @@
             <section class="normal" id="section-">
 <div id="intro" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Method</h1>
+<ul>
+<li><p>Apply the mismatch index proposed by</p></li>
+<li><p>The mismatch index, <span class="math inline">\(M_t\)</span>, is defined as</p></li>
+</ul>
+<p><span class="math display">\[M_t = \frac{h_t^{*}-h_t}{h_t},\]</span>
+where <span class="math inline">\(h_t\)</span> and <span class="math inline">\(h_t^*\)</span> are actual and counter-factual numbers of new employment, respectively.</p>
+<ul>
+<li><p>The counter-factural numbers is a solution of planner problem.
+The planner problem is to maxmize the number of new employment, given the maching function <span class="math inline">\(\mu_{jt}(u_{jt},v_{jt})\)</span>, the numebr of vacancy <span class="math inline">\(v_{jt}\)</span>, and the total number of job seeker <span class="math inline">\(u_{t}\)</span>.</p></li>
+<li><p>Formally,</p></li>
+</ul>
+<p><span class="math display">\[h_t^*=\max_{u_{jt}} \sum_j h_{jt},\]</span>
+subject to</p>
+<p><span class="math display">\[h_{jt}=\mu_{jt}(u_{jt},v_{jt}),\ \ \ \ (matching\ function)\]</span>
+and</p>
+<p><span class="math display">\[\sum_{j}u_{jt}=u_t.\ \ \ \ (Resource\ constrint)\]</span></p>
+<ul>
+<li>The estiamtion process is follows</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Suppose a parametric specification on the matching function as <span class="math inline">\(\mu_{jt}(u_{jt},v_{jt})=A_{jt}u_{jt}^{1-\beta}v_{jt}^{\beta}\)</span>, where <span class="math inline">\(A_{jt}=exp(f_t,f_j,\epsilon_{jt})\)</span>, <span class="math inline">\(f_t\)</span> and <span class="math inline">\(f_j\)</span> are time and sector fixed-effects, respectively.
+The parametric assumption obtains the closed solution of the planner problem;</li>
+</ol>
+<p><span class="math display">\[h_t^*=\max_{u_{jt}} \sum_j exp(f_t,f_j,\epsilon_{jt})\times v_{jt}^{\beta}\times (u_{jt}^*)^{1-\beta},\]</span>
+where
+<span class="math display">\[u_{jt}^*=\frac{A_{jt}^{1/\beta}v_{jt}}{\sum_{j&#39;}A_{j&#39;t}^{1/\beta}v_{j&#39;t}}u_{t}.\ \ \ \ (optimal\ allocation)\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Estimate the log-transfer matching function</li>
+</ol>
+<p><span class="math display">\[\log(h_{jt}/u_{jt})=f_{j}+f_{t}+\beta\times\log(v_{jt}/u_{jt})+\epsilon_{jt}.\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Calculate the mismatch index with estimated parameters in Step 2.</li>
+</ol>
 
 </div>
             </section>
@@ -153,6 +186,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

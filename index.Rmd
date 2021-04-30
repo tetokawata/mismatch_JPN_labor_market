@@ -1,5 +1,5 @@
 --- 
-title: "Labor Market Mismatch"
+title: "Vacancy-Seeker Mismatch in Japan"
 author: "Keisuke Kawata"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
