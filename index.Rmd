@@ -12,5 +12,5 @@ description: "TBA"
 
 # Summary
 
-This page reports the mismatch index in Japanese job-search market.
-@@ proposes a tractable mismatch index, which allows heterogeneity.
+This page reports the mismatch index [@csahin2014mismatch] in Japanese job-search market.
+We use the Referentials and Placements by Prefecture, Employment Referral Statistics, which reports monthly numbers of vacancy, job seekers, and new employment.
