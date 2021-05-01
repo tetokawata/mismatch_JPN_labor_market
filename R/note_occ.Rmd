@@ -44,7 +44,7 @@ $$-\underbrace{\alpha[\log u_t - \log u_{t-12}}_{Seeker}]$$
 
 # Environment
 
-```{r environment}
+```{r environment, message = FALSE}
 library(readxl)
 library(tidyverse)
 library(lubridate)
@@ -52,26 +52,27 @@ library(lubridate)
 
 # Data import
 
-```{r}
-year <- c(rep(2012,10),
-          rep(2013,12),
-          rep(2014,12),
-          rep(2015,12),
-          rep(2016,12),
-          rep(2017,12),
-          rep(2018,12),
-          rep(2019,12),
-          rep(2020,12),
-          rep(2021,3)
-)
+## Date label
 
-month <- c(c(3:12),
-           rep(1:12,8),
-           c(1:3))
+- From March 2012 to March 2021
+
+```{r}
+year_month <- 
+  c(rep(2012,10),
+    rep(2013,12),
+    rep(2014,12),
+    rep(2015,12),
+    rep(2016,12),
+    rep(2017,12),
+    rep(2018,12),
+    rep(2019,12),
+    rep(2020,12),
+    rep(2021,3)
+    ) %>%
+  cbind(c(3:12,1,2))
 ```
 
-
-## Occupation
+## OCcupation  label
 
 ```{r grobal occupation}
 occ <- c("Management",
@@ -85,112 +86,105 @@ occ <- c("Management",
          "Driver",
          "Construction and Mining",
          "Others")
+```
 
+## Relevant range
+
+```{r}
 sel.raw <- c(5,6,19,27,31,40,41,42,54,60,66)
 
 sel.col <- c(19:127)
-
 ```
 
 ### Full time
 
 ```{r full time occupation}
-raw.new.vac <- read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-                  sheet = "第２１表ー８　 新規求人（パート除く常用）")
-raw.vac <- read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-                  sheet = "第２１表ー９　有効求人（パート除く常用）")
-raw.new.see <- read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-                  sheet = "第２１表ー１０　新規求職（パート除く常用）")
-raw.see <- read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-                      sheet = "第２１表ー１１　有効求職（パート除く常用）")
-raw.hir <- read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-                      sheet = "第２１表ー１２　就職件数（パート除く常用）")
+raw.new.vac <- 
+  read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
+             sheet = "第２１表ー８　 新規求人（パート除く常用）")
+raw.vac <- 
+  read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
+             sheet = "第２１表ー９　有効求人（パート除く常用）")
+raw.new.see <- 
+  read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
+             sheet = "第２１表ー１０　新規求職（パート除く常用）")
+raw.see <- 
+  read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
+             sheet = "第２１表ー１１　有効求職（パート除く常用）")
+raw.hir <- 
+  read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
+             sheet = "第２１表ー１２　就職件数（パート除く常用）")
 
-#####
-raw <- raw.new.vac[sel.raw,sel.col] %>%
+raw <- 
+  raw.new.vac[sel.raw,sel.col] %>%
   mutate(occ = occ)
 
 name <- names(raw)[-ncol(raw)]
 
-df.new.vac <- gather(raw,
-                     name,
-                     key = "date", 
-                     value = "n") %>%
-  group_by(occ) %>%
-  mutate(year = year,
-         month = month,
-         type = "New Vacancy")
-
-#####
-raw <- raw.new.see[sel.raw,sel.col] %>%
-  mutate(occ = occ)
-
-name <- names(raw)[-ncol(raw)]
-
-df.new.see <- gather(raw,
-               name,
-         key = "date", 
+df <- 
+  gather(raw,
+         name,
+         key = "date",
          value = "n") %>%
   group_by(occ) %>%
-  mutate(year = year,
-         month = month,
-         type = "New Seeker")
+  mutate(year = year_month[,1],
+         month = year_month[,2],
+         type = "New Vacancy"
+         ) %>%
+  ungroup
 
-#####
-raw <- raw.vac[sel.raw,sel.col] %>%
-  mutate(occ = occ)
-
-name <- names(raw)[-ncol(raw)]
-
-df.vac <- gather(raw,
-               name,
-         key = "date", 
+df <- 
+  raw.new.see[sel.raw,sel.col] %>%
+  mutate(occ = occ) %>%
+  gather(name,
+         key = "date",
          value = "n") %>%
   group_by(occ) %>%
-  mutate(year = year,
-         month = month,
-         type = "Vacancy")
+  mutate(year = year_month[,1],
+         month = year_month[,2],
+         type = "New Seeker") %>%
+  ungroup %>%
+  rbind(df)
 
-#####
-raw <- raw.see[sel.raw,sel.col] %>%
-  mutate(occ = occ)
-
-name <- names(raw)[-ncol(raw)]
-
-df.see <- gather(raw,
-                 name,
-                 key = "date", 
-                 value = "n") %>%
+df <- 
+  raw.hir[sel.raw,sel.col] %>%
+  mutate(occ = occ) %>%
+  gather(name,
+         key = "date",
+         value = "n") %>%
   group_by(occ) %>%
-  mutate(year = year,
-         month = month,
-         type = "Seeker")
+  mutate(year = year_month[,1],
+         month = year_month[,2],
+         type = "New Employment") %>%
+  ungroup %>%
+  rbind(df)
 
-#####
-raw <- raw.hir[sel.raw,sel.col] %>%
-  mutate(occ = occ)
-
-name <- names(raw)[-ncol(raw)]
-
-df.hir <- gather(raw,
-                 name,
-                 key = "date", 
-                 value = "n") %>%
+df <- 
+  raw.see[sel.raw,sel.col] %>%
+  mutate(occ = occ) %>%
+  gather(name,
+         key = "date",
+         value = "n") %>%
   group_by(occ) %>%
-  mutate(year = year,
-         month = month,
-         type = "Hir")
+  mutate(year = year_month[,1],
+         month = year_month[,2],
+         type = "Seeker") %>%
+  ungroup %>%
+  rbind(df)
 
-raw.full <- 
-  rbind(df.see,
-        df.hir,
-        df.vac,
-        df.new.see,
-        df.new.vac
-        ) %>%
-  mutate(date = make_date(year, month),
-         n = as.numeric(n),
-         job_type = "Full-time")
+df <- 
+  raw.vac[sel.raw,sel.col] %>%
+  mutate(occ = occ) %>%
+  gather(name,
+         key = "date",
+         value = "n") %>%
+  group_by(occ) %>%
+  mutate(year = year_month[,1],
+         month = year_month[,2],
+         type = "Vacancy") %>%
+  ungroup %>%
+  rbind(df) %>%
+  mutate(job_type = "Full-time")
 ```
 
 ### Part time
@@ -207,124 +201,82 @@ raw.see <- read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
 raw.hir <- read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
                       sheet = "第２１表ー１９　就職件数（常用的パート）")
 
-#####
-
-raw <- raw.new.vac[sel.raw,sel.col] %>%
-  mutate(occ = occ)
-
-name <- names(raw)[-ncol(raw)]
-
-df.new.vac <- gather(raw,
-               name,
-         key = "date", 
+df <- 
+  raw.new.vac[sel.raw,sel.col] %>%
+  mutate(occ = occ) %>%
+  gather(name,
+         key = "date",
          value = "n") %>%
   group_by(occ) %>%
-  mutate(year = year,
-         month = month,
-         type = "New Vacancy")
+  mutate(year = year_month[,1],
+         month = year_month[,2],
+         type = "New Vacancy"
+         ) %>%
+  ungroup %>%
+  mutate(job_type = "Part-time") %>%
+  rbind(df)
 
-#####
-
-raw <- raw.new.see[sel.raw,sel.col] %>%
-  mutate(occ = occ)
-
-name <- names(raw)[-ncol(raw)]
-
-df.new.see <- gather(raw,
-               name,
-         key = "date", 
+df <- 
+  raw.new.see[sel.raw,sel.col] %>%
+  mutate(occ = occ) %>%
+  gather(name,
+         key = "date",
          value = "n") %>%
   group_by(occ) %>%
-  mutate(year = year,
-         month = month,
-         type = "New Seeker")
+  mutate(year = year_month[,1],
+         month = year_month[,2],
+         type = "New Seeker"
+         ) %>%
+  ungroup %>%
+  mutate(job_type = "Part-time") %>%
+  rbind(df)
 
-#####
-
-raw <- raw.vac[sel.raw,sel.col] %>%
-  mutate(occ = occ)
-
-name <- names(raw)[-ncol(raw)]
-
-df.vac <- gather(raw,
-               name,
-         key = "date", 
+df <- 
+  raw.hir[sel.raw,sel.col] %>%
+   mutate(occ = occ) %>%
+  gather(name,
+         key = "date",
          value = "n") %>%
   group_by(occ) %>%
-  mutate(year = year,
-         month = month,
-         type = "Vacancy")
+  mutate(year = year_month[,1],
+         month = year_month[,2],
+         type = "New Employment"
+         ) %>%
+  ungroup %>%
+  mutate(job_type = "Part-time") %>%
+  rbind(df)
 
-
-#####
-
-raw <- raw.vac[sel.raw,sel.col] %>%
-  mutate(occ = occ)
-
-name <- names(raw)[-ncol(raw)]
-
-df.vac <- gather(raw,
-               name,
-         key = "date", 
+df <- 
+  raw.vac[sel.raw,sel.col] %>%
+   mutate(occ = occ) %>%
+  gather(name,
+         key = "date",
          value = "n") %>%
   group_by(occ) %>%
-  mutate(year = year,
-         month = month,
-         type = "Vacancy")
+  mutate(year = year_month[,1],
+         month = year_month[,2],
+         type = "Vacancy"
+         ) %>%
+  ungroup %>%
+  mutate(job_type = "Part-time") %>%
+  rbind(df)
 
-#####
-raw <- raw.see[sel.raw,sel.col] %>%
-  mutate(occ = occ)
-
-name <- names(raw)[-ncol(raw)]
-
-df.see <- gather(raw,
-                 name,
-                 key = "date", 
-                 value = "n") %>%
+df <- 
+  raw.see[sel.raw,sel.col] %>%
+   mutate(occ = occ) %>%
+  gather(name,
+         key = "date",
+         value = "n") %>%
   group_by(occ) %>%
-  mutate(year = year,
-         month = month,
-         type = "Seeker")
+  mutate(year = year_month[,1],
+         month = year_month[,2],
+         type = "Seeker"
+         ) %>%
+  ungroup %>%
+  mutate(job_type = "Part-time") %>%
+  rbind(df) %>%
+  mutate(n = as.numeric(n))
 
-#####
-raw <- raw.hir[sel.raw,sel.col] %>%
-  mutate(occ = occ)
-
-name <- names(raw)[-ncol(raw)]
-
-df.hir <- gather(raw,
-                 name,
-                 key = "date", 
-                 value = "n") %>%
-  group_by(occ) %>%
-  mutate(year = year,
-         month = month,
-         type = "Hir")
-
-raw.part <- 
-  rbind(df.see,
-        df.hir,
-        df.vac,
-        df.new.vac,
-        df.new.see
-        ) %>%
-  mutate(date = make_date(year, month),
-         n = as.numeric(n),
-         job_type = "Part-time")
-```
-
-### Merge
-
-```{r merge occupation}
-df.occ <-
-  raw.full %>%
-  rbind(raw.part) %>%
-  spread(type,n) %>%
-  mutate(p = Hir/Seeker,
-         q = Hir/Vacancy,
-         t = Vacancy/Seeker,
-         date = make_date(year, month))
 ```
 
 # Estimation
@@ -333,11 +285,13 @@ Suppose a matching function as
 
 $$p_{jt} = A_{jt}\theta_{jt}^{\eta}$$
 
-## Occupation
-
 ```{r estimation occupation}
 eta.full <- 
-  df.occ %>%
+  df %>%
+  spread(key = type,
+         value = n) %>%
+  mutate(p = `New Employment`/Seeker,
+         t = Vacancy/Seeker) %>%
   filter(job_type == "Full-time") %>%
   filter(occ != "Others") %>%
   lm(log(p) ~ log(t) + factor(occ) + factor(month) + factor(year),
@@ -346,7 +300,11 @@ eta.full <-
   .[2]
 
 eta.part <- 
-  df.occ %>%
+  df %>%
+  spread(key = type,
+         value = n) %>%
+  mutate(p = `New Employment`/Seeker,
+         t = Vacancy/Seeker) %>%
   filter(job_type == "Part-time") %>%
   filter(occ != "Others") %>%
   lm(log(p) ~ log(t) + factor(occ) + factor(month) + factor(year),
@@ -354,15 +312,20 @@ eta.part <-
   coef %>%
   .[2]
 
-result.occ <-
-  df.occ %>%
+result <-
+  df %>%
+  spread(key = type,
+         value = n) %>%
   filter(occ != "Others") %>%
-  mutate(eta = if_else(job_type == "Full-time",
+  mutate(p = `New Employment`/Seeker,
+         t = Vacancy/Seeker,
+         eta = if_else(job_type == "Full-time",
                        eta.full,
                        eta.part
                        ),
          A = p/(t^eta),
-         weight = (A^(1/eta))*Vacancy
+         weight = (A^(1/eta))*Vacancy,
+         date = make_date(year,month)
          )  %>%
   group_by(job_type,
            date) %>%
@@ -370,7 +333,7 @@ result.occ <-
          Optimal.Seeker = weight*sum(Seeker),
          Optimal.Hir = A*(Vacancy^(eta))*(Optimal.Seeker^(1-eta)),
          Optimal.Agg.Hir = sum(Optimal.Hir),
-         Agg.Hir = sum(Hir),
+         Agg.Hir = sum(`New Employment`),
          Agg.Mismatch = (Optimal.Agg.Hir - Agg.Hir)/Agg.Hir) %>%
   ungroup
 ```
@@ -379,7 +342,7 @@ result.occ <-
 
 ```{r}
 fig <-
-  result.occ %>%
+  result %>%
   distinct(Agg.Mismatch,
            job_type,
            date) %>%
