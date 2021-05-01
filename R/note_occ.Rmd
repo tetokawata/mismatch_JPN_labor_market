@@ -340,6 +340,59 @@ result <-
 
 # Visualization
 
+## Aggreagte
+
+```{r}
+fig <-
+  df %>%
+  mutate(date = make_date(year,month)) %>%
+  filter(type == "Seeker" |
+           type == "Vacancy" |
+           type == "New Employment") %>%
+  group_by(type,
+           date,
+           job_type) %>%
+  mutate(n = sum(n)) %>%
+  ungroup %>%
+  distinct(n,type,job_type,date) %>%
+  ggplot(aes(x = date,
+             y = n)
+         ) +
+  geom_line() +
+  facet_grid(type~job_type,
+             scale = "free")
+
+fig
+```
+
+
+## Full-time/Seeker
+
+```{r}
+fig <-
+  df %>%
+  mutate(date = make_date(year,month)) %>%
+  filter(type == "Seeker") %>%
+  filter(job_type == "Full-time") %>%
+  group_by(occ,
+           date,
+           job_type) %>%
+  mutate(n = sum(n)) %>%
+  ungroup %>%
+  distinct(n,occ,job_type,date) %>%
+  ggplot(aes(x = date,
+             y = n)
+         ) +
+  geom_line() +
+  facet_wrap(~ occ,
+             scale = "free",
+             ncol = 3)
+
+fig
+```
+
+## Mismatch
+
 ```{r}
 fig <-
   result %>%
