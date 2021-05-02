@@ -366,6 +366,32 @@ fig
 ```
 
 
+
+## Full-time/Vacancy
+
+```{r}
+fig <-
+  df %>%
+  mutate(date = make_date(year,month)) %>%
+  filter(type == "Vacancy") %>%
+  filter(job_type == "Full-time") %>%
+  group_by(occ,
+           date,
+           job_type) %>%
+  mutate(n = sum(n)) %>%
+  ungroup %>%
+  distinct(n,occ,job_type,date) %>%
+  ggplot(aes(x = date,
+             y = n)
+         ) +
+  geom_line() +
+  facet_wrap(~ occ,
+             scale = "free",
+             ncol = 3)
+
+fig
+```
+
 ## Full-time/Seeker
 
 ```{r}
