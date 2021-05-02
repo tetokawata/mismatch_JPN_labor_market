@@ -91,7 +91,7 @@ occ <- c("Management",
 ## Relevant range
 
 ```{r}
-sel.raw <- c(5,6,19,27,31,40,41,42,54,60,66)
+sel.raw <- c(7,8,21,29,33,42,43,44,56,62,68)
 
 sel.col <- c(19:127)
 ```
@@ -101,19 +101,24 @@ sel.col <- c(19:127)
 ```{r full time occupation}
 raw.new.vac <- 
   read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-             sheet = "第２１表ー８　 新規求人（パート除く常用）")
+             sheet = "第２１表ー８　 新規求人（パート除く常用）",
+             col_names = FALSE)
 raw.vac <- 
   read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-             sheet = "第２１表ー９　有効求人（パート除く常用）")
+             sheet = "第２１表ー９　有効求人（パート除く常用）",
+             col_names = FALSE)
 raw.new.see <- 
   read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-             sheet = "第２１表ー１０　新規求職（パート除く常用）")
+             sheet = "第２１表ー１０　新規求職（パート除く常用）",
+             col_names = FALSE)
 raw.see <- 
   read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-             sheet = "第２１表ー１１　有効求職（パート除く常用）")
+             sheet = "第２１表ー１１　有効求職（パート除く常用）",
+             col_names = FALSE)
 raw.hir <- 
   read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-             sheet = "第２１表ー１２　就職件数（パート除く常用）")
+             sheet = "第２１表ー１２　就職件数（パート除く常用）",
+             col_names = FALSE)
 
 raw <- 
   raw.new.vac[sel.raw,sel.col] %>%
@@ -191,15 +196,20 @@ df <-
 
 ```{r part time occupation}
 raw.new.vac <- read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-                      sheet = "第２１表ー１５　新規求人（常用的パート）")
+                          sheet = "第２１表ー１５　新規求人（常用的パート）",
+                          col_names = FALSE)
 raw.vac <- read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-                      sheet = "第２１表ー１６　有効求人（常用的パート）")
+                      sheet = "第２１表ー１６　有効求人（常用的パート）",
+                      col_names = FALSE)
 raw.new.see <- read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-                      sheet = "第２１表ー１７　新規求職（常用的パート）")
+                          sheet = "第２１表ー１７　新規求職（常用的パート）",
+                          col_names = FALSE)
 raw.see <- read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-                      sheet = "第２１表ー１８　有効求職（常用的パート）")
+                      sheet = "第２１表ー１８　有効求職（常用的パート）",
+                      col_names = FALSE)
 raw.hir <- read_excel("C:/Users/kawata/Dropbox/data/RPPERS/第21表.xlsx",
-                      sheet = "第２１表ー１９　就職件数（常用的パート）")
+                      sheet = "第２１表ー１９　就職件数（常用的パート）",
+                      col_names = FALSE)
 
 df <- 
   raw.new.vac[sel.raw,sel.col] %>%
@@ -293,7 +303,6 @@ eta.full <-
   mutate(p = `New Employment`/Seeker,
          t = Vacancy/Seeker) %>%
   filter(job_type == "Full-time") %>%
-  filter(occ != "Others") %>%
   lm(log(p) ~ log(t) + factor(occ) + factor(month) + factor(year),
      data =.) %>%
   coef %>%
@@ -306,7 +315,6 @@ eta.part <-
   mutate(p = `New Employment`/Seeker,
          t = Vacancy/Seeker) %>%
   filter(job_type == "Part-time") %>%
-  filter(occ != "Others") %>%
   lm(log(p) ~ log(t) + factor(occ) + factor(month) + factor(year),
      data =.) %>%
   coef %>%
@@ -316,7 +324,6 @@ result <-
   df %>%
   spread(key = type,
          value = n) %>%
-  filter(occ != "Others") %>%
   mutate(p = `New Employment`/Seeker,
          t = Vacancy/Seeker,
          eta = if_else(job_type == "Full-time",
@@ -387,7 +394,8 @@ fig <-
   geom_line() +
   facet_wrap(~ occ,
              scale = "free",
-             ncol = 3)
+             ncol = 3) +
+  ylab("")
 
 fig
 ```
