@@ -26,3 +26,4 @@ library(knitr)
 
 This page reports the mismatch index [@csahin2014mismatch] in Japanese job-search market.
 We use the Referentials and Placements by Prefecture, Employment Referral Statistics, which reports monthly numbers of vacancy, job seekers, and new employment.
+Important note that @ippei2020labor estiamtes the mismatch index in Japanese labor market (from 2000 - 2019).
