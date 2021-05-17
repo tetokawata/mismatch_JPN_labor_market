@@ -1,5 +1,5 @@
 --- 
-title: "Vacancy-Seeker Mismatch in Japan"
+title: "Job search in Japan"
 author: "Keisuke Kawata"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -24,6 +24,6 @@ library(knitr)
 
 # Summary
 
-This page reports the mismatch index [@csahin2014mismatch] in Japanese job-search market.
-We use the Referentials and Placements by Prefecture, Employment Referral Statistics, which reports monthly numbers of vacancy, job seekers, and new employment.
+This page descrives the Japanese job-search market based on the Referentials and Placements by Prefecture, Employment Referral Statistics which reports monthly numbers of vacancy, job seekers, and new employment.
+We report not only simple time series of vacancy, job seeker, and new employment but also the labor market mismatch [@csahin2014mismatch] and the welfare impact [@kawata2021welfare].
 Important note that @ippei2020labor estiamtes the mismatch index in Japanese labor market (from 2000 - 2019).

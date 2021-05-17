@@ -289,6 +289,29 @@ df <-
 
 ```
 
+#
+
+```{r}
+fig <-
+  df %>%
+  filter(type == "Seeker" |
+           type == "Vacancy") %>%
+  filter(job_type == "Full-time") %>%
+  mutate(date = make_date(year,month)) %>%
+  ggplot(aes(y = n,
+             x = date,
+             color = type)
+         ) +
+  geom_line() +
+  facet_wrap(~ occ,
+             ncol = 3,
+             scale = "free") +
+  ylab("") +
+  xlab("")
+
+ggsave("fig.png",fig)
+```
+
 # Estimation
 
 Suppose a matching function as
