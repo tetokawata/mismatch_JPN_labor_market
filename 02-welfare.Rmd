@@ -1,0 +1,54 @@
+# 厚生分析
+
+## 方法
+
+- @kawata2021welfare の手法を用いて、失業者の厚生変化を記述する
+
+## 結果
+
+- 1963年から2020年までの年次データを用いて、厚生変化を記述する
+
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+
+```{r}
+raw <- 
+  read_excel("data/第1表.xlsx") %>%
+  .[4:61,c(1,10,11,12)]
+
+colnames(raw) <- c("年","求人","求職","就職件数")
+
+df <- raw %>%
+  mutate(年 = str_sub(年,1,4)) %>%
+  modify(as.numeric) %>%
+  mutate(求人倍率 = 求人/求職,
+         充足率 = 就職件数/求人,
+         入職率 = 就職件数/求職) %>%
+  mutate(サーチ余剰変化 = log(求人倍率) - log(lag(求人倍率)),
+         入職率変化 = log(入職率) - log(lag(入職率)),
+         マッチング余剰変化 = log(lag(充足率)) - log(充足率)
+         )
+
+df %>%
+  gather(サーチ余剰変化,
+         入職率変化,
+         マッチング余剰変化,
+         key = "要素",
+         value = "変化率"
+         ) %>%
+  filter(年 >= 1964) %>%
+  ggplot(aes(x = 年,
+             y = 変化率,
+             color = 要素)
+         ) +
+  geom_line() +
+  geom_point() +
+  geom_hline(yintercept = 0) +
+  theme_bw() +
+  theme(legend.position = "bottom")
+```
+
+

@@ -1,4 +1,6 @@
-# Method {#intro}
+# ミスマッチ
+
+## 方法
 
 - Apply the mismatch index proposed by @csahin2014mismatch.
 
@@ -34,3 +36,12 @@ $$u_{jt}^*=\frac{A_{jt}^{1/\beta}v_{jt}}{\sum_{j'}A_{j't}^{1/\beta}v_{j't}}u_{t}
 $$\log(h_{jt}/u_{jt})=f_{j}+f_{t}+\beta\times\log(v_{jt}/u_{jt})+\epsilon_{jt}.$$
 
 3. Calculate the mismatch index with estimated parameters in Step 2.
+
+## Aggregate mismatch
+
+- Occupational mismatch by March, 2021.
+
+```{r}
+include_graphics("R/figure/occ_mismatch.png")
+```
+

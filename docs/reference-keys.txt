@@ -1,3 +1,8 @@
-summary
-intro
-result
+要約
+記述統計量
+厚生分析
+方法
+結果
+ミスマッチ
+方法-1
+aggregate-mismatch

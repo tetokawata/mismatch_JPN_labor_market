@@ -1,6 +1,5 @@
-# mismatch_JPN_labor_market
+# ハローワークデータからみる労働市場
 
-Measure the vacancy-seeker mismatch in Japanese Labor Market.
-We use [the Referentials and Placements by Prefecture, Employment Referral Statistics, which reports monthly numbers of vacancy, job seekers, and new employment](https://www.mhlw.go.jp/toukei/list/114-1.html).
+[職業安定業務統計](https://www.mhlw.go.jp/toukei/list/114-1.html)を用いて、日本の求人・休職市場について、記述的分析を行う。
 
-Under construction page is [here](https://tetokawata.github.io/mismatch_JPN_labor_market/result.html).
+[作成中のページ](https://tetokawata.github.io/mismatch_JPN_labor_market/result.html).

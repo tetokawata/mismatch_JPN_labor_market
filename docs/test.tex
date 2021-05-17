@@ -37,51 +37,11 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Vacancy-Seeker Mismatch in Japan},
-  pdfauthor={Keisuke Kawata},
+  pdftitle={ハローワークデータからみる求人・求職活動},
+  pdfauthor={川田恵介},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -116,9 +76,9 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{Vacancy-Seeker Mismatch in Japan}
-\author{Keisuke Kawata}
-\date{2021-05-08}
+\title{ハローワークデータからみる求人・求職活動}
+\author{川田恵介}
+\date{2021-05-18}
 
 \begin{document}
 \maketitle
@@ -127,21 +87,67 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(knitr)}
-\end{Highlighting}
-\end{Shaded}
+\hypertarget{ux8981ux7d04}{%
+\chapter{要約}\label{ux8981ux7d04}}
 
-\hypertarget{summary}{%
-\chapter{Summary}\label{summary}}
+公的職業紹介業務（ハローワーク）を通じて収集された業務データ（職業安定業務統計）を用いて、日本の求人・求職の状況を概観する。
 
-This page reports the mismatch index \citep{csahin2014mismatch} in Japanese job-search market.
-We use the Referentials and Placements by Prefecture, Employment Referral Statistics, which reports monthly numbers of vacancy, job seekers, and new employment.
-Important note that \citet{ippei2020labor} estiamtes the mismatch index in Japanese labor market (from 2000 - 2019).
+\hypertarget{ux8a18ux8ff0ux7d71ux8a08ux91cf}{%
+\chapter{記述統計量}\label{ux8a18ux8ff0ux7d71ux8a08ux91cf}}
 
-\hypertarget{intro}{%
-\chapter{Method}\label{intro}}
+\begin{itemize}
+\item
+  1963年から2020年までの年次データを用いて、厚生変化を記述する
+\item
+  就職件数の推移
+\end{itemize}
+
+\includegraphics{test_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  求人、求職件数の推移
+\end{itemize}
+
+\includegraphics{test_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  入職。充足率の推移
+\end{itemize}
+
+\includegraphics{test_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\hypertarget{ux539aux751fux5206ux6790}{%
+\chapter{厚生分析}\label{ux539aux751fux5206ux6790}}
+
+\hypertarget{ux65b9ux6cd5}{%
+\section{方法}\label{ux65b9ux6cd5}}
+
+\begin{itemize}
+\tightlist
+\item
+  \citet{kawata2021welfare} の手法を用いて、失業者の厚生変化を記述する
+\end{itemize}
+
+\hypertarget{ux7d50ux679c}{%
+\section{結果}\label{ux7d50ux679c}}
+
+\begin{itemize}
+\tightlist
+\item
+  1963年から2020年までの年次データを用いて、厚生変化を記述する
+\end{itemize}
+
+\includegraphics{test_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\hypertarget{ux30dfux30b9ux30deux30c3ux30c1}{%
+\chapter{ミスマッチ}\label{ux30dfux30b9ux30deux30c3ux30c1}}
+
+\hypertarget{ux65b9ux6cd5-1}{%
+\section{方法}\label{ux65b9ux6cd5-1}}
 
 \begin{itemize}
 \item
@@ -205,20 +211,14 @@ where
   Calculate the mismatch index with estimated parameters in Step 2.
 \end{enumerate}
 
-\hypertarget{result}{%
-\chapter{Result}\label{result}}
+\hypertarget{aggregate-mismatch}{%
+\section{Aggregate mismatch}\label{aggregate-mismatch}}
 
 \begin{itemize}
 \tightlist
 \item
   Occupational mismatch by March, 2021.
 \end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"R/figure/occ\_mismatch.png"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \includegraphics[width=31.11in]{R/figure/occ_mismatch}
 

@@ -1,0 +1,84 @@
+# 記述統計量
+
+- 1963年から2020年までの年次データを用いて、厚生変化を記述する
+
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+
+```{r}
+raw <- 
+  read_excel("data/第1表.xlsx") %>%
+  .[4:61,c(1,10,11,12)]
+
+colnames(raw) <- c("年","求人","求職","就職件数")
+
+df <- raw %>%
+  mutate(年 = str_sub(年,1,4)) %>%
+  modify(as.numeric) %>%
+  mutate(求人倍率 = 求人/求職,
+         充足率 = 就職件数/求人,
+         入職率 = 就職件数/求職) %>%
+  mutate(サーチ余剰変化 = log(求人倍率) - log(lag(求人倍率)),
+         入職率変化 = log(入職率) - log(lag(入職率)),
+         マッチング余剰変化 = log(lag(充足率)) - log(充足率)
+         )
+```
+
+- 就職件数の推移
+
+```{r}
+df %>%
+  gather(就職件数,
+         key = "要素",
+         value = "件数"
+         ) %>%
+  ggplot(aes(x = 年,
+             y = 件数,
+             color = 要素)
+         ) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "bottom")
+```
+
+- 求人、求職件数の推移
+
+```{r}
+df %>%
+  gather(求人,
+         求職,
+         key = "要素",
+         value = "件数"
+         ) %>%
+  ggplot(aes(x = 年,
+             y = 件数,
+             color = 要素)
+         ) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "bottom")
+```
+
+- 入職。充足率の推移
+
+```{r}
+df %>%
+  gather(充足率,
+         入職率,
+         key = "要素",
+         value = "率"
+         ) %>%
+  ggplot(aes(x = 年,
+             y = 率,
+             color = 要素)
+         ) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(legend.position = "bottom")
+```

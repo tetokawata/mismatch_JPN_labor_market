@@ -1,6 +1,6 @@
 --- 
-title: "Job search in Japan"
-author: "Keisuke Kawata"
+title: "ハローワークデータからみる求人・求職活動"
+author: "川田恵介"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -12,7 +12,7 @@ description: "TBA"
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,
+knitr::opts_chunk$set(echo = FALSE,
                       warning = FALSE,
                       message = FALSE)
 ```
@@ -22,8 +22,6 @@ library(knitr)
 ```
 
 
-# Summary
+# 要約
 
-This page descrives the Japanese job-search market based on the Referentials and Placements by Prefecture, Employment Referral Statistics which reports monthly numbers of vacancy, job seekers, and new employment.
-We report not only simple time series of vacancy, job seeker, and new employment but also the labor market mismatch [@csahin2014mismatch] and the welfare impact [@kawata2021welfare].
-Important note that @ippei2020labor estiamtes the mismatch index in Japanese labor market (from 2000 - 2019).
+公的職業紹介業務（ハローワーク）を通じて収集された業務データ（職業安定業務統計）を用いて、日本の求人・求職の状況を概観する。
