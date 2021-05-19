@@ -4,6 +4,30 @@
 
 - @kawata2021welfare の手法を用いて、失業者の厚生変化を記述する
 
+- 標準的なDiamond-Mortencen-Pissarides型サーチモデル[@rogerson2005search]に準じて、以下の4条件式を仮定する
+
+1. 失業者の価値観数
+
+$$rU_i=b+\dot{U}_i+\underbrace{\Delta_i}_{capital\ gain\ from\ search\ activity}$$
+
+$$\Delta_i = \sum_j\frac{m_{ij}}{u_i}\times (W_{ij}-U_i)$$
+
+2. 求人の価値観数
+
+$$rV_j=k+\dot{V}_j+\sum_{i}\frac{m_{ij}}{v_j}\times (J_{ij}-V_j)$$
+
+3. 自由参入条件
+
+$$V_j=\dot{V}_j=0$$
+
+4. ナッシュ交渉
+
+$$(1-\beta)(W_{ij}-U_i)=\beta(J_{ij}-V_j)$$
+
+- 以上の4条件からcapital gain from seach activityは以下のよう
+
+$$E[\Delta_i]=\sum u_i\Delta_i=\frac{\beta k}{1-\beta}\times\frac{\sum_{ij}m_{ij}}{\sum_i u_i}\times \frac{\sum_{j}v_j}{\sum_{ij}m_{ij}}$$
+
 ## 結果
 
 - 1963年から2020年までの年次データを用いて、厚生変化を記述する

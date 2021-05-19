@@ -127,10 +127,60 @@
 \section{方法}\label{ux65b9ux6cd5}}
 
 \begin{itemize}
-\tightlist
 \item
   \citet{kawata2021welfare} の手法を用いて、失業者の厚生変化を記述する
+\item
+  標準的なDiamond-Mortencen-Pissarides型サーチモデル\citep{rogerson2005search}に準じて、以下の4条件式を仮定する
 \end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  失業者の価値観数
+\end{enumerate}
+
+\[rU_i=b+\dot{U}_i+\underbrace{\Delta_i}_{capital\ gain\ from\ search\ activity}\]
+
+\[\Delta_i = \sum_j\frac{m_{ij}}{u_i}\times (W_{ij}-U_i)\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  求人の価値観数
+\end{enumerate}
+
+\[rV_j=k+\dot{V}_j+\sum_{i}\frac{m_{ij}}{v_j}\times (J_{ij}-V_j)\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  自由参入条件
+\end{enumerate}
+
+\[V_j=\dot{V}_j=0\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  ナッシュ交渉
+\end{enumerate}
+
+\[(1-\beta)(W_{ij}-U_i)=\beta(J_{ij}-V_j)\]
+
+\begin{itemize}
+\tightlist
+\item
+  以上の4条件からcapital gain from seach activityは以下のよう
+\end{itemize}
+
+\[E[\Delta_i]=\sum u_i\Delta_i=\frac{\beta k}{1-\beta}\times\frac{\sum_{ij}m_{ij}}{\sum_i u_i}\times \frac{\sum_{j}v_j}{\sum_{ij}m_{ij}}\]
 
 \hypertarget{ux7d50ux679c}{%
 \section{結果}\label{ux7d50ux679c}}
