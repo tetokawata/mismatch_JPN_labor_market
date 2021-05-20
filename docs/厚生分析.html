@@ -108,8 +108,30 @@
 <div id="方法" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> 方法</h2>
 <ul>
-<li><span class="citation"><a href="references.html#ref-kawata2021welfare" role="doc-biblioref">Kawata and Sato</a> (<a href="references.html#ref-kawata2021welfare" role="doc-biblioref">2021</a>)</span> の手法を用いて、失業者の厚生変化を記述する</li>
+<li><p><span class="citation"><a href="references.html#ref-kawata2021welfare" role="doc-biblioref">Kawata and Sato</a> (<a href="references.html#ref-kawata2021welfare" role="doc-biblioref">2021</a>)</span> の手法を用いて、失業者の厚生変化を記述する</p></li>
+<li><p>標準的なDiamond-Mortencen-Pissarides型サーチモデル<span class="citation">(<a href="references.html#ref-rogerson2005search" role="doc-biblioref">Rogerson, Shimer, and Wright 2005</a>)</span>に準じて、以下の4条件式を仮定する</p></li>
 </ul>
+<ol style="list-style-type: decimal">
+<li>失業者の価値観数</li>
+</ol>
+<p><span class="math display">\[rU_i=b+\dot{U}_i+\underbrace{\Delta_i}_{capital\ gain\ from\ search\ activity}\]</span></p>
+<p><span class="math display">\[\Delta_i = \sum_j\frac{m_{ij}}{u_i}\times (W_{ij}-U_i)\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>求人の価値観数</li>
+</ol>
+<p><span class="math display">\[rV_j=k+\dot{V}_j+\sum_{i}\frac{m_{ij}}{v_j}\times (J_{ij}-V_j)\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>自由参入条件</li>
+</ol>
+<p><span class="math display">\[V_j=\dot{V}_j=0\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li>ナッシュ交渉</li>
+</ol>
+<p><span class="math display">\[(1-\beta)(W_{ij}-U_i)=\beta(J_{ij}-V_j)\]</span></p>
+<ul>
+<li>以上の4条件からcapital gain from seach activityは以下のよう</li>
+</ul>
+<p><span class="math display">\[E[\Delta_i]=\sum u_i\Delta_i=\frac{\beta k}{1-\beta}\times\frac{\sum_{ij}m_{ij}}{\sum_i u_i}\times \frac{\sum_{j}v_j}{\sum_{ij}m_{ij}}\]</span></p>
 </div>
 <div id="結果" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> 結果</h2>
