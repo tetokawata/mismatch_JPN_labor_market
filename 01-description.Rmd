@@ -116,6 +116,7 @@ df <-
            求職 = log(求職) - log(lag(求職)),
            新規就職 = log(新規就職) - log(lag(新規就職))
            ) |> 
+  ungroup() |> 
   pivot_longer(cols = c(4:6),
                names_to = "type",
                values_to = "N") |> 
