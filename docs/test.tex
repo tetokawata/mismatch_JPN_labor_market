@@ -4,14 +4,13 @@
 %
 \documentclass[
 ]{book}
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
-  \usepackage{amssymb}
 \else % if luatex or xetex
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
@@ -37,12 +36,52 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={ハローワークデータからみる求人・求職活動},
+  pdftitle={ハローワークデータからみる労働市場},
   pdfauthor={川田恵介},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\usepackage{longtable,booktabs}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -76,9 +115,9 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{ハローワークデータからみる求人・求職活動}
+\title{ハローワークデータからみる労働市場}
 \author{川田恵介}
-\date{2021-05-19}
+\date{2021-07-30}
 
 \begin{document}
 \maketitle
@@ -87,6 +126,15 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pacman}\SpecialCharTok{::}\FunctionTok{p\_load}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{,}
+               \StringTok{"readxl"}\NormalTok{,}
+               \StringTok{"lubridate"}\NormalTok{,}
+               \StringTok{"knitr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{ux8981ux7d04}{%
 \chapter{要約}\label{ux8981ux7d04}}
 
@@ -96,39 +144,172 @@
 \chapter{記述統計量}\label{ux8a18ux8ff0ux7d71ux8a08ux91cf}}
 
 \begin{itemize}
-\item
-  1963年から2020年までの年次データを用いて、厚生変化を記述する
-\item
-  就職件数の推移
-\end{itemize}
-
-\includegraphics{test_files/figure-latex/unnamed-chunk-4-1.pdf}
-
-\begin{itemize}
 \tightlist
 \item
-  求人、求職件数の推移
+  1963年から2020年までの月次データを用いて、厚生変化を記述する
 \end{itemize}
-
-\includegraphics{test_files/figure-latex/unnamed-chunk-5-1.pdf}
-
-\begin{itemize}
-\tightlist
-\item
-  入職。充足率の推移
-\end{itemize}
-
-\includegraphics{test_files/figure-latex/unnamed-chunk-6-1.pdf}
-
-\hypertarget{ux539aux751fux5206ux6790}{%
-\chapter{厚生分析}\label{ux539aux751fux5206ux6790}}
 
 \hypertarget{ux65b9ux6cd5}{%
 \section{方法}\label{ux65b9ux6cd5}}
 
 \begin{itemize}
 \item
-  \citet{kawata2021welfare} の手法を用いて、失業者の厚生変化を記述する
+  期別に集計
+\item
+  季節性を除去するために、前年同月対数差を報告
+\end{itemize}
+
+\[\log(Y_{year,quaterly})-\log(Y_{year-1,quaterly})\]
+
+\hypertarget{rux30b3ux30fcux30c9}{%
+\section{Rコード}\label{rux30b3ux30fcux30c9}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{col.label }\OtherTok{\textless{}{-}} 
+   \FunctionTok{c}\NormalTok{(}\StringTok{"year"}\NormalTok{,}
+     \StringTok{"1"}\NormalTok{,}
+     \StringTok{"2"}\NormalTok{,}
+     \StringTok{"3"}\NormalTok{,}
+     \StringTok{"4"}\NormalTok{,}
+     \StringTok{"5"}\NormalTok{,}
+     \StringTok{"6"}\NormalTok{,}
+     \StringTok{"7"}\NormalTok{,}
+     \StringTok{"8"}\NormalTok{,}
+     \StringTok{"9"}\NormalTok{,}
+     \StringTok{"10"}\NormalTok{,}
+     \StringTok{"11"}\NormalTok{,}
+     \StringTok{"12"}\NormalTok{,}
+     \StringTok{"type"}\NormalTok{,}
+     \StringTok{"group"}\NormalTok{)}
+
+\NormalTok{select.raw }\OtherTok{\textless{}{-}} \DecValTok{14}\SpecialCharTok{:}\DecValTok{63}
+
+\NormalTok{select.column }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\SpecialCharTok{:}\DecValTok{14}\NormalTok{)}
+
+\NormalTok{raw.vacancy.full }\OtherTok{\textless{}{-}}
+  \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/第6表.xlsx"}\NormalTok{,}
+             \AttributeTok{sheet =} \StringTok{"第６表ー２（パート除く）"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  .[select.raw,select.column] }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{type =} \StringTok{"求人"}\NormalTok{,}
+         \AttributeTok{group =} \StringTok{"フルタイム"}\NormalTok{)}
+
+\FunctionTok{colnames}\NormalTok{(raw.vacancy.full) }\OtherTok{\textless{}{-}}\NormalTok{ col.label}
+
+\NormalTok{raw.seeker.full }\OtherTok{\textless{}{-}}
+  \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/第7表.xlsx"}\NormalTok{,}
+             \AttributeTok{sheet =} \StringTok{"第７表ー２（パート除く）"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  .[select.raw,select.column] }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{type =} \StringTok{"求職"}\NormalTok{,}
+         \AttributeTok{group =} \StringTok{"フルタイム"}\NormalTok{)}
+
+\FunctionTok{colnames}\NormalTok{(raw.seeker.full) }\OtherTok{\textless{}{-}}\NormalTok{ col.label}
+
+\NormalTok{raw.hir.full }\OtherTok{\textless{}{-}}
+  \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/第8表.xlsx"}\NormalTok{,}
+             \AttributeTok{sheet =} \StringTok{"第８表ー２（パート除く）"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  .[select.raw,select.column] }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{type =} \StringTok{"新規就職"}\NormalTok{,}
+         \AttributeTok{group =} \StringTok{"フルタイム"}\NormalTok{)}
+
+\FunctionTok{colnames}\NormalTok{(raw.hir.full) }\OtherTok{\textless{}{-}}\NormalTok{ col.label}
+
+
+\NormalTok{raw.vacancy.part }\OtherTok{\textless{}{-}}
+  \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/第6表.xlsx"}\NormalTok{,}
+             \AttributeTok{sheet =} \StringTok{"第６表ー３（パート）"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  .[select.raw,select.column] }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{type =} \StringTok{"求人"}\NormalTok{,}
+         \AttributeTok{group =} \StringTok{"パートタイム"}\NormalTok{)}
+
+\FunctionTok{colnames}\NormalTok{(raw.vacancy.part) }\OtherTok{\textless{}{-}}\NormalTok{ col.label}
+
+\NormalTok{raw.seeker.part }\OtherTok{\textless{}{-}}
+  \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/第7表.xlsx"}\NormalTok{,}
+             \AttributeTok{sheet =} \StringTok{"第７表ー３（パート）"}\NormalTok{)  }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  .[select.raw,select.column] }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{type =} \StringTok{"求職"}\NormalTok{,}
+         \AttributeTok{group =} \StringTok{"パートタイム"}\NormalTok{)}
+
+\FunctionTok{colnames}\NormalTok{(raw.seeker.part) }\OtherTok{\textless{}{-}}\NormalTok{ col.label}
+
+\NormalTok{raw.hir.part }\OtherTok{\textless{}{-}}
+  \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/第8表.xlsx"}\NormalTok{,}
+             \AttributeTok{sheet =} \StringTok{"第８表ー３（パート）"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  .[select.raw,select.column] }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{type =} \StringTok{"新規就職"}\NormalTok{,}
+         \AttributeTok{group =} \StringTok{"パートタイム"}\NormalTok{)}
+
+\FunctionTok{colnames}\NormalTok{(raw.hir.part) }\OtherTok{\textless{}{-}}\NormalTok{ col.label}
+
+\NormalTok{df }\OtherTok{\textless{}{-}}
+  \FunctionTok{rbind}\NormalTok{(raw.hir.full,}
+\NormalTok{        raw.hir.part,}
+\NormalTok{        raw.vacancy.full,}
+\NormalTok{        raw.vacancy.part,}
+\NormalTok{        raw.seeker.full,}
+\NormalTok{        raw.seeker.part}
+\NormalTok{        ) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \DecValTok{2}\SpecialCharTok{:}\DecValTok{13}\NormalTok{,}
+               \AttributeTok{names\_to =} \StringTok{"month"}\NormalTok{,}
+               \AttributeTok{values\_to =} \StringTok{"n"}\NormalTok{) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{n =}\NormalTok{ n }\SpecialCharTok{|}\ErrorTok{\textgreater{}} \FunctionTok{as.numeric}\NormalTok{(),}
+         \AttributeTok{year =}\NormalTok{ year }\SpecialCharTok{|}\ErrorTok{\textgreater{}} \FunctionTok{str\_sub}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} \FunctionTok{as.numeric}\NormalTok{(),}
+         \AttributeTok{month =}\NormalTok{ month }\SpecialCharTok{|}\ErrorTok{\textgreater{}} \FunctionTok{as.numeric}\NormalTok{(),}
+         \AttributeTok{quaterly =}\NormalTok{ month }\SpecialCharTok{|}\ErrorTok{\textgreater{}} \FunctionTok{cut}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{9}\NormalTok{,}\DecValTok{12}\NormalTok{), }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{)),}
+         \AttributeTok{date =} \FunctionTok{yq}\NormalTok{(}\FunctionTok{str\_c}\NormalTok{(year,quaterly,}\AttributeTok{sep =} \StringTok{":Q"}\NormalTok{))}
+\NormalTok{         ) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{group\_by}\NormalTok{(date,type) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{n =}\NormalTok{ n }\SpecialCharTok{|}\ErrorTok{\textgreater{}} \FunctionTok{sum}\NormalTok{()) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{distinct}\NormalTok{(year,quaterly,date,type,n) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{spread}\NormalTok{(}\AttributeTok{key =}\NormalTok{ type, }\AttributeTok{value =}\NormalTok{ n) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{group\_by}\NormalTok{(quaterly) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(求人 }\OtherTok{=} \FunctionTok{log}\NormalTok{(求人) }\SpecialCharTok{{-}} \FunctionTok{log}\NormalTok{(}\FunctionTok{lag}\NormalTok{(求人)),}
+\NormalTok{           求職 }\OtherTok{=} \FunctionTok{log}\NormalTok{(求職) }\SpecialCharTok{{-}} \FunctionTok{log}\NormalTok{(}\FunctionTok{lag}\NormalTok{(求職)),}
+\NormalTok{           新規就職 }\OtherTok{=} \FunctionTok{log}\NormalTok{(新規就職) }\SpecialCharTok{{-}} \FunctionTok{log}\NormalTok{(}\FunctionTok{lag}\NormalTok{(新規就職))}
+\NormalTok{           ) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\SpecialCharTok{:}\DecValTok{6}\NormalTok{),}
+               \AttributeTok{names\_to =} \StringTok{"type"}\NormalTok{,}
+               \AttributeTok{values\_to =} \StringTok{"N"}\NormalTok{) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{na.omit}\NormalTok{()}
+
+\NormalTok{fig }\OtherTok{\textless{}{-}}
+\NormalTok{  df }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ date,}
+             \AttributeTok{y =}\NormalTok{ N)}
+\NormalTok{         ) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =} \DecValTok{0}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{type,}
+             \AttributeTok{ncol =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{""}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{""}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux7d50ux679c}{%
+\section{結果}\label{ux7d50ux679c}}
+
+\includegraphics{test_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\hypertarget{ux539aux751fux5206ux6790}{%
+\chapter{厚生分析}\label{ux539aux751fux5206ux6790}}
+
+\begin{itemize}
+\tightlist
+\item
+  1963年から2020年までの年次データを用いて、厚生変化を記述する
+\end{itemize}
+
+\hypertarget{ux65b9ux6cd5-1}{%
+\section{方法}\label{ux65b9ux6cd5-1}}
+
+\begin{itemize}
+\item
+  \citet{kawata2021first} の手法を用いて、失業者の厚生変化を記述する
 \item
   標準的なDiamond-Mortencen-Pissarides型サーチモデル\citep{rogerson2005search}に準じて、以下の4条件式を仮定する
 \end{itemize}
@@ -182,104 +363,187 @@
 
 \[E[\Delta_i]=\sum u_i\Delta_i=\frac{\beta k}{1-\beta}\times\frac{\sum_{ij}m_{ij}}{\sum_i u_i}\times \frac{\sum_{j}v_j}{\sum_{ij}m_{ij}}\]
 
-\hypertarget{ux7d50ux679c}{%
-\section{結果}\label{ux7d50ux679c}}
+\hypertarget{rux30b3ux30fcux30c9-1}{%
+\section{Rコード}\label{rux30b3ux30fcux30c9-1}}
 
-\begin{itemize}
-\item
-  1963年から2020年までの年次データを用いて、厚生変化を記述する
-\item
-  サーチの余剰、および入職、マッチング余剰の変化への分解
-\end{itemize}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{col.label }\OtherTok{\textless{}{-}} 
+   \FunctionTok{c}\NormalTok{(}\StringTok{"year"}\NormalTok{,}
+     \StringTok{"1"}\NormalTok{,}
+     \StringTok{"2"}\NormalTok{,}
+     \StringTok{"3"}\NormalTok{,}
+     \StringTok{"4"}\NormalTok{,}
+     \StringTok{"5"}\NormalTok{,}
+     \StringTok{"6"}\NormalTok{,}
+     \StringTok{"7"}\NormalTok{,}
+     \StringTok{"8"}\NormalTok{,}
+     \StringTok{"9"}\NormalTok{,}
+     \StringTok{"10"}\NormalTok{,}
+     \StringTok{"11"}\NormalTok{,}
+     \StringTok{"12"}\NormalTok{,}
+     \StringTok{"type"}\NormalTok{,}
+     \StringTok{"group"}\NormalTok{)}
 
-\includegraphics{test_files/figure-latex/unnamed-chunk-9-1.pdf}
+\NormalTok{select.raw }\OtherTok{\textless{}{-}} \DecValTok{14}\SpecialCharTok{:}\DecValTok{63}
 
-\begin{itemize}
-\tightlist
-\item
-  求人、求職への分解
-\end{itemize}
+\NormalTok{select.column }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\SpecialCharTok{:}\DecValTok{14}\NormalTok{)}
 
-\includegraphics{test_files/figure-latex/unnamed-chunk-10-1.pdf}
+\NormalTok{raw.vacancy.full }\OtherTok{\textless{}{-}}
+  \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/第6表.xlsx"}\NormalTok{,}
+             \AttributeTok{sheet =} \StringTok{"第６表ー２（パート除く）"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  .[select.raw,select.column] }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{type =} \StringTok{"求人"}\NormalTok{,}
+         \AttributeTok{group =} \StringTok{"フルタイム"}\NormalTok{)}
 
-\hypertarget{ux30dfux30b9ux30deux30c3ux30c1}{%
-\chapter{ミスマッチ}\label{ux30dfux30b9ux30deux30c3ux30c1}}
+\FunctionTok{colnames}\NormalTok{(raw.vacancy.full) }\OtherTok{\textless{}{-}}\NormalTok{ col.label}
 
-\hypertarget{ux65b9ux6cd5-1}{%
-\section{方法}\label{ux65b9ux6cd5-1}}
+\NormalTok{raw.seeker.full }\OtherTok{\textless{}{-}}
+  \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/第7表.xlsx"}\NormalTok{,}
+             \AttributeTok{sheet =} \StringTok{"第７表ー２（パート除く）"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  .[select.raw,select.column] }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{type =} \StringTok{"求職"}\NormalTok{,}
+         \AttributeTok{group =} \StringTok{"フルタイム"}\NormalTok{)}
 
-\begin{itemize}
-\item
-  Apply the mismatch index proposed by \citet{csahin2014mismatch}.
-\item
-  The mismatch index, \(M_t\), is defined as
-\end{itemize}
+\FunctionTok{colnames}\NormalTok{(raw.seeker.full) }\OtherTok{\textless{}{-}}\NormalTok{ col.label}
 
-\[M_t = \frac{h_t^{*}-h_t}{h_t},\]
-where \(h_t\) and \(h_t^*\) are actual and counter-factual numbers of new employment, respectively.
+\NormalTok{raw.hir.full }\OtherTok{\textless{}{-}}
+  \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/第8表.xlsx"}\NormalTok{,}
+             \AttributeTok{sheet =} \StringTok{"第８表ー２（パート除く）"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  .[select.raw,select.column] }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{type =} \StringTok{"新規就職"}\NormalTok{,}
+         \AttributeTok{group =} \StringTok{"フルタイム"}\NormalTok{)}
 
-\begin{itemize}
-\item
-  The counter-factual numbers is a solution of planner problem.
-  The planner problem is to maximize the number of new employment, given the making function \(\mu_{jt}(u_{jt},v_{jt})\), the number of vacancy \(v_{jt}\), and the total number of job seeker \(u_{t}\).
-\item
-  Formally,
-\end{itemize}
+\FunctionTok{colnames}\NormalTok{(raw.hir.full) }\OtherTok{\textless{}{-}}\NormalTok{ col.label}
 
-\[h_t^*=\max_{u_{jt}} \sum_j h_{jt},\]
-subject to
 
-\[h_{jt}=\mu_{jt}(u_{jt},v_{jt}),\ \ \ \ (matching\ function)\]
-and
+\NormalTok{raw.vacancy.part }\OtherTok{\textless{}{-}}
+  \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/第6表.xlsx"}\NormalTok{,}
+             \AttributeTok{sheet =} \StringTok{"第６表ー３（パート）"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  .[select.raw,select.column] }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{type =} \StringTok{"求人"}\NormalTok{,}
+         \AttributeTok{group =} \StringTok{"パートタイム"}\NormalTok{)}
 
-\[\sum_{j}u_{jt}=u_t.\ \ \ \ (Resource\ constrint)\]
+\FunctionTok{colnames}\NormalTok{(raw.vacancy.part) }\OtherTok{\textless{}{-}}\NormalTok{ col.label}
 
-\begin{itemize}
-\tightlist
-\item
-  The estimation process is follows
-\end{itemize}
+\NormalTok{raw.seeker.part }\OtherTok{\textless{}{-}}
+  \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/第7表.xlsx"}\NormalTok{,}
+             \AttributeTok{sheet =} \StringTok{"第７表ー３（パート）"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  .[select.raw,select.column] }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{type =} \StringTok{"求職"}\NormalTok{,}
+         \AttributeTok{group =} \StringTok{"パートタイム"}\NormalTok{)}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Suppose a parametric specification on the matching function as \(\mu_{jt}(u_{jt},v_{jt})=A_{jt}u_{jt}^{1-\beta}v_{jt}^{\beta}\), where \(A_{jt}=exp(f_t,f_j,\epsilon_{jt})\), \(f_t\) and \(f_j\) are time and sector fixed-effects, respectively.
-  The parametric assumption obtains the closed solution of the planner problem;
-\end{enumerate}
+\FunctionTok{colnames}\NormalTok{(raw.seeker.part) }\OtherTok{\textless{}{-}}\NormalTok{ col.label}
 
-\[h_t^*=\max_{u_{jt}} \sum_j exp(f_t,f_j,\epsilon_{jt})\times v_{jt}^{\beta}\times (u_{jt}^*)^{1-\beta},\]
-where
-\[u_{jt}^*=\frac{A_{jt}^{1/\beta}v_{jt}}{\sum_{j'}A_{j't}^{1/\beta}v_{j't}}u_{t}.\ \ \ \ (optimal\ allocation)\]
+\NormalTok{raw.hir.part }\OtherTok{\textless{}{-}}
+  \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/第8表.xlsx"}\NormalTok{,}
+             \AttributeTok{sheet =} \StringTok{"第８表ー３（パート）"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  .[select.raw,select.column] }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{type =} \StringTok{"新規就職"}\NormalTok{,}
+         \AttributeTok{group =} \StringTok{"パートタイム"}\NormalTok{)}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Estimate the log-transfer matching function
-\end{enumerate}
+\FunctionTok{colnames}\NormalTok{(raw.hir.part) }\OtherTok{\textless{}{-}}\NormalTok{ col.label}
 
-\[\log(h_{jt}/u_{jt})=f_{j}+f_{t}+\beta\times\log(v_{jt}/u_{jt})+\epsilon_{jt}.\]
+\NormalTok{df }\OtherTok{\textless{}{-}}
+  \FunctionTok{rbind}\NormalTok{(raw.hir.full,}
+\NormalTok{        raw.hir.part,}
+\NormalTok{        raw.vacancy.full,}
+\NormalTok{        raw.vacancy.part,}
+\NormalTok{        raw.seeker.full,}
+\NormalTok{        raw.seeker.part}
+\NormalTok{        ) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \DecValTok{2}\SpecialCharTok{:}\DecValTok{13}\NormalTok{,}
+               \AttributeTok{names\_to =} \StringTok{"month"}\NormalTok{,}
+               \AttributeTok{values\_to =} \StringTok{"n"}\NormalTok{) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{n =}\NormalTok{ n }\SpecialCharTok{|}\ErrorTok{\textgreater{}} \FunctionTok{as.numeric}\NormalTok{(),}
+         \AttributeTok{year =}\NormalTok{ year }\SpecialCharTok{|}\ErrorTok{\textgreater{}} \FunctionTok{str\_sub}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} \FunctionTok{as.numeric}\NormalTok{(),}
+         \AttributeTok{month =}\NormalTok{ month }\SpecialCharTok{|}\ErrorTok{\textgreater{}} \FunctionTok{as.numeric}\NormalTok{(),}
+         \AttributeTok{quaterly =}\NormalTok{ month }\SpecialCharTok{|}\ErrorTok{\textgreater{}} \FunctionTok{cut}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{9}\NormalTok{,}\DecValTok{12}\NormalTok{), }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{)),}
+         \AttributeTok{date =} \FunctionTok{yq}\NormalTok{(}\FunctionTok{str\_c}\NormalTok{(year,quaterly,}\AttributeTok{sep =} \StringTok{":Q"}\NormalTok{))}
+\NormalTok{         ) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{group\_by}\NormalTok{(date,type) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{n =}\NormalTok{ n }\SpecialCharTok{|}\ErrorTok{\textgreater{}} \FunctionTok{sum}\NormalTok{()) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{distinct}\NormalTok{(year,quaterly,date,type,n) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{spread}\NormalTok{(}\AttributeTok{key =}\NormalTok{ type, }\AttributeTok{value =}\NormalTok{ n) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{group\_by}\NormalTok{(quaterly) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(入職率 }\OtherTok{=} \FunctionTok{log}\NormalTok{(新規就職}\SpecialCharTok{/}\NormalTok{求職) }\SpecialCharTok{{-}} \FunctionTok{log}\NormalTok{(}\FunctionTok{lag}\NormalTok{(新規就職}\SpecialCharTok{/}\NormalTok{求職)),}
+\NormalTok{        　マッチングの余剰 }\OtherTok{=} \FunctionTok{log}\NormalTok{(}\FunctionTok{lag}\NormalTok{(新規就職}\SpecialCharTok{/}\NormalTok{求人)) }\SpecialCharTok{{-}} \FunctionTok{log}\NormalTok{(新規就職}\SpecialCharTok{/}\NormalTok{求人),}
+\NormalTok{           総余剰 }\OtherTok{=} \FunctionTok{log}\NormalTok{(求人}\SpecialCharTok{/}\NormalTok{求職) }\SpecialCharTok{{-}} \FunctionTok{log}\NormalTok{(}\FunctionTok{lag}\NormalTok{(求人}\SpecialCharTok{/}\NormalTok{求職))}
+\NormalTok{           ) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{求職,}
+         \SpecialCharTok{{-}}\NormalTok{求人,}
+         \SpecialCharTok{{-}}\NormalTok{新規就職) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\SpecialCharTok{:}\DecValTok{6}\NormalTok{),}
+               \AttributeTok{names\_to =} \StringTok{"type"}\NormalTok{,}
+               \AttributeTok{values\_to =} \StringTok{"N"}\NormalTok{) }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{na.omit}\NormalTok{()}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
-\item
-  Calculate the mismatch index with estimated parameters in Step 2.
-\end{enumerate}
+\NormalTok{fig }\OtherTok{\textless{}{-}}
+\NormalTok{  df }\SpecialCharTok{|}\ErrorTok{\textgreater{}} 
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ date,}
+             \AttributeTok{y =}\NormalTok{ N)}
+\NormalTok{         ) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =} \DecValTok{0}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{type,}
+             \AttributeTok{ncol =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{""}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{""}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
 
-\hypertarget{aggregate-mismatch}{%
-\section{Aggregate mismatch}\label{aggregate-mismatch}}
+\hypertarget{ux7d50ux679c-1}{%
+\section{結果}\label{ux7d50ux679c-1}}
 
-\begin{itemize}
-\tightlist
-\item
-  Occupational mismatch by March, 2021.
-\end{itemize}
+\includegraphics{test_files/figure-latex/unnamed-chunk-5-1.pdf}
 
-\includegraphics[width=31.11in]{R/figure/occ_mismatch}
+\hypertarget{session-information}{%
+\chapter{Session information}\label{session-information}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R version 4.1.0 (2021-05-18)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 19042)
+## 
+## Matrix products: default
+## 
+## locale:
+## [1] LC_COLLATE=Japanese_Japan.932  LC_CTYPE=Japanese_Japan.932   
+## [3] LC_MONETARY=Japanese_Japan.932 LC_NUMERIC=C                  
+## [5] LC_TIME=Japanese_Japan.932    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] knitr_1.33       lubridate_1.7.10 readxl_1.3.1     forcats_0.5.1   
+##  [5] stringr_1.4.0    dplyr_1.0.7      purrr_0.3.4      readr_1.4.0     
+##  [9] tidyr_1.1.3      tibble_3.1.2     ggplot2_3.3.5    tidyverse_1.3.1 
+## 
+## loaded via a namespace (and not attached):
+##  [1] tidyselect_1.1.1  xfun_0.24         haven_2.4.1       colorspace_2.0-1 
+##  [5] vctrs_0.3.8       generics_0.1.0    htmltools_0.5.1.1 yaml_2.2.1       
+##  [9] utf8_1.2.1        rlang_0.4.11      pillar_1.6.1      glue_1.4.2       
+## [13] withr_2.4.2       DBI_1.1.1         dbplyr_2.1.1      modelr_0.1.8     
+## [17] lifecycle_1.0.0   munsell_0.5.0     gtable_0.3.0      cellranger_1.1.0 
+## [21] rvest_1.0.0       evaluate_0.14     labeling_0.4.2    fansi_0.5.0      
+## [25] highr_0.9         broom_0.7.8       Rcpp_1.0.6        backports_1.2.1  
+## [29] scales_1.1.1      jsonlite_1.7.2    farver_2.1.0      fs_1.5.0         
+## [33] hms_1.1.0         digest_0.6.27     stringi_1.6.1     bookdown_0.22    
+## [37] grid_4.1.0        cli_2.5.0         tools_4.1.0       magrittr_2.0.1   
+## [41] pacman_0.5.1      crayon_1.4.1      pkgconfig_2.0.3   ellipsis_0.3.2   
+## [45] xml2_1.3.2        reprex_2.0.0      assertthat_0.2.1  rmarkdown_2.9    
+## [49] httr_1.4.2        rstudioapi_0.13   R6_2.5.0          compiler_4.1.0
+\end{verbatim}
 
   \bibliography{book.bib,packages.bib}
 

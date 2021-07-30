@@ -1,0 +1,62 @@
+---
+title: "CausalImpact"
+output: html_notebook
+---
+
+```{r}
+library(CausalImpact)
+library(tidyverse)
+library(readxl)
+library(lubridate)
+library(fastDummies)
+```
+
+```{r}
+raw <- 
+  read_xlsx("data/第1表.xlsx")
+
+df <- raw[c(197:427),c(1,3,5)]
+
+month.vec <- c(rep(1:12,19),1,2,3)
+
+colnames(df) <- c("year","month","hir")
+
+df <- df %>%
+  mutate(year = as.numeric(str_sub(year,1,4)),
+         month = month.vec,
+         date = make_date(year,month),
+         y = as.numeric(hir)
+         ) %>%
+  mutate(month = factor(month)) %>%
+  dummy_cols() %>%
+  filter(year >= 2012)
+```
+
+```{r}
+data <- zoo(cbind(log(df$y),
+                  df$year,
+                  df$month_1,
+                  df$month_2,
+                  df$month_3,
+                  df$month_4,
+                  df$month_5,
+                  df$month_6,
+                  df$month_7,
+                  df$month_8,
+                  df$month_9,
+                  df$month_10,
+                  df$month_11,
+                  df$month_12
+                  )
+            )
+
+pre.period <- c(1,84)
+post.period <- c(85,111)
+
+impact <- CausalImpact(data,
+                       pre.period,
+                       post.period)
+
+plot(impact)
+```
+

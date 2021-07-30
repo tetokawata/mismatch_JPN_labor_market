@@ -1,8 +1,10 @@
 要約
 記述統計量
-厚生分析
 方法
+rコード
 結果
-ミスマッチ
+厚生分析
 方法-1
-aggregate-mismatch
+rコード-1
+結果-1
+session-information

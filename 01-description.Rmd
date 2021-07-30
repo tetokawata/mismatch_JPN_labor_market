@@ -1,23 +1,43 @@
 # 記述統計量
 
-- 1963年から2020年までの年次データを用いて、厚生変化を記述する
+- 1963年から2020年までの月次データを用いて、厚生変化を記述する
 
-```{r}
-library(tidyverse)
-library(readxl)
-```
+## 方法
+
+- 期別に集計
+
+- 季節性を除去するために、前年同月対数差を報告
+
+$$\log(Y_{year,quaterly})-\log(Y_{year-1,quaterly})$$
+
+## Rコード
 
 ```{r}
 col.label <- 
    c("year",
-     "n",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10",
+     "11",
+     "12",
      "type",
      "group")
+
+select.raw <- 14:63
+
+select.column <- c(1,3:14)
 
 raw.vacancy.full <-
   read_excel("data/第6表.xlsx",
              sheet = "第６表ー２（パート除く）") %>%
-  .[14:62,c(1,20)] %>%
+  .[select.raw,select.column] |> 
   mutate(type = "求人",
          group = "フルタイム")
 
@@ -26,7 +46,7 @@ colnames(raw.vacancy.full) <- col.label
 raw.seeker.full <-
   read_excel("data/第7表.xlsx",
              sheet = "第７表ー２（パート除く）") %>%
-  .[14:62,c(1,20)] %>%
+  .[select.raw,select.column] |> 
   mutate(type = "求職",
          group = "フルタイム")
 
@@ -35,7 +55,7 @@ colnames(raw.seeker.full) <- col.label
 raw.hir.full <-
   read_excel("data/第8表.xlsx",
              sheet = "第８表ー２（パート除く）") %>%
-  .[14:62,c(1,20)] %>%
+  .[select.raw,select.column] |> 
   mutate(type = "新規就職",
          group = "フルタイム")
 
@@ -45,7 +65,7 @@ colnames(raw.hir.full) <- col.label
 raw.vacancy.part <-
   read_excel("data/第6表.xlsx",
              sheet = "第６表ー３（パート）") %>%
-  .[14:62,c(1,20)] %>%
+  .[select.raw,select.column] |> 
   mutate(type = "求人",
          group = "パートタイム")
 
@@ -53,8 +73,8 @@ colnames(raw.vacancy.part) <- col.label
 
 raw.seeker.part <-
   read_excel("data/第7表.xlsx",
-             sheet = "第７表ー３（パート）") %>%
-  .[14:62,c(1,20)] %>%
+             sheet = "第７表ー３（パート）")  %>%
+  .[select.raw,select.column] |> 
   mutate(type = "求職",
          group = "パートタイム")
 
@@ -63,7 +83,7 @@ colnames(raw.seeker.part) <- col.label
 raw.hir.part <-
   read_excel("data/第8表.xlsx",
              sheet = "第８表ー３（パート）") %>%
-  .[14:62,c(1,20)] %>%
+  .[select.raw,select.column] |> 
   mutate(type = "新規就職",
          group = "パートタイム")
 
@@ -75,81 +95,50 @@ df <-
         raw.vacancy.full,
         raw.vacancy.part,
         raw.seeker.full,
-        raw.seeker.part) %>%
-  mutate(n = as.numeric(n),
-         year = as.numeric(str_sub(year,1,4))) %>%
-  spread(type,
-         value = n) %>%
-  mutate(求人倍率 = 求人/求職,
-         充足率 = 新規就職/求人,
-         入職率 = 新規就職/求職) %>%
-  arrange(group,
-          year) %>%
-  group_by(group) %>%
-  mutate(サーチ余剰変化 = log(求人倍率) - log(lag(求人倍率)),
-         入職率変化 = log(入職率) - log(lag(入職率)),
-         マッチング余剰変化 = log(lag(充足率)) - log(充足率)
-         ) %>%
-  ungroup
-```
+        raw.seeker.part
+        ) |> 
+  pivot_longer(cols = 2:13,
+               names_to = "month",
+               values_to = "n") |> 
+  mutate(n = n |> as.numeric(),
+         year = year |> str_sub(1,4) |> as.numeric(),
+         month = month |> as.numeric(),
+         quaterly = month |> cut(c(0,3,6,9,12), labels = c(1,2,3,4)),
+         date = yq(str_c(year,quaterly,sep = ":Q"))
+         ) |> 
+  group_by(date,type) |> 
+  mutate(n = n |> sum()) |> 
+  ungroup() |> 
+  distinct(year,quaterly,date,type,n) |> 
+  spread(key = type, value = n) |> 
+  group_by(quaterly) |> 
+  mutate(求人 = log(求人) - log(lag(求人)),
+           求職 = log(求職) - log(lag(求職)),
+           新規就職 = log(新規就職) - log(lag(新規就職))
+           ) |> 
+  pivot_longer(cols = c(4:6),
+               names_to = "type",
+               values_to = "N") |> 
+  na.omit()
 
-- 就職件数の推移
-
-```{r}
-df %>%
-  gather(新規就職,
-         key = "要素",
-         value = "件数"
-         ) %>%
-  ggplot(aes(x = year,
-             y = 件数,
-             color = 要素)
+fig <-
+  df |> 
+  ggplot(aes(x = date,
+             y = N)
          ) +
   geom_line() +
   geom_point() +
-  facet_wrap(~group) +
-  theme_bw() +
+  geom_hline(yintercept = 0) +
+  facet_wrap(~type,
+             ncol = 1) +
   ylab("") +
   xlab("") +
-  theme(legend.position = "bottom")
+  theme_bw()
 ```
 
-- 求人、求職件数の推移
+## 結果
 
-```{r}
-df %>%
-  gather(求人,
-         求職,
-         key = "要素",
-         value = "件数"
-         ) %>%
-  ggplot(aes(x = year,
-             y = 件数,
-             color = 要素)
-         ) +
-  geom_line() +
-  geom_point() +
-  facet_wrap(~ group) +
-  theme_bw() +
-  theme(legend.position = "bottom")
+```{r, echo = FALSE}
+fig
 ```
 
-- 入職。充足率の推移
-
-```{r}
-df %>%
-  gather(充足率,
-         入職率,
-         key = "要素",
-         value = "率"
-         ) %>%
-  ggplot(aes(x = year,
-             y = 率,
-             color = 要素)
-         ) +
-  geom_line() +
-  geom_point() +
-  facet_wrap(~ group) +
-  theme_bw() +
-  theme(legend.position = "bottom")
-```

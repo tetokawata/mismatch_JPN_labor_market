@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 ミスマッチ | ハローワークデータからみる求人・求職活動</title>
+  <title>Chapter 5 ミスマッチ | CausalImpact</title>
   <meta name="description" content="TBA" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 ミスマッチ | ハローワークデータからみる求人・求職活動" />
+  <meta property="og:title" content="Chapter 5 ミスマッチ | CausalImpact" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 ミスマッチ | ハローワークデータからみる求人・求職活動" />
+  <meta name="twitter:title" content="Chapter 5 ミスマッチ | CausalImpact" />
   
   <meta name="twitter:description" content="TBA" />
   
@@ -24,14 +24,14 @@
 <meta name="author" content="川田恵介" />
 
 
-<meta name="date" content="2021-05-19" />
+<meta name="date" content="2021-05-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="厚生分析.html"/>
+<link rel="prev" href="分解分析.html"/>
 <link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -75,12 +75,16 @@
 <li class="chapter" data-level="3" data-path="厚生分析.html"><a href="厚生分析.html"><i class="fa fa-check"></i><b>3</b> 厚生分析</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="厚生分析.html"><a href="厚生分析.html#方法"><i class="fa fa-check"></i><b>3.1</b> 方法</a></li>
-<li class="chapter" data-level="3.2" data-path="厚生分析.html"><a href="厚生分析.html#結果"><i class="fa fa-check"></i><b>3.2</b> 結果</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="ミスマッチ.html"><a href="ミスマッチ.html"><i class="fa fa-check"></i><b>4</b> ミスマッチ</a>
+<li class="chapter" data-level="3.2" data-path="厚生分析.html"><a href="厚生分析.html#結果"><i class="fa fa-check"></i><b>3.2</b> 結果</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="ミスマッチ.html"><a href="ミスマッチ.html#方法-1"><i class="fa fa-check"></i><b>4.1</b> 方法</a></li>
-<li class="chapter" data-level="4.2" data-path="ミスマッチ.html"><a href="ミスマッチ.html#aggregate-mismatch"><i class="fa fa-check"></i><b>4.2</b> Aggregate mismatch</a></li>
+<li class="chapter" data-level="3.2.1" data-path="厚生分析.html"><a href="厚生分析.html#長期"><i class="fa fa-check"></i><b>3.2.1</b> 長期</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="分解分析.html"><a href="分解分析.html"><i class="fa fa-check"></i><b>4</b> 分解分析</a></li>
+<li class="chapter" data-level="5" data-path="ミスマッチ.html"><a href="ミスマッチ.html"><i class="fa fa-check"></i><b>5</b> ミスマッチ</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ミスマッチ.html"><a href="ミスマッチ.html#方法-1"><i class="fa fa-check"></i><b>5.1</b> 方法</a></li>
+<li class="chapter" data-level="5.2" data-path="ミスマッチ.html"><a href="ミスマッチ.html#aggregate-mismatch"><i class="fa fa-check"></i><b>5.2</b> Aggregate mismatch</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -95,7 +99,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ハローワークデータからみる求人・求職活動</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">CausalImpact</a>
           </h1>
         </div>
 
@@ -103,10 +107,10 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ミスマッチ" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> ミスマッチ</h1>
-<div id="方法-1" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> 方法</h2>
+<div id="ミスマッチ" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> ミスマッチ</h1>
+<div id="方法-1" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> 方法</h2>
 <ul>
 <li><p>Apply the mismatch index proposed by <span class="citation"><a href="references.html#ref-csahin2014mismatch" role="doc-biblioref">Şahin et al.</a> (<a href="references.html#ref-csahin2014mismatch" role="doc-biblioref">2014</a>)</span>.</p></li>
 <li><p>The mismatch index, <span class="math inline">\(M_t\)</span>, is defined as</p></li>
@@ -141,8 +145,8 @@ where
 <li>Calculate the mismatch index with estimated parameters in Step 2.</li>
 </ol>
 </div>
-<div id="aggregate-mismatch" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Aggregate mismatch</h2>
+<div id="aggregate-mismatch" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Aggregate mismatch</h2>
 <ul>
 <li>Occupational mismatch by March, 2021.</li>
 </ul>
@@ -155,7 +159,7 @@ where
           </div>
         </div>
       </div>
-<a href="厚生分析.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="分解分析.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

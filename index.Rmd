@@ -1,5 +1,5 @@
 --- 
-title: "ハローワークデータからみる求人・求職活動"
+title: "ハローワークデータからみる労働市場"
 author: "川田恵介"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -12,13 +12,16 @@ description: "TBA"
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE,
+knitr::opts_chunk$set(echo = TRUE,
                       warning = FALSE,
                       message = FALSE)
 ```
 
 ```{r}
-library(knitr)
+pacman::p_load("tidyverse",
+               "readxl",
+               "lubridate",
+               "knitr")
 ```
 
 

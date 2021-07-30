@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 記述統計量 | ハローワークデータからみる求人・求職活動</title>
+  <title>Chapter 2 記述統計量 | ハローワークデータからみる労働市場</title>
   <meta name="description" content="TBA" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 記述統計量 | ハローワークデータからみる求人・求職活動" />
+  <meta property="og:title" content="Chapter 2 記述統計量 | ハローワークデータからみる労働市場" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 記述統計量 | ハローワークデータからみる求人・求職活動" />
+  <meta name="twitter:title" content="Chapter 2 記述統計量 | ハローワークデータからみる労働市場" />
   
   <meta name="twitter:description" content="TBA" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="川田恵介" />
 
 
-<meta name="date" content="2021-05-19" />
+<meta name="date" content="2021-07-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="厚生分析.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,8 +51,97 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -71,17 +160,19 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 要約</a></li>
-<li class="chapter" data-level="2" data-path="記述統計量.html"><a href="記述統計量.html"><i class="fa fa-check"></i><b>2</b> 記述統計量</a></li>
+<li class="chapter" data-level="2" data-path="記述統計量.html"><a href="記述統計量.html"><i class="fa fa-check"></i><b>2</b> 記述統計量</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="記述統計量.html"><a href="記述統計量.html#方法"><i class="fa fa-check"></i><b>2.1</b> 方法</a></li>
+<li class="chapter" data-level="2.2" data-path="記述統計量.html"><a href="記述統計量.html#rコード"><i class="fa fa-check"></i><b>2.2</b> Rコード</a></li>
+<li class="chapter" data-level="2.3" data-path="記述統計量.html"><a href="記述統計量.html#結果"><i class="fa fa-check"></i><b>2.3</b> 結果</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="厚生分析.html"><a href="厚生分析.html"><i class="fa fa-check"></i><b>3</b> 厚生分析</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="厚生分析.html"><a href="厚生分析.html#方法"><i class="fa fa-check"></i><b>3.1</b> 方法</a></li>
-<li class="chapter" data-level="3.2" data-path="厚生分析.html"><a href="厚生分析.html#結果"><i class="fa fa-check"></i><b>3.2</b> 結果</a></li>
+<li class="chapter" data-level="3.1" data-path="厚生分析.html"><a href="厚生分析.html#方法-1"><i class="fa fa-check"></i><b>3.1</b> 方法</a></li>
+<li class="chapter" data-level="3.2" data-path="厚生分析.html"><a href="厚生分析.html#rコード-1"><i class="fa fa-check"></i><b>3.2</b> Rコード</a></li>
+<li class="chapter" data-level="3.3" data-path="厚生分析.html"><a href="厚生分析.html#結果-1"><i class="fa fa-check"></i><b>3.3</b> 結果</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ミスマッチ.html"><a href="ミスマッチ.html"><i class="fa fa-check"></i><b>4</b> ミスマッチ</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="ミスマッチ.html"><a href="ミスマッチ.html#方法-1"><i class="fa fa-check"></i><b>4.1</b> 方法</a></li>
-<li class="chapter" data-level="4.2" data-path="ミスマッチ.html"><a href="ミスマッチ.html#aggregate-mismatch"><i class="fa fa-check"></i><b>4.2</b> Aggregate mismatch</a></li>
-</ul></li>
+<li class="chapter" data-level="4" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>4</b> Session information</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -95,7 +186,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ハローワークデータからみる求人・求職活動</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ハローワークデータからみる労働市場</a>
           </h1>
         </div>
 
@@ -106,19 +197,145 @@
 <div id="記述統計量" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> 記述統計量</h1>
 <ul>
-<li><p>1963年から2020年までの年次データを用いて、厚生変化を記述する</p></li>
-<li><p>就職件数の推移</p></li>
+<li>1963年から2020年までの月次データを用いて、厚生変化を記述する</li>
 </ul>
-<p><img src="test_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div id="方法" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> 方法</h2>
 <ul>
-<li>求人、求職件数の推移</li>
+<li><p>期別に集計</p></li>
+<li><p>季節性を除去するために、前年同月対数差を報告</p></li>
 </ul>
-<p><img src="test_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<ul>
-<li>入職。充足率の推移</li>
-</ul>
-<p><img src="test_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><span class="math display">\[\log(Y_{year,quaterly})-\log(Y_{year-1,quaterly})\]</span></p>
+</div>
+<div id="rコード" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Rコード</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="記述統計量.html#cb2-1" aria-hidden="true" tabindex="-1"></a>col.label <span class="ot">&lt;-</span> </span>
+<span id="cb2-2"><a href="記述統計量.html#cb2-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>,</span>
+<span id="cb2-3"><a href="記述統計量.html#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;1&quot;</span>,</span>
+<span id="cb2-4"><a href="記述統計量.html#cb2-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;2&quot;</span>,</span>
+<span id="cb2-5"><a href="記述統計量.html#cb2-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;3&quot;</span>,</span>
+<span id="cb2-6"><a href="記述統計量.html#cb2-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;4&quot;</span>,</span>
+<span id="cb2-7"><a href="記述統計量.html#cb2-7" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;5&quot;</span>,</span>
+<span id="cb2-8"><a href="記述統計量.html#cb2-8" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;6&quot;</span>,</span>
+<span id="cb2-9"><a href="記述統計量.html#cb2-9" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;7&quot;</span>,</span>
+<span id="cb2-10"><a href="記述統計量.html#cb2-10" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;8&quot;</span>,</span>
+<span id="cb2-11"><a href="記述統計量.html#cb2-11" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;9&quot;</span>,</span>
+<span id="cb2-12"><a href="記述統計量.html#cb2-12" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;10&quot;</span>,</span>
+<span id="cb2-13"><a href="記述統計量.html#cb2-13" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;11&quot;</span>,</span>
+<span id="cb2-14"><a href="記述統計量.html#cb2-14" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;12&quot;</span>,</span>
+<span id="cb2-15"><a href="記述統計量.html#cb2-15" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;type&quot;</span>,</span>
+<span id="cb2-16"><a href="記述統計量.html#cb2-16" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;group&quot;</span>)</span>
+<span id="cb2-17"><a href="記述統計量.html#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="記述統計量.html#cb2-18" aria-hidden="true" tabindex="-1"></a>select.raw <span class="ot">&lt;-</span> <span class="dv">14</span><span class="sc">:</span><span class="dv">63</span></span>
+<span id="cb2-19"><a href="記述統計量.html#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="記述統計量.html#cb2-20" aria-hidden="true" tabindex="-1"></a>select.column <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>)</span>
+<span id="cb2-21"><a href="記述統計量.html#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="記述統計量.html#cb2-22" aria-hidden="true" tabindex="-1"></a>raw.vacancy.full <span class="ot">&lt;-</span></span>
+<span id="cb2-23"><a href="記述統計量.html#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第6表.xlsx&quot;</span>,</span>
+<span id="cb2-24"><a href="記述統計量.html#cb2-24" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第６表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-25"><a href="記述統計量.html#cb2-25" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-26"><a href="記述統計量.html#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求人&quot;</span>,</span>
+<span id="cb2-27"><a href="記述統計量.html#cb2-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
+<span id="cb2-28"><a href="記述統計量.html#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="記述統計量.html#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.vacancy.full) <span class="ot">&lt;-</span> col.label</span>
+<span id="cb2-30"><a href="記述統計量.html#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="記述統計量.html#cb2-31" aria-hidden="true" tabindex="-1"></a>raw.seeker.full <span class="ot">&lt;-</span></span>
+<span id="cb2-32"><a href="記述統計量.html#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第7表.xlsx&quot;</span>,</span>
+<span id="cb2-33"><a href="記述統計量.html#cb2-33" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第７表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-34"><a href="記述統計量.html#cb2-34" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-35"><a href="記述統計量.html#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求職&quot;</span>,</span>
+<span id="cb2-36"><a href="記述統計量.html#cb2-36" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
+<span id="cb2-37"><a href="記述統計量.html#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="記述統計量.html#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.seeker.full) <span class="ot">&lt;-</span> col.label</span>
+<span id="cb2-39"><a href="記述統計量.html#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="記述統計量.html#cb2-40" aria-hidden="true" tabindex="-1"></a>raw.hir.full <span class="ot">&lt;-</span></span>
+<span id="cb2-41"><a href="記述統計量.html#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第8表.xlsx&quot;</span>,</span>
+<span id="cb2-42"><a href="記述統計量.html#cb2-42" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第８表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-43"><a href="記述統計量.html#cb2-43" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-44"><a href="記述統計量.html#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;新規就職&quot;</span>,</span>
+<span id="cb2-45"><a href="記述統計量.html#cb2-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
+<span id="cb2-46"><a href="記述統計量.html#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="記述統計量.html#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.hir.full) <span class="ot">&lt;-</span> col.label</span>
+<span id="cb2-48"><a href="記述統計量.html#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="記述統計量.html#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="記述統計量.html#cb2-50" aria-hidden="true" tabindex="-1"></a>raw.vacancy.part <span class="ot">&lt;-</span></span>
+<span id="cb2-51"><a href="記述統計量.html#cb2-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第6表.xlsx&quot;</span>,</span>
+<span id="cb2-52"><a href="記述統計量.html#cb2-52" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第６表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-53"><a href="記述統計量.html#cb2-53" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-54"><a href="記述統計量.html#cb2-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求人&quot;</span>,</span>
+<span id="cb2-55"><a href="記述統計量.html#cb2-55" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
+<span id="cb2-56"><a href="記述統計量.html#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="記述統計量.html#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.vacancy.part) <span class="ot">&lt;-</span> col.label</span>
+<span id="cb2-58"><a href="記述統計量.html#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="記述統計量.html#cb2-59" aria-hidden="true" tabindex="-1"></a>raw.seeker.part <span class="ot">&lt;-</span></span>
+<span id="cb2-60"><a href="記述統計量.html#cb2-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第7表.xlsx&quot;</span>,</span>
+<span id="cb2-61"><a href="記述統計量.html#cb2-61" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第７表ー３（パート）&quot;</span>)  <span class="sc">%&gt;%</span></span>
+<span id="cb2-62"><a href="記述統計量.html#cb2-62" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-63"><a href="記述統計量.html#cb2-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求職&quot;</span>,</span>
+<span id="cb2-64"><a href="記述統計量.html#cb2-64" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
+<span id="cb2-65"><a href="記述統計量.html#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="記述統計量.html#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.seeker.part) <span class="ot">&lt;-</span> col.label</span>
+<span id="cb2-67"><a href="記述統計量.html#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="記述統計量.html#cb2-68" aria-hidden="true" tabindex="-1"></a>raw.hir.part <span class="ot">&lt;-</span></span>
+<span id="cb2-69"><a href="記述統計量.html#cb2-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第8表.xlsx&quot;</span>,</span>
+<span id="cb2-70"><a href="記述統計量.html#cb2-70" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第８表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-71"><a href="記述統計量.html#cb2-71" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-72"><a href="記述統計量.html#cb2-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;新規就職&quot;</span>,</span>
+<span id="cb2-73"><a href="記述統計量.html#cb2-73" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
+<span id="cb2-74"><a href="記述統計量.html#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-75"><a href="記述統計量.html#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.hir.part) <span class="ot">&lt;-</span> col.label</span>
+<span id="cb2-76"><a href="記述統計量.html#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-77"><a href="記述統計量.html#cb2-77" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span></span>
+<span id="cb2-78"><a href="記述統計量.html#cb2-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(raw.hir.full,</span>
+<span id="cb2-79"><a href="記述統計量.html#cb2-79" aria-hidden="true" tabindex="-1"></a>        raw.hir.part,</span>
+<span id="cb2-80"><a href="記述統計量.html#cb2-80" aria-hidden="true" tabindex="-1"></a>        raw.vacancy.full,</span>
+<span id="cb2-81"><a href="記述統計量.html#cb2-81" aria-hidden="true" tabindex="-1"></a>        raw.vacancy.part,</span>
+<span id="cb2-82"><a href="記述統計量.html#cb2-82" aria-hidden="true" tabindex="-1"></a>        raw.seeker.full,</span>
+<span id="cb2-83"><a href="記述統計量.html#cb2-83" aria-hidden="true" tabindex="-1"></a>        raw.seeker.part</span>
+<span id="cb2-84"><a href="記述統計量.html#cb2-84" aria-hidden="true" tabindex="-1"></a>        ) <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-85"><a href="記述統計量.html#cb2-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">13</span>,</span>
+<span id="cb2-86"><a href="記述統計量.html#cb2-86" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;month&quot;</span>,</span>
+<span id="cb2-87"><a href="記述統計量.html#cb2-87" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-88"><a href="記述統計量.html#cb2-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> n <span class="sc">|</span><span class="er">&gt;</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb2-89"><a href="記述統計量.html#cb2-89" aria-hidden="true" tabindex="-1"></a>         <span class="at">year =</span> year <span class="sc">|</span><span class="er">&gt;</span> <span class="fu">str_sub</span>(<span class="dv">1</span>,<span class="dv">4</span>) <span class="sc">|</span><span class="er">&gt;</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb2-90"><a href="記述統計量.html#cb2-90" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> month <span class="sc">|</span><span class="er">&gt;</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb2-91"><a href="記述統計量.html#cb2-91" aria-hidden="true" tabindex="-1"></a>         <span class="at">quaterly =</span> month <span class="sc">|</span><span class="er">&gt;</span> <span class="fu">cut</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">12</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)),</span>
+<span id="cb2-92"><a href="記述統計量.html#cb2-92" aria-hidden="true" tabindex="-1"></a>         <span class="at">date =</span> <span class="fu">yq</span>(<span class="fu">str_c</span>(year,quaterly,<span class="at">sep =</span> <span class="st">&quot;:Q&quot;</span>))</span>
+<span id="cb2-93"><a href="記述統計量.html#cb2-93" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-94"><a href="記述統計量.html#cb2-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date,type) <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-95"><a href="記述統計量.html#cb2-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> n <span class="sc">|</span><span class="er">&gt;</span> <span class="fu">sum</span>()) <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-96"><a href="記述統計量.html#cb2-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-97"><a href="記述統計量.html#cb2-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(year,quaterly,date,type,n) <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-98"><a href="記述統計量.html#cb2-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(<span class="at">key =</span> type, <span class="at">value =</span> n) <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-99"><a href="記述統計量.html#cb2-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(quaterly) <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-100"><a href="記述統計量.html#cb2-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(求人 <span class="ot">=</span> <span class="fu">log</span>(求人) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">lag</span>(求人)),</span>
+<span id="cb2-101"><a href="記述統計量.html#cb2-101" aria-hidden="true" tabindex="-1"></a>           求職 <span class="ot">=</span> <span class="fu">log</span>(求職) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">lag</span>(求職)),</span>
+<span id="cb2-102"><a href="記述統計量.html#cb2-102" aria-hidden="true" tabindex="-1"></a>           新規就職 <span class="ot">=</span> <span class="fu">log</span>(新規就職) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">lag</span>(新規就職))</span>
+<span id="cb2-103"><a href="記述統計量.html#cb2-103" aria-hidden="true" tabindex="-1"></a>           ) <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-104"><a href="記述統計量.html#cb2-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>),</span>
+<span id="cb2-105"><a href="記述統計量.html#cb2-105" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>,</span>
+<span id="cb2-106"><a href="記述統計量.html#cb2-106" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-107"><a href="記述統計量.html#cb2-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb2-108"><a href="記述統計量.html#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-109"><a href="記述統計量.html#cb2-109" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span></span>
+<span id="cb2-110"><a href="記述統計量.html#cb2-110" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-111"><a href="記述統計量.html#cb2-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date,</span>
+<span id="cb2-112"><a href="記述統計量.html#cb2-112" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> N)</span>
+<span id="cb2-113"><a href="記述統計量.html#cb2-113" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb2-114"><a href="記述統計量.html#cb2-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb2-115"><a href="記述統計量.html#cb2-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-116"><a href="記述統計量.html#cb2-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb2-117"><a href="記述統計量.html#cb2-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>type,</span>
+<span id="cb2-118"><a href="記述統計量.html#cb2-118" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb2-119"><a href="記述統計量.html#cb2-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2-120"><a href="記述統計量.html#cb2-120" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2-121"><a href="記述統計量.html#cb2-121" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+</div>
+<div id="結果" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> 結果</h2>
+<p><img src="test_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 
+</div>
 </div>
             </section>
 
@@ -149,6 +366,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {

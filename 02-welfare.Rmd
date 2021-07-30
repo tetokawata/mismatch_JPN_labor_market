@@ -1,8 +1,10 @@
 # 厚生分析
 
+- 1963年から2020年までの年次データを用いて、厚生変化を記述する
+
 ## 方法
 
-- @kawata2021welfare の手法を用いて、失業者の厚生変化を記述する
+- @kawata2021first の手法を用いて、失業者の厚生変化を記述する
 
 - 標準的なDiamond-Mortencen-Pissarides型サーチモデル[@rogerson2005search]に準じて、以下の4条件式を仮定する
 
@@ -28,27 +30,34 @@ $$(1-\beta)(W_{ij}-U_i)=\beta(J_{ij}-V_j)$$
 
 $$E[\Delta_i]=\sum u_i\Delta_i=\frac{\beta k}{1-\beta}\times\frac{\sum_{ij}m_{ij}}{\sum_i u_i}\times \frac{\sum_{j}v_j}{\sum_{ij}m_{ij}}$$
 
-## 結果
-
-- 1963年から2020年までの年次データを用いて、厚生変化を記述する
-
-
-```{r}
-library(tidyverse)
-library(readxl)
-```
+## Rコード
 
 ```{r}
 col.label <- 
    c("year",
-     "n",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10",
+     "11",
+     "12",
      "type",
      "group")
+
+select.raw <- 14:63
+
+select.column <- c(1,3:14)
 
 raw.vacancy.full <-
   read_excel("data/第6表.xlsx",
              sheet = "第６表ー２（パート除く）") %>%
-  .[14:62,c(1,20)] %>%
+  .[select.raw,select.column] %>%
   mutate(type = "求人",
          group = "フルタイム")
 
@@ -57,7 +66,7 @@ colnames(raw.vacancy.full) <- col.label
 raw.seeker.full <-
   read_excel("data/第7表.xlsx",
              sheet = "第７表ー２（パート除く）") %>%
-  .[14:62,c(1,20)] %>%
+  .[select.raw,select.column] %>%
   mutate(type = "求職",
          group = "フルタイム")
 
@@ -66,7 +75,7 @@ colnames(raw.seeker.full) <- col.label
 raw.hir.full <-
   read_excel("data/第8表.xlsx",
              sheet = "第８表ー２（パート除く）") %>%
-  .[14:62,c(1,20)] %>%
+  .[select.raw,select.column] %>%
   mutate(type = "新規就職",
          group = "フルタイム")
 
@@ -76,7 +85,7 @@ colnames(raw.hir.full) <- col.label
 raw.vacancy.part <-
   read_excel("data/第6表.xlsx",
              sheet = "第６表ー３（パート）") %>%
-  .[14:62,c(1,20)] %>%
+  .[select.raw,select.column] %>%
   mutate(type = "求人",
          group = "パートタイム")
 
@@ -85,7 +94,7 @@ colnames(raw.vacancy.part) <- col.label
 raw.seeker.part <-
   read_excel("data/第7表.xlsx",
              sheet = "第７表ー３（パート）") %>%
-  .[14:62,c(1,20)] %>%
+  .[select.raw,select.column] %>%
   mutate(type = "求職",
          group = "パートタイム")
 
@@ -94,7 +103,7 @@ colnames(raw.seeker.part) <- col.label
 raw.hir.part <-
   read_excel("data/第8表.xlsx",
              sheet = "第８表ー３（パート）") %>%
-  .[14:62,c(1,20)] %>%
+  .[select.raw,select.column] %>%
   mutate(type = "新規就職",
          group = "パートタイム")
 
@@ -106,67 +115,53 @@ df <-
         raw.vacancy.full,
         raw.vacancy.part,
         raw.seeker.full,
-        raw.seeker.part) %>%
-  mutate(n = as.numeric(n),
-         year = as.numeric(str_sub(year,1,4))) %>%
-  spread(type,
-         value = n) %>%
-  mutate(求人倍率 = 求人/求職,
-         充足率 = 新規就職/求人,
-         入職率 = 新規就職/求職) %>%
-  arrange(group,
-          year) %>%
-  group_by(group) %>%
-  mutate(サーチ余剰変化 = log(求人倍率) - log(lag(求人倍率)),
-         入職率変化 = log(入職率) - log(lag(入職率)),
-         マッチング余剰変化 = log(lag(充足率)) - log(充足率),
-         求人の貢献 = (求人 - lag(求人))/求人,
-         求職の貢献 = -(求職 - lag(求職))/求職
-         ) %>%
-  ungroup
-```
+        raw.seeker.part
+        ) |> 
+  pivot_longer(cols = 2:13,
+               names_to = "month",
+               values_to = "n") |> 
+  mutate(n = n |> as.numeric(),
+         year = year |> str_sub(1,4) |> as.numeric(),
+         month = month |> as.numeric(),
+         quaterly = month |> cut(c(0,3,6,9,12), labels = c(1,2,3,4)),
+         date = yq(str_c(year,quaterly,sep = ":Q"))
+         ) |> 
+  group_by(date,type) |> 
+  mutate(n = n |> sum()) |> 
+  ungroup() |> 
+  distinct(year,quaterly,date,type,n) |> 
+  spread(key = type, value = n) |> 
+  group_by(quaterly) |> 
+  mutate(入職率 = log(新規就職/求職) - log(lag(新規就職/求職)),
+        　マッチングの余剰 = log(lag(新規就職/求人)) - log(新規就職/求人),
+           総余剰 = log(求人/求職) - log(lag(求人/求職))
+           ) |> 
+  select(-求職,
+         -求人,
+         -新規就職) |> 
+  pivot_longer(cols = c(4:6),
+               names_to = "type",
+               values_to = "N") |> 
+  na.omit()
 
-- サーチの余剰、および入職、マッチング余剰の変化への分解
-
-```{r}
-df %>%
-  gather(サーチ余剰変化,
-         入職率変化,
-         マッチング余剰変化,
-         key = "要素",
-         value = "変化率"
-         ) %>%
-  filter(year >= 1973) %>%
-  ggplot(aes(x = year,
-             y = 変化率,
-             color = 要素)
+fig <-
+  df |> 
+  ggplot(aes(x = date,
+             y = N)
          ) +
   geom_line() +
   geom_point() +
   geom_hline(yintercept = 0) +
-  facet_wrap(~ group) +
-  theme_bw() +
-  theme(legend.position = "bottom")
+  facet_wrap(~type,
+             ncol = 1) +
+  ylab("") +
+  xlab("") +
+  theme_bw()
 ```
 
-- 求人、求職への分解
+## 結果
 
-```{r}
-df %>%
-  gather(求人の貢献,
-         求職の貢献,
-         key = "要素",
-         value = "変化率"
-         ) %>%
-  filter(year >= 1973) %>%
-  ggplot(aes(x = year,
-             y = 変化率,
-             color = 要素)
-         ) +
-  geom_line() +
-  geom_point() +
-  geom_hline(yintercept = 0) +
-  facet_wrap(~ group) +
-  theme_bw() +
-  theme(legend.position = "bottom")
+```{r, echo = FALSE}
+fig
 ```
+
