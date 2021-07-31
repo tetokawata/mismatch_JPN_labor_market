@@ -1,3 +1,194 @@
+--- 
+title: "ハローワークデータからみる労働市場"
+author: "川田恵介"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "TBA"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+```{r}
+pacman::p_load("tidyverse",
+               "readxl",
+               "lubridate",
+               "knitr")
+```
+
+
+# 要約
+
+公的職業紹介業務（ハローワーク）を通じて収集された業務データ（職業安定業務統計）を用いて、日本の求人・求職の状況を概観する。
+同データは月次統計であり、現時点では2021年6月まで公開されている。
+COVID-19の影響はその後も続いており、随時更新していく予定である。
+
+<!--chapter:end:index.Rmd-->
+
+# 記述統計量
+
+- 1963年から2021年6月までの月次データを用いて、厚生変化を記述する
+
+## 方法
+
+- 期別に集計
+
+- 季節性を除去するために、前年同月対数差を報告
+
+$$\log(Y_{year,quaterly})-\log(Y_{year-1,quaterly})$$
+
+  - 前年同月に比べた変化率を近似的に示す
+
+## Rコード
+
+```{r}
+col.label <- 
+   c("year",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10",
+     "11",
+     "12",
+     "type",
+     "group")
+
+select.raw <- 14:63
+
+select.column <- c(1,3:14)
+
+raw.vacancy.full <-
+  read_excel("data/第6表.xlsx",
+             sheet = "第６表ー２（パート除く）") %>%
+  .[select.raw,select.column] |> 
+  mutate(type = "求人",
+         group = "フルタイム")
+
+colnames(raw.vacancy.full) <- col.label
+
+raw.seeker.full <-
+  read_excel("data/第7表.xlsx",
+             sheet = "第７表ー２（パート除く）") %>%
+  .[select.raw,select.column] |> 
+  mutate(type = "求職",
+         group = "フルタイム")
+
+colnames(raw.seeker.full) <- col.label
+
+raw.hir.full <-
+  read_excel("data/第8表.xlsx",
+             sheet = "第８表ー２（パート除く）") %>%
+  .[select.raw,select.column] |> 
+  mutate(type = "新規就職",
+         group = "フルタイム")
+
+colnames(raw.hir.full) <- col.label
+
+
+raw.vacancy.part <-
+  read_excel("data/第6表.xlsx",
+             sheet = "第６表ー３（パート）") %>%
+  .[select.raw,select.column] |> 
+  mutate(type = "求人",
+         group = "パートタイム")
+
+colnames(raw.vacancy.part) <- col.label
+
+raw.seeker.part <-
+  read_excel("data/第7表.xlsx",
+             sheet = "第７表ー３（パート）")  %>%
+  .[select.raw,select.column] |> 
+  mutate(type = "求職",
+         group = "パートタイム")
+
+colnames(raw.seeker.part) <- col.label
+
+raw.hir.part <-
+  read_excel("data/第8表.xlsx",
+             sheet = "第８表ー３（パート）") %>%
+  .[select.raw,select.column] |> 
+  mutate(type = "新規就職",
+         group = "パートタイム")
+
+colnames(raw.hir.part) <- col.label
+
+df <-
+  rbind(raw.hir.full,
+        raw.hir.part,
+        raw.vacancy.full,
+        raw.vacancy.part,
+        raw.seeker.full,
+        raw.seeker.part
+        ) |> 
+  pivot_longer(cols = 2:13,
+               names_to = "month",
+               values_to = "n") |> 
+  mutate(n = n |> as.numeric(),
+         year = year |> str_sub(1,4) |> as.numeric(),
+         month = month |> as.numeric(),
+         quaterly = month |> cut(c(0,3,6,9,12), labels = c(1,2,3,4)),
+         date = yq(str_c(year,quaterly,sep = ":Q"))
+         ) |> 
+  group_by(date,type) |> 
+  mutate(n = n |> sum()) |> 
+  ungroup() |> 
+  distinct(year,quaterly,date,type,n) |> 
+  spread(key = type, value = n) |> 
+  group_by(quaterly) |> 
+  mutate(求人 = log(求人) - log(lag(求人)),
+           求職 = log(求職) - log(lag(求職)),
+           新規就職 = log(新規就職) - log(lag(新規就職))
+           ) |> 
+  ungroup() |> 
+  pivot_longer(cols = c(4:6),
+               names_to = "type",
+               values_to = "N") |> 
+  na.omit()
+
+fig <-
+  df |> 
+  ggplot(aes(x = date,
+             y = N)
+         ) +
+  geom_line() +
+  geom_hline(yintercept = 0) +
+  facet_wrap(~type,
+             ncol = 1) +
+  ylab("") +
+  xlab("") +
+  theme_bw()
+```
+
+## 結果
+
+```{r, echo = FALSE}
+fig
+```
+
+- よく知られている事実である、求人と景気の正循環、求職と景気の反循環が確認できる
+
+  - オイルショックやバブル崩壊後の不況、90年代後半、リーマンショック期において、求人の低下、求職の増加が認められる
+  
+- COVID-19の影響を反映していると考えられる2020年第2・3四半期の求人急落および第3四半期以降の求職増加はオイルショックやリーマンショックほどではないが、90年代のバブル崩壊後落ち込みを超える水準であった。
+
+- 顕著な特徴は、2020年第2四半期の新規就職件数急落が、他の経済ショック期と比べても大きい点である。求人・求職の変化と比べても顕著であり、COVID-19が採用・入職の手控えを強力に促進した可能性が高い。
+
+<!--chapter:end:01-description.Rmd-->
+
 # 厚生分析:時系列比較
 
 - 1963年から2021年6月までの年次データ、@kawata2021first の手法を用いて、求職者の厚生変化を記述する
@@ -223,3 +414,21 @@ fig
 - COVID-19の影響は、2020年第2・3四半期については、入職率の低下により生じている。これは、入職からの余剰低下の影響も大きい、他の経済ショックとは大きく異なっている。
 
 - 入職率への影響は2021年第2四半期期において下げ止まりの傾向を見せているが、入職からの余剰は2020年第2四半期と比べても低下している。
+
+<!--chapter:end:02-welfare.Rmd-->
+
+# Session information
+
+```{r}
+sessionInfo()
+```
+
+
+<!--chapter:end:04-session_info.Rmd-->
+
+`r if (knitr::is_html_output()) '
+# References {-}
+'`
+
+<!--chapter:end:05-references.Rmd-->
+

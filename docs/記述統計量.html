@@ -201,7 +201,7 @@ div.csl-indent {
 <div id="記述統計量" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> 記述統計量</h1>
 <ul>
-<li>1963年から2020年までの月次データを用いて、厚生変化を記述する</li>
+<li>1963年から2021年6月までの月次データを用いて、厚生変化を記述する</li>
 </ul>
 <div id="方法" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> 方法</h2>
@@ -210,6 +210,9 @@ div.csl-indent {
 <li><p>季節性を除去するために、前年同月対数差を報告</p></li>
 </ul>
 <p><span class="math display">\[\log(Y_{year,quaterly})-\log(Y_{year-1,quaterly})\]</span></p>
+<ul>
+<li>前年同月に比べた変化率を近似的に示す</li>
+</ul>
 </div>
 <div id="rコード" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Rコード</h2>
@@ -338,6 +341,14 @@ div.csl-indent {
 <div id="結果" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> 結果</h2>
 <p><img src="test_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<ul>
+<li><p>よく知られている事実である、求人と景気の正循環、求職と景気の反循環が確認できる</p>
+<ul>
+<li>オイルショックやバブル崩壊後の不況、90年代後半、リーマンショック期において、求人の低下、求職の増加が認められる</li>
+</ul></li>
+<li><p>COVID-19の影響を反映していると考えられる2020年第2・3四半期の求人急落および第3四半期以降の求職増加はオイルショックやリーマンショックほどではないが、90年代のバブル崩壊後落ち込みを超える水準であった。</p></li>
+<li><p>顕著な特徴は、2020年第2四半期の新規就職件数急落が、他の経済ショック期と比べても大きい点である。求人・求職の変化と比べても顕著であり、COVID-19が採用・入職の手控えを強力に促進した可能性が高い。</p></li>
+</ul>
 
 </div>
 </div>
