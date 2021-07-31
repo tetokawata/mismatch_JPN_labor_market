@@ -128,7 +128,6 @@ fig <-
              y = N)
          ) +
   geom_line() +
-  geom_point() +
   geom_hline(yintercept = 0) +
   facet_wrap(~type,
              ncol = 1) +

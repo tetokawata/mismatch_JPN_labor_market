@@ -24,7 +24,7 @@
 <meta name="author" content="川田恵介" />
 
 
-<meta name="date" content="2021-07-30" />
+<meta name="date" content="2021-07-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -208,7 +208,7 @@ div.csl-indent {
 <ol style="list-style-type: decimal">
 <li>失業者の価値観数</li>
 </ol>
-<p><span class="math display">\[rU_i=b+\dot{U}_i+\underbrace{\Delta_i}_{capital\ gain\ from\ search\ activity}\]</span></p>
+<p><span class="math display">\[rU_i=b+\dot{U}_i+\underbrace{\Delta_i}_{総余剰}\]</span></p>
 <p><span class="math display">\[\Delta_i = \sum_j\frac{m_{ij}}{u_i}\times (W_{ij}-U_i)\]</span></p>
 <ol start="2" style="list-style-type: decimal">
 <li>求人の価値観数</li>
@@ -223,9 +223,9 @@ div.csl-indent {
 </ol>
 <p><span class="math display">\[(1-\beta)(W_{ij}-U_i)=\beta(J_{ij}-V_j)\]</span></p>
 <ul>
-<li>以上の4条件からcapital gain from seach activityは以下のよう</li>
+<li>以上の4条件から総余剰の平均値は以下のように書き換えられる</li>
 </ul>
-<p><span class="math display">\[E[\Delta_i]=\sum u_i\Delta_i=\frac{\beta k}{1-\beta}\times\frac{\sum_{ij}m_{ij}}{\sum_i u_i}\times \frac{\sum_{j}v_j}{\sum_{ij}m_{ij}}\]</span></p>
+<p><span class="math display">\[E[\Delta_i]=\sum u_i\Delta_i=\underbrace{\frac{\sum_{ij}m_{ij}}{\sum_i u_i}}_{入職率}\times\underbrace{\frac{\beta k}{1-\beta}\times\frac{\sum_{j}v_j}{\sum_{ij}m_{ij}}}_{マッチングの余剰}\]</span></p>
 </div>
 <div id="rコード-1" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Rコード</h2>
@@ -253,7 +253,7 @@ div.csl-indent {
 <span id="cb3-22"><a href="厚生分析.html#cb3-22" aria-hidden="true" tabindex="-1"></a>raw.vacancy.full <span class="ot">&lt;-</span></span>
 <span id="cb3-23"><a href="厚生分析.html#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第6表.xlsx&quot;</span>,</span>
 <span id="cb3-24"><a href="厚生分析.html#cb3-24" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第６表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-25"><a href="厚生分析.html#cb3-25" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">%&gt;%</span></span>
+<span id="cb3-25"><a href="厚生分析.html#cb3-25" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
 <span id="cb3-26"><a href="厚生分析.html#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求人&quot;</span>,</span>
 <span id="cb3-27"><a href="厚生分析.html#cb3-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
 <span id="cb3-28"><a href="厚生分析.html#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
@@ -262,7 +262,7 @@ div.csl-indent {
 <span id="cb3-31"><a href="厚生分析.html#cb3-31" aria-hidden="true" tabindex="-1"></a>raw.seeker.full <span class="ot">&lt;-</span></span>
 <span id="cb3-32"><a href="厚生分析.html#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第7表.xlsx&quot;</span>,</span>
 <span id="cb3-33"><a href="厚生分析.html#cb3-33" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第７表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-34"><a href="厚生分析.html#cb3-34" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">%&gt;%</span></span>
+<span id="cb3-34"><a href="厚生分析.html#cb3-34" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
 <span id="cb3-35"><a href="厚生分析.html#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求職&quot;</span>,</span>
 <span id="cb3-36"><a href="厚生分析.html#cb3-36" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
 <span id="cb3-37"><a href="厚生分析.html#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
@@ -271,7 +271,7 @@ div.csl-indent {
 <span id="cb3-40"><a href="厚生分析.html#cb3-40" aria-hidden="true" tabindex="-1"></a>raw.hir.full <span class="ot">&lt;-</span></span>
 <span id="cb3-41"><a href="厚生分析.html#cb3-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第8表.xlsx&quot;</span>,</span>
 <span id="cb3-42"><a href="厚生分析.html#cb3-42" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第８表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-43"><a href="厚生分析.html#cb3-43" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">%&gt;%</span></span>
+<span id="cb3-43"><a href="厚生分析.html#cb3-43" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
 <span id="cb3-44"><a href="厚生分析.html#cb3-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;新規就職&quot;</span>,</span>
 <span id="cb3-45"><a href="厚生分析.html#cb3-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
 <span id="cb3-46"><a href="厚生分析.html#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
@@ -281,7 +281,7 @@ div.csl-indent {
 <span id="cb3-50"><a href="厚生分析.html#cb3-50" aria-hidden="true" tabindex="-1"></a>raw.vacancy.part <span class="ot">&lt;-</span></span>
 <span id="cb3-51"><a href="厚生分析.html#cb3-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第6表.xlsx&quot;</span>,</span>
 <span id="cb3-52"><a href="厚生分析.html#cb3-52" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第６表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-53"><a href="厚生分析.html#cb3-53" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">%&gt;%</span></span>
+<span id="cb3-53"><a href="厚生分析.html#cb3-53" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
 <span id="cb3-54"><a href="厚生分析.html#cb3-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求人&quot;</span>,</span>
 <span id="cb3-55"><a href="厚生分析.html#cb3-55" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
 <span id="cb3-56"><a href="厚生分析.html#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
@@ -290,7 +290,7 @@ div.csl-indent {
 <span id="cb3-59"><a href="厚生分析.html#cb3-59" aria-hidden="true" tabindex="-1"></a>raw.seeker.part <span class="ot">&lt;-</span></span>
 <span id="cb3-60"><a href="厚生分析.html#cb3-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第7表.xlsx&quot;</span>,</span>
 <span id="cb3-61"><a href="厚生分析.html#cb3-61" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第７表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-62"><a href="厚生分析.html#cb3-62" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">%&gt;%</span></span>
+<span id="cb3-62"><a href="厚生分析.html#cb3-62" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
 <span id="cb3-63"><a href="厚生分析.html#cb3-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求職&quot;</span>,</span>
 <span id="cb3-64"><a href="厚生分析.html#cb3-64" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
 <span id="cb3-65"><a href="厚生分析.html#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
@@ -299,7 +299,7 @@ div.csl-indent {
 <span id="cb3-68"><a href="厚生分析.html#cb3-68" aria-hidden="true" tabindex="-1"></a>raw.hir.part <span class="ot">&lt;-</span></span>
 <span id="cb3-69"><a href="厚生分析.html#cb3-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第8表.xlsx&quot;</span>,</span>
 <span id="cb3-70"><a href="厚生分析.html#cb3-70" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第８表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-71"><a href="厚生分析.html#cb3-71" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">%&gt;%</span></span>
+<span id="cb3-71"><a href="厚生分析.html#cb3-71" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
 <span id="cb3-72"><a href="厚生分析.html#cb3-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;新規就職&quot;</span>,</span>
 <span id="cb3-73"><a href="厚生分析.html#cb3-73" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
 <span id="cb3-74"><a href="厚生分析.html#cb3-74" aria-hidden="true" tabindex="-1"></a></span>
@@ -332,27 +332,30 @@ div.csl-indent {
 <span id="cb3-101"><a href="厚生分析.html#cb3-101" aria-hidden="true" tabindex="-1"></a>        　マッチングの余剰 <span class="ot">=</span> <span class="fu">log</span>(<span class="fu">lag</span>(新規就職<span class="sc">/</span>求人)) <span class="sc">-</span> <span class="fu">log</span>(新規就職<span class="sc">/</span>求人),</span>
 <span id="cb3-102"><a href="厚生分析.html#cb3-102" aria-hidden="true" tabindex="-1"></a>           総余剰 <span class="ot">=</span> <span class="fu">log</span>(求人<span class="sc">/</span>求職) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">lag</span>(求人<span class="sc">/</span>求職))</span>
 <span id="cb3-103"><a href="厚生分析.html#cb3-103" aria-hidden="true" tabindex="-1"></a>           ) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-104"><a href="厚生分析.html#cb3-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>求職,</span>
-<span id="cb3-105"><a href="厚生分析.html#cb3-105" aria-hidden="true" tabindex="-1"></a>         <span class="sc">-</span>求人,</span>
-<span id="cb3-106"><a href="厚生分析.html#cb3-106" aria-hidden="true" tabindex="-1"></a>         <span class="sc">-</span>新規就職) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-107"><a href="厚生分析.html#cb3-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>),</span>
-<span id="cb3-108"><a href="厚生分析.html#cb3-108" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>,</span>
-<span id="cb3-109"><a href="厚生分析.html#cb3-109" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-110"><a href="厚生分析.html#cb3-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
-<span id="cb3-111"><a href="厚生分析.html#cb3-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-112"><a href="厚生分析.html#cb3-112" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span></span>
-<span id="cb3-113"><a href="厚生分析.html#cb3-113" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-114"><a href="厚生分析.html#cb3-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date,</span>
-<span id="cb3-115"><a href="厚生分析.html#cb3-115" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> N)</span>
-<span id="cb3-116"><a href="厚生分析.html#cb3-116" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
-<span id="cb3-117"><a href="厚生分析.html#cb3-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb3-118"><a href="厚生分析.html#cb3-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-104"><a href="厚生分析.html#cb3-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb3-105"><a href="厚生分析.html#cb3-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>求職,</span>
+<span id="cb3-106"><a href="厚生分析.html#cb3-106" aria-hidden="true" tabindex="-1"></a>         <span class="sc">-</span>求人,</span>
+<span id="cb3-107"><a href="厚生分析.html#cb3-107" aria-hidden="true" tabindex="-1"></a>         <span class="sc">-</span>新規就職) <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb3-108"><a href="厚生分析.html#cb3-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>),</span>
+<span id="cb3-109"><a href="厚生分析.html#cb3-109" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>,</span>
+<span id="cb3-110"><a href="厚生分析.html#cb3-110" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb3-111"><a href="厚生分析.html#cb3-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb3-112"><a href="厚生分析.html#cb3-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-113"><a href="厚生分析.html#cb3-113" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span></span>
+<span id="cb3-114"><a href="厚生分析.html#cb3-114" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb3-115"><a href="厚生分析.html#cb3-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date,</span>
+<span id="cb3-116"><a href="厚生分析.html#cb3-116" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> N)</span>
+<span id="cb3-117"><a href="厚生分析.html#cb3-117" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb3-118"><a href="厚生分析.html#cb3-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb3-119"><a href="厚生分析.html#cb3-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb3-120"><a href="厚生分析.html#cb3-120" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>type,</span>
-<span id="cb3-121"><a href="厚生分析.html#cb3-121" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb3-122"><a href="厚生分析.html#cb3-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
-<span id="cb3-123"><a href="厚生分析.html#cb3-123" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
-<span id="cb3-124"><a href="厚生分析.html#cb3-124" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<span id="cb3-120"><a href="厚生分析.html#cb3-120" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span><span class="fu">factor</span>(type,</span>
+<span id="cb3-121"><a href="厚生分析.html#cb3-121" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;マッチングの余剰&quot;</span>,</span>
+<span id="cb3-122"><a href="厚生分析.html#cb3-122" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;入職率&quot;</span>,</span>
+<span id="cb3-123"><a href="厚生分析.html#cb3-123" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;総余剰&quot;</span>)),</span>
+<span id="cb3-124"><a href="厚生分析.html#cb3-124" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb3-125"><a href="厚生分析.html#cb3-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb3-126"><a href="厚生分析.html#cb3-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb3-127"><a href="厚生分析.html#cb3-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 </div>
 <div id="結果-1" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> 結果</h2>

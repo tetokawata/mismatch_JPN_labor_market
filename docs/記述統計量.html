@@ -24,7 +24,7 @@
 <meta name="author" content="川田恵介" />
 
 
-<meta name="date" content="2021-07-30" />
+<meta name="date" content="2021-07-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="厚生分析.html"/>
+<link rel="next" href="厚生分析時系列比較.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -166,11 +166,15 @@ div.csl-indent {
 <li class="chapter" data-level="2.2" data-path="記述統計量.html"><a href="記述統計量.html#rコード"><i class="fa fa-check"></i><b>2.2</b> Rコード</a></li>
 <li class="chapter" data-level="2.3" data-path="記述統計量.html"><a href="記述統計量.html#結果"><i class="fa fa-check"></i><b>2.3</b> 結果</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="厚生分析.html"><a href="厚生分析.html"><i class="fa fa-check"></i><b>3</b> 厚生分析</a>
+<li class="chapter" data-level="3" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html"><i class="fa fa-check"></i><b>3</b> 厚生分析:時系列比較</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="厚生分析.html"><a href="厚生分析.html#方法-1"><i class="fa fa-check"></i><b>3.1</b> 方法</a></li>
-<li class="chapter" data-level="3.2" data-path="厚生分析.html"><a href="厚生分析.html#rコード-1"><i class="fa fa-check"></i><b>3.2</b> Rコード</a></li>
-<li class="chapter" data-level="3.3" data-path="厚生分析.html"><a href="厚生分析.html#結果-1"><i class="fa fa-check"></i><b>3.3</b> 結果</a></li>
+<li class="chapter" data-level="3.1" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html#方法-1"><i class="fa fa-check"></i><b>3.1</b> 方法</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html#識別"><i class="fa fa-check"></i><b>3.1.1</b> 識別</a></li>
+<li class="chapter" data-level="3.1.2" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html#時系列比較への応用"><i class="fa fa-check"></i><b>3.1.2</b> 時系列比較への応用</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html#rコード-1"><i class="fa fa-check"></i><b>3.2</b> Rコード</a></li>
+<li class="chapter" data-level="3.3" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html#結果-1"><i class="fa fa-check"></i><b>3.3</b> 結果</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>4</b> Session information</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -312,18 +316,18 @@ div.csl-indent {
 <span id="cb2-101"><a href="記述統計量.html#cb2-101" aria-hidden="true" tabindex="-1"></a>           求職 <span class="ot">=</span> <span class="fu">log</span>(求職) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">lag</span>(求職)),</span>
 <span id="cb2-102"><a href="記述統計量.html#cb2-102" aria-hidden="true" tabindex="-1"></a>           新規就職 <span class="ot">=</span> <span class="fu">log</span>(新規就職) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">lag</span>(新規就職))</span>
 <span id="cb2-103"><a href="記述統計量.html#cb2-103" aria-hidden="true" tabindex="-1"></a>           ) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb2-104"><a href="記述統計量.html#cb2-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>),</span>
-<span id="cb2-105"><a href="記述統計量.html#cb2-105" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>,</span>
-<span id="cb2-106"><a href="記述統計量.html#cb2-106" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb2-107"><a href="記述統計量.html#cb2-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
-<span id="cb2-108"><a href="記述統計量.html#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-109"><a href="記述統計量.html#cb2-109" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span></span>
-<span id="cb2-110"><a href="記述統計量.html#cb2-110" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb2-111"><a href="記述統計量.html#cb2-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date,</span>
-<span id="cb2-112"><a href="記述統計量.html#cb2-112" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> N)</span>
-<span id="cb2-113"><a href="記述統計量.html#cb2-113" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
-<span id="cb2-114"><a href="記述統計量.html#cb2-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb2-115"><a href="記述統計量.html#cb2-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-104"><a href="記述統計量.html#cb2-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-105"><a href="記述統計量.html#cb2-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>),</span>
+<span id="cb2-106"><a href="記述統計量.html#cb2-106" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>,</span>
+<span id="cb2-107"><a href="記述統計量.html#cb2-107" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-108"><a href="記述統計量.html#cb2-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb2-109"><a href="記述統計量.html#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-110"><a href="記述統計量.html#cb2-110" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span></span>
+<span id="cb2-111"><a href="記述統計量.html#cb2-111" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|</span><span class="er">&gt;</span> </span>
+<span id="cb2-112"><a href="記述統計量.html#cb2-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date,</span>
+<span id="cb2-113"><a href="記述統計量.html#cb2-113" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> N)</span>
+<span id="cb2-114"><a href="記述統計量.html#cb2-114" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb2-115"><a href="記述統計量.html#cb2-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb2-116"><a href="記述統計量.html#cb2-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb2-117"><a href="記述統計量.html#cb2-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>type,</span>
 <span id="cb2-118"><a href="記述統計量.html#cb2-118" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
@@ -343,7 +347,7 @@ div.csl-indent {
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="厚生分析.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="厚生分析時系列比較.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
