@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 厚生分析:時系列比較 | ハローワークデータからみる労働市場</title>
   <meta name="description" content="TBA" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 厚生分析:時系列比較 | ハローワークデータからみる労働市場" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="川田恵介" />
 
 
-<meta name="date" content="2021-07-31" />
+<meta name="date" content="2021-08-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,9 +32,9 @@
   
   
 <link rel="prev" href="記述統計量.html"/>
-<link rel="next" href="session-information.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="厚生分析セクター別分解分析.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -165,6 +165,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.1" data-path="記述統計量.html"><a href="記述統計量.html#方法"><i class="fa fa-check"></i><b>2.1</b> 方法</a></li>
 <li class="chapter" data-level="2.2" data-path="記述統計量.html"><a href="記述統計量.html#rコード"><i class="fa fa-check"></i><b>2.2</b> Rコード</a></li>
 <li class="chapter" data-level="2.3" data-path="記述統計量.html"><a href="記述統計量.html#結果"><i class="fa fa-check"></i><b>2.3</b> 結果</a></li>
+<li class="chapter" data-level="2.4" data-path="記述統計量.html"><a href="記述統計量.html#環境"><i class="fa fa-check"></i><b>2.4</b> 環境</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html"><i class="fa fa-check"></i><b>3</b> 厚生分析:時系列比較</a>
 <ul>
@@ -175,8 +176,23 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html#rコード-1"><i class="fa fa-check"></i><b>3.2</b> Rコード</a></li>
 <li class="chapter" data-level="3.3" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html#結果-1"><i class="fa fa-check"></i><b>3.3</b> 結果</a></li>
+<li class="chapter" data-level="3.4" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html#環境-1"><i class="fa fa-check"></i><b>3.4</b> 環境</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>4</b> Session information</a></li>
+<li class="chapter" data-level="4" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html"><i class="fa fa-check"></i><b>4</b> 厚生分析:セクター別分解分析</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#方法-2"><i class="fa fa-check"></i><b>4.1</b> 方法</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#セクターの貢献率"><i class="fa fa-check"></i><b>4.1.1</b> セクターの貢献率</a></li>
+<li class="chapter" data-level="4.1.2" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#余剰の変化に対する貢献"><i class="fa fa-check"></i><b>4.1.2</b> 余剰の変化に対する貢献</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#職業大分類"><i class="fa fa-check"></i><b>4.2</b> 職業大分類</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#rコード-2"><i class="fa fa-check"></i><b>4.2.1</b> Rコード</a></li>
+<li class="chapter" data-level="4.2.2" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#セクターの貢献率-1"><i class="fa fa-check"></i><b>4.2.2</b> セクターの貢献率</a></li>
+<li class="chapter" data-level="4.2.3" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#総余剰の変化"><i class="fa fa-check"></i><b>4.2.3</b> 総余剰の変化</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#環境-2"><i class="fa fa-check"></i><b>4.3</b> 環境</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -201,14 +217,17 @@ div.csl-indent {
 <div id="厚生分析時系列比較" class="section level1" number="3">
 <h1><span class="header-section-number">Chapter 3</span> 厚生分析:時系列比較</h1>
 <ul>
-<li>1963年から2021年6月までの年次データ、<span class="citation"><a href="#ref-kawata2021first" role="doc-biblioref">Kawata and Sato</a> (<a href="#ref-kawata2021first" role="doc-biblioref">2021</a>)</span> の手法を用いて、求職者の厚生変化を記述する</li>
+<li><p>1963年から2021年6月までの年次データ、<span class="citation"><a href="#ref-kawata2021first" role="doc-biblioref">Kawata and Sato</a> (<a href="#ref-kawata2021first" role="doc-biblioref">2021</a>)</span> の手法を用いて、求職者の厚生変化を記述する</p>
+<ul>
+<li>引き続き四半期ごとに集計する</li>
+</ul></li>
 </ul>
 <div id="方法-1" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> 方法</h2>
 <ul>
-<li><p>同質な求職者・求人からなるモデルを用いて、識別のアイディアを紹介する。</p>
+<li><p>同質な求職者・求人からなるモデルを用いて、定常状態における厚生変化の識別方法を紹介する。</p>
 <ul>
-<li><span class="citation"><a href="#ref-kawata2021first" role="doc-biblioref">Kawata and Sato</a> (<a href="#ref-kawata2021first" role="doc-biblioref">2021</a>)</span> では異質性を導入・非定常であったとしても、同じ識別結果を得れることを示している</li>
+<li><span class="citation"><a href="#ref-kawata2021first" role="doc-biblioref">Kawata and Sato</a> (<a href="#ref-kawata2021first" role="doc-biblioref">2021</a>)</span> では異質性を導入し・非定常状態であったとしても、同じ結果を得れることを示している。</li>
 </ul></li>
 <li><p>標準的なDiamond-Mortencen-Pissarides型サーチモデル<span class="citation">(<a href="#ref-rogerson2005search" role="doc-biblioref">Rogerson, Shimer, and Wright 2005</a>)</span>に準じて、以下の4条件式を仮定する</p></li>
 </ul>
@@ -220,9 +239,9 @@ div.csl-indent {
 <p><span class="math display">\[\Delta = \underbrace{\frac{m}{u}}_{入職率}\times \underbrace{(W-U)}_{入職からの余剰}\]</span></p>
 <p><span class="math inline">\(m:\)</span> 新規就職件数、<span class="math inline">\(u:\)</span>求職者数、<span class="math inline">\(U:\)</span>求職者の期待効用、<span class="math inline">\(W:\)</span>就業者の期待効用、<span class="math inline">\(r,b:\)</span> パラメータ</p>
 <ul>
-<li><p>総余剰をデータから識別することを目指す。</p>
+<li><p>サーチ活動の余剰をデータから識別することを目指す。</p>
 <ul>
-<li><p>同値はサーチ活動がもたらす期待余剰であり、入職率と入職がもたらす余剰<span class="math inline">\(W-U\)</span>の積として定義されている。</p></li>
+<li><p>同値はサーチ活動がもたらす期待余剰であり、入職率と入職がもたらす余剰<span class="math inline">\(W-U\)</span>の積として定義される。</p></li>
 <li><p>識別の障害となるのは、入職からの余剰をデータから直接観察できない点にある。以下では他の均衡条件を用いることで、この観察できない値の”変化”は復元できることを示している。</p></li>
 </ul></li>
 </ul>
@@ -259,14 +278,20 @@ div.csl-indent {
 <ul>
 <li><p>同式からは、新規就職、求人、求職件数とパラメータの積により、新規就職からの余剰は書き下せる
 ことを示している。</p></li>
-<li><p>未知のパラメータ(<span class="math inline">\(\beta\)</span>,<span class="math inline">\(k\)</span>)を含んでいるため<span class="math inline">\(\Delta\)</span>そのものをデータから識別することはできないが、この対数差は識別可能である。</p></li>
-<li><p>異なる状態（2019年 VS 2020年, “With COVID-19” VS “Without COVID-19”等）におけるサーチ活動からの余剰を<span class="math inline">\(\Delta,\Delta&#39;\)</span>で記す。この対数差は</p></li>
+<li><p>未知のパラメータ(<span class="math inline">\(\beta\)</span>,<span class="math inline">\(k\)</span>)を含んでいるため<span class="math inline">\(\Delta\)</span>そのものをデータから識別することはできない。
+他方変化率は、未知のパラメータを推定せずに、識別できる。</p></li>
+<li><p>異なる状態（2019年 VS 2020年, “With COVID-19” VS “Without COVID-19”等）におけるサーチ活動からの余剰を<span class="math inline">\(\Delta,\Delta&#39;\)</span>で記す。
+状態が異なっても<span class="math inline">\(¥beta\)</span>,<span class="math inline">\(k\)</span>は変化しないとすると、サーチ活動からの余剰の変化率は</p></li>
 </ul>
-<p><span class="math display">\[\log (\Delta) - \log(\Delta&#39;)=\underbrace{\log(\frac{m&#39;}{u&#39;})-\log(\frac{m}{u})}_{入職率の対数変化} + \underbrace{\log(\frac{v&#39;}{m&#39;})-\log(\frac{v}{m})}_{入職からの余剰の対数変化} = \log(\frac{v&#39;}{u&#39;})-\log(\frac{v}{u})\]</span></p>
+<p><span class="math display">\[\frac{\Delta - \Delta&#39;}{\Delta&#39;}=\frac{\frac{m}{u}(W-U)-\frac{m&#39;}{u&#39;}(W&#39;-U&#39;)}{\frac{m&#39;}{u&#39;}(W&#39;-U&#39;)}\]</span></p>
+<p><span class="math display">\[=\frac{1}{\frac{m&#39;}{u&#39;}(W&#39;-U&#39;)}[\underbrace{\frac{m}{u}(W-U-(W&#39;-U&#39;))}_{マッチからの余剰の貢献}+\underbrace{(\frac{m}{u}-\frac{m&#39;}{u&#39;})(W&#39;-U&#39;)}_{入職率の貢献}]\]</span></p>
+<p><span class="math display">\[=\frac{u&#39;}{v&#39;}[\underbrace{\frac{m}{u}(\frac{v}{m}-\frac{v&#39;}{m&#39;})}_{マッチからの余剰の貢献}+\underbrace{\frac{v&#39;}{m&#39;}(\frac{m}{u}-\frac{m&#39;}{u&#39;})}_{入職率の貢献}]\]</span></p>
+<p><span class="math display">\[=\underbrace{\frac{u&#39;}{v&#39;}[\frac{v}{u}-\frac{v&#39;}{u&#39;}]}_{サーチ活動からの余剰}\]</span></p>
 <ul>
-<li><p>同式職からの余剰は、求人倍率<span class="math inline">\(v/u\)</span>の対数差により識別されることを示している。</p>
+<li><p>同式から総余剰は、求人倍率<span class="math inline">\(v/u\)</span>の変化率により識別されることを示している。</p>
 <ul>
-<li>さらにサーチ活動からの余剰は入職率、入職からの余剰の対数変化に分解でき、それぞれも新規就職・求人・求職件数のみで識別できることを示している。</li>
+<li><p>さらにサーチ活動からの総余剰は入職率、入職からの余剰の対数変化に分解でき、それぞれも新規就職・求人・求職件数のみで識別できることを示している。</p></li>
+<li><p>これらは職業紹介業務統計において継続的に報告されており、公開データのみを用いて、求職活動の厚生評価を行う事ができる。</p></li>
 </ul></li>
 </ul>
 </div>
@@ -283,143 +308,184 @@ div.csl-indent {
 </div>
 <div id="rコード-1" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Rコード</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="厚生分析時系列比較.html#cb3-1" aria-hidden="true" tabindex="-1"></a>col.label <span class="ot">&lt;-</span> </span>
-<span id="cb3-2"><a href="厚生分析時系列比較.html#cb3-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>,</span>
-<span id="cb3-3"><a href="厚生分析時系列比較.html#cb3-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;1&quot;</span>,</span>
-<span id="cb3-4"><a href="厚生分析時系列比較.html#cb3-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;2&quot;</span>,</span>
-<span id="cb3-5"><a href="厚生分析時系列比較.html#cb3-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;3&quot;</span>,</span>
-<span id="cb3-6"><a href="厚生分析時系列比較.html#cb3-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;4&quot;</span>,</span>
-<span id="cb3-7"><a href="厚生分析時系列比較.html#cb3-7" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;5&quot;</span>,</span>
-<span id="cb3-8"><a href="厚生分析時系列比較.html#cb3-8" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;6&quot;</span>,</span>
-<span id="cb3-9"><a href="厚生分析時系列比較.html#cb3-9" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;7&quot;</span>,</span>
-<span id="cb3-10"><a href="厚生分析時系列比較.html#cb3-10" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;8&quot;</span>,</span>
-<span id="cb3-11"><a href="厚生分析時系列比較.html#cb3-11" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;9&quot;</span>,</span>
-<span id="cb3-12"><a href="厚生分析時系列比較.html#cb3-12" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;10&quot;</span>,</span>
-<span id="cb3-13"><a href="厚生分析時系列比較.html#cb3-13" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;11&quot;</span>,</span>
-<span id="cb3-14"><a href="厚生分析時系列比較.html#cb3-14" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;12&quot;</span>,</span>
-<span id="cb3-15"><a href="厚生分析時系列比較.html#cb3-15" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;type&quot;</span>,</span>
-<span id="cb3-16"><a href="厚生分析時系列比較.html#cb3-16" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;group&quot;</span>)</span>
-<span id="cb3-17"><a href="厚生分析時系列比較.html#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="厚生分析時系列比較.html#cb3-18" aria-hidden="true" tabindex="-1"></a>select.raw <span class="ot">&lt;-</span> <span class="dv">14</span><span class="sc">:</span><span class="dv">63</span></span>
-<span id="cb3-19"><a href="厚生分析時系列比較.html#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="厚生分析時系列比較.html#cb3-20" aria-hidden="true" tabindex="-1"></a>select.column <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>)</span>
-<span id="cb3-21"><a href="厚生分析時系列比較.html#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="厚生分析時系列比較.html#cb3-22" aria-hidden="true" tabindex="-1"></a>raw.vacancy.full <span class="ot">&lt;-</span></span>
-<span id="cb3-23"><a href="厚生分析時系列比較.html#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第6表.xlsx&quot;</span>,</span>
-<span id="cb3-24"><a href="厚生分析時系列比較.html#cb3-24" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第６表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-25"><a href="厚生分析時系列比較.html#cb3-25" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-26"><a href="厚生分析時系列比較.html#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求人&quot;</span>,</span>
-<span id="cb3-27"><a href="厚生分析時系列比較.html#cb3-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
-<span id="cb3-28"><a href="厚生分析時系列比較.html#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="厚生分析時系列比較.html#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.vacancy.full) <span class="ot">&lt;-</span> col.label</span>
-<span id="cb3-30"><a href="厚生分析時系列比較.html#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-31"><a href="厚生分析時系列比較.html#cb3-31" aria-hidden="true" tabindex="-1"></a>raw.seeker.full <span class="ot">&lt;-</span></span>
-<span id="cb3-32"><a href="厚生分析時系列比較.html#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第7表.xlsx&quot;</span>,</span>
-<span id="cb3-33"><a href="厚生分析時系列比較.html#cb3-33" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第７表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-34"><a href="厚生分析時系列比較.html#cb3-34" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-35"><a href="厚生分析時系列比較.html#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求職&quot;</span>,</span>
-<span id="cb3-36"><a href="厚生分析時系列比較.html#cb3-36" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
-<span id="cb3-37"><a href="厚生分析時系列比較.html#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a href="厚生分析時系列比較.html#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.seeker.full) <span class="ot">&lt;-</span> col.label</span>
-<span id="cb3-39"><a href="厚生分析時系列比較.html#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a href="厚生分析時系列比較.html#cb3-40" aria-hidden="true" tabindex="-1"></a>raw.hir.full <span class="ot">&lt;-</span></span>
-<span id="cb3-41"><a href="厚生分析時系列比較.html#cb3-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第8表.xlsx&quot;</span>,</span>
-<span id="cb3-42"><a href="厚生分析時系列比較.html#cb3-42" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第８表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-43"><a href="厚生分析時系列比較.html#cb3-43" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-44"><a href="厚生分析時系列比較.html#cb3-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;新規就職&quot;</span>,</span>
-<span id="cb3-45"><a href="厚生分析時系列比較.html#cb3-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
-<span id="cb3-46"><a href="厚生分析時系列比較.html#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-47"><a href="厚生分析時系列比較.html#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.hir.full) <span class="ot">&lt;-</span> col.label</span>
-<span id="cb3-48"><a href="厚生分析時系列比較.html#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-49"><a href="厚生分析時系列比較.html#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-50"><a href="厚生分析時系列比較.html#cb3-50" aria-hidden="true" tabindex="-1"></a>raw.vacancy.part <span class="ot">&lt;-</span></span>
-<span id="cb3-51"><a href="厚生分析時系列比較.html#cb3-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第6表.xlsx&quot;</span>,</span>
-<span id="cb3-52"><a href="厚生分析時系列比較.html#cb3-52" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第６表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-53"><a href="厚生分析時系列比較.html#cb3-53" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-54"><a href="厚生分析時系列比較.html#cb3-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求人&quot;</span>,</span>
-<span id="cb3-55"><a href="厚生分析時系列比較.html#cb3-55" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
-<span id="cb3-56"><a href="厚生分析時系列比較.html#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-57"><a href="厚生分析時系列比較.html#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.vacancy.part) <span class="ot">&lt;-</span> col.label</span>
-<span id="cb3-58"><a href="厚生分析時系列比較.html#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-59"><a href="厚生分析時系列比較.html#cb3-59" aria-hidden="true" tabindex="-1"></a>raw.seeker.part <span class="ot">&lt;-</span></span>
-<span id="cb3-60"><a href="厚生分析時系列比較.html#cb3-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第7表.xlsx&quot;</span>,</span>
-<span id="cb3-61"><a href="厚生分析時系列比較.html#cb3-61" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第７表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-62"><a href="厚生分析時系列比較.html#cb3-62" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-63"><a href="厚生分析時系列比較.html#cb3-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求職&quot;</span>,</span>
-<span id="cb3-64"><a href="厚生分析時系列比較.html#cb3-64" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
-<span id="cb3-65"><a href="厚生分析時系列比較.html#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-66"><a href="厚生分析時系列比較.html#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.seeker.part) <span class="ot">&lt;-</span> col.label</span>
-<span id="cb3-67"><a href="厚生分析時系列比較.html#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-68"><a href="厚生分析時系列比較.html#cb3-68" aria-hidden="true" tabindex="-1"></a>raw.hir.part <span class="ot">&lt;-</span></span>
-<span id="cb3-69"><a href="厚生分析時系列比較.html#cb3-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第8表.xlsx&quot;</span>,</span>
-<span id="cb3-70"><a href="厚生分析時系列比較.html#cb3-70" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第８表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-71"><a href="厚生分析時系列比較.html#cb3-71" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-72"><a href="厚生分析時系列比較.html#cb3-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;新規就職&quot;</span>,</span>
-<span id="cb3-73"><a href="厚生分析時系列比較.html#cb3-73" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
-<span id="cb3-74"><a href="厚生分析時系列比較.html#cb3-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-75"><a href="厚生分析時系列比較.html#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.hir.part) <span class="ot">&lt;-</span> col.label</span>
-<span id="cb3-76"><a href="厚生分析時系列比較.html#cb3-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-77"><a href="厚生分析時系列比較.html#cb3-77" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span></span>
-<span id="cb3-78"><a href="厚生分析時系列比較.html#cb3-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(raw.hir.full,</span>
-<span id="cb3-79"><a href="厚生分析時系列比較.html#cb3-79" aria-hidden="true" tabindex="-1"></a>        raw.hir.part,</span>
-<span id="cb3-80"><a href="厚生分析時系列比較.html#cb3-80" aria-hidden="true" tabindex="-1"></a>        raw.vacancy.full,</span>
-<span id="cb3-81"><a href="厚生分析時系列比較.html#cb3-81" aria-hidden="true" tabindex="-1"></a>        raw.vacancy.part,</span>
-<span id="cb3-82"><a href="厚生分析時系列比較.html#cb3-82" aria-hidden="true" tabindex="-1"></a>        raw.seeker.full,</span>
-<span id="cb3-83"><a href="厚生分析時系列比較.html#cb3-83" aria-hidden="true" tabindex="-1"></a>        raw.seeker.part</span>
-<span id="cb3-84"><a href="厚生分析時系列比較.html#cb3-84" aria-hidden="true" tabindex="-1"></a>        ) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-85"><a href="厚生分析時系列比較.html#cb3-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">13</span>,</span>
-<span id="cb3-86"><a href="厚生分析時系列比較.html#cb3-86" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;month&quot;</span>,</span>
-<span id="cb3-87"><a href="厚生分析時系列比較.html#cb3-87" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-88"><a href="厚生分析時系列比較.html#cb3-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> n <span class="sc">|</span><span class="er">&gt;</span> <span class="fu">as.numeric</span>(),</span>
-<span id="cb3-89"><a href="厚生分析時系列比較.html#cb3-89" aria-hidden="true" tabindex="-1"></a>         <span class="at">year =</span> year <span class="sc">|</span><span class="er">&gt;</span> <span class="fu">str_sub</span>(<span class="dv">1</span>,<span class="dv">4</span>) <span class="sc">|</span><span class="er">&gt;</span> <span class="fu">as.numeric</span>(),</span>
-<span id="cb3-90"><a href="厚生分析時系列比較.html#cb3-90" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> month <span class="sc">|</span><span class="er">&gt;</span> <span class="fu">as.numeric</span>(),</span>
-<span id="cb3-91"><a href="厚生分析時系列比較.html#cb3-91" aria-hidden="true" tabindex="-1"></a>         <span class="at">quaterly =</span> month <span class="sc">|</span><span class="er">&gt;</span> <span class="fu">cut</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">12</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)),</span>
-<span id="cb3-92"><a href="厚生分析時系列比較.html#cb3-92" aria-hidden="true" tabindex="-1"></a>         <span class="at">date =</span> <span class="fu">yq</span>(<span class="fu">str_c</span>(year,quaterly,<span class="at">sep =</span> <span class="st">&quot;:Q&quot;</span>))</span>
-<span id="cb3-93"><a href="厚生分析時系列比較.html#cb3-93" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-94"><a href="厚生分析時系列比較.html#cb3-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date,type) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-95"><a href="厚生分析時系列比較.html#cb3-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> n <span class="sc">|</span><span class="er">&gt;</span> <span class="fu">sum</span>()) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-96"><a href="厚生分析時系列比較.html#cb3-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-97"><a href="厚生分析時系列比較.html#cb3-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(year,quaterly,date,type,n) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-98"><a href="厚生分析時系列比較.html#cb3-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(<span class="at">key =</span> type, <span class="at">value =</span> n) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-99"><a href="厚生分析時系列比較.html#cb3-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(quaterly) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-100"><a href="厚生分析時系列比較.html#cb3-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(入職率 <span class="ot">=</span> <span class="fu">log</span>(新規就職<span class="sc">/</span>求職) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">lag</span>(新規就職<span class="sc">/</span>求職)),</span>
-<span id="cb3-101"><a href="厚生分析時系列比較.html#cb3-101" aria-hidden="true" tabindex="-1"></a>        　入職からの余剰 <span class="ot">=</span> <span class="fu">log</span>(<span class="fu">lag</span>(新規就職<span class="sc">/</span>求人)) <span class="sc">-</span> <span class="fu">log</span>(新規就職<span class="sc">/</span>求人),</span>
-<span id="cb3-102"><a href="厚生分析時系列比較.html#cb3-102" aria-hidden="true" tabindex="-1"></a>           サーチ活動からの余剰 <span class="ot">=</span> <span class="fu">log</span>(求人<span class="sc">/</span>求職) <span class="sc">-</span> <span class="fu">log</span>(<span class="fu">lag</span>(求人<span class="sc">/</span>求職))</span>
-<span id="cb3-103"><a href="厚生分析時系列比較.html#cb3-103" aria-hidden="true" tabindex="-1"></a>           ) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-104"><a href="厚生分析時系列比較.html#cb3-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-105"><a href="厚生分析時系列比較.html#cb3-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>求職,</span>
-<span id="cb3-106"><a href="厚生分析時系列比較.html#cb3-106" aria-hidden="true" tabindex="-1"></a>         <span class="sc">-</span>求人,</span>
-<span id="cb3-107"><a href="厚生分析時系列比較.html#cb3-107" aria-hidden="true" tabindex="-1"></a>         <span class="sc">-</span>新規就職) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-108"><a href="厚生分析時系列比較.html#cb3-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>),</span>
-<span id="cb3-109"><a href="厚生分析時系列比較.html#cb3-109" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>,</span>
-<span id="cb3-110"><a href="厚生分析時系列比較.html#cb3-110" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-111"><a href="厚生分析時系列比較.html#cb3-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
-<span id="cb3-112"><a href="厚生分析時系列比較.html#cb3-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-113"><a href="厚生分析時系列比較.html#cb3-113" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span></span>
-<span id="cb3-114"><a href="厚生分析時系列比較.html#cb3-114" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|</span><span class="er">&gt;</span> </span>
-<span id="cb3-115"><a href="厚生分析時系列比較.html#cb3-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date,</span>
-<span id="cb3-116"><a href="厚生分析時系列比較.html#cb3-116" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> N)</span>
-<span id="cb3-117"><a href="厚生分析時系列比較.html#cb3-117" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
-<span id="cb3-118"><a href="厚生分析時系列比較.html#cb3-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb3-119"><a href="厚生分析時系列比較.html#cb3-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb3-120"><a href="厚生分析時系列比較.html#cb3-120" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span><span class="fu">factor</span>(type,</span>
-<span id="cb3-121"><a href="厚生分析時系列比較.html#cb3-121" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;入職からの余剰&quot;</span>,</span>
-<span id="cb3-122"><a href="厚生分析時系列比較.html#cb3-122" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;入職率&quot;</span>,</span>
-<span id="cb3-123"><a href="厚生分析時系列比較.html#cb3-123" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;サーチ活動からの余剰&quot;</span>)),</span>
-<span id="cb3-124"><a href="厚生分析時系列比較.html#cb3-124" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb3-125"><a href="厚生分析時系列比較.html#cb3-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
-<span id="cb3-126"><a href="厚生分析時系列比較.html#cb3-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
-<span id="cb3-127"><a href="厚生分析時系列比較.html#cb3-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="厚生分析時系列比較.html#cb5-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(<span class="st">&quot;tidyverse&quot;</span>,</span>
+<span id="cb5-2"><a href="厚生分析時系列比較.html#cb5-2" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;readxl&quot;</span>,</span>
+<span id="cb5-3"><a href="厚生分析時系列比較.html#cb5-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;lubridate&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="厚生分析時系列比較.html#cb6-1" aria-hidden="true" tabindex="-1"></a>col.label <span class="ot">&lt;-</span> </span>
+<span id="cb6-2"><a href="厚生分析時系列比較.html#cb6-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>,</span>
+<span id="cb6-3"><a href="厚生分析時系列比較.html#cb6-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;1&quot;</span>,</span>
+<span id="cb6-4"><a href="厚生分析時系列比較.html#cb6-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;2&quot;</span>,</span>
+<span id="cb6-5"><a href="厚生分析時系列比較.html#cb6-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;3&quot;</span>,</span>
+<span id="cb6-6"><a href="厚生分析時系列比較.html#cb6-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;4&quot;</span>,</span>
+<span id="cb6-7"><a href="厚生分析時系列比較.html#cb6-7" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;5&quot;</span>,</span>
+<span id="cb6-8"><a href="厚生分析時系列比較.html#cb6-8" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;6&quot;</span>,</span>
+<span id="cb6-9"><a href="厚生分析時系列比較.html#cb6-9" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;7&quot;</span>,</span>
+<span id="cb6-10"><a href="厚生分析時系列比較.html#cb6-10" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;8&quot;</span>,</span>
+<span id="cb6-11"><a href="厚生分析時系列比較.html#cb6-11" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;9&quot;</span>,</span>
+<span id="cb6-12"><a href="厚生分析時系列比較.html#cb6-12" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;10&quot;</span>,</span>
+<span id="cb6-13"><a href="厚生分析時系列比較.html#cb6-13" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;11&quot;</span>,</span>
+<span id="cb6-14"><a href="厚生分析時系列比較.html#cb6-14" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;12&quot;</span>,</span>
+<span id="cb6-15"><a href="厚生分析時系列比較.html#cb6-15" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;type&quot;</span>,</span>
+<span id="cb6-16"><a href="厚生分析時系列比較.html#cb6-16" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;group&quot;</span>)</span>
+<span id="cb6-17"><a href="厚生分析時系列比較.html#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="厚生分析時系列比較.html#cb6-18" aria-hidden="true" tabindex="-1"></a>select.raw <span class="ot">&lt;-</span> <span class="dv">14</span><span class="sc">:</span><span class="dv">63</span></span>
+<span id="cb6-19"><a href="厚生分析時系列比較.html#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="厚生分析時系列比較.html#cb6-20" aria-hidden="true" tabindex="-1"></a>select.column <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>)</span>
+<span id="cb6-21"><a href="厚生分析時系列比較.html#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="厚生分析時系列比較.html#cb6-22" aria-hidden="true" tabindex="-1"></a>raw.vacancy.full <span class="ot">&lt;-</span></span>
+<span id="cb6-23"><a href="厚生分析時系列比較.html#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第6表.xlsx&quot;</span>,</span>
+<span id="cb6-24"><a href="厚生分析時系列比較.html#cb6-24" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第６表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-25"><a href="厚生分析時系列比較.html#cb6-25" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|&gt;</span> </span>
+<span id="cb6-26"><a href="厚生分析時系列比較.html#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求人&quot;</span>,</span>
+<span id="cb6-27"><a href="厚生分析時系列比較.html#cb6-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
+<span id="cb6-28"><a href="厚生分析時系列比較.html#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-29"><a href="厚生分析時系列比較.html#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.vacancy.full) <span class="ot">&lt;-</span> col.label</span>
+<span id="cb6-30"><a href="厚生分析時系列比較.html#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="厚生分析時系列比較.html#cb6-31" aria-hidden="true" tabindex="-1"></a>raw.seeker.full <span class="ot">&lt;-</span></span>
+<span id="cb6-32"><a href="厚生分析時系列比較.html#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第7表.xlsx&quot;</span>,</span>
+<span id="cb6-33"><a href="厚生分析時系列比較.html#cb6-33" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第７表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-34"><a href="厚生分析時系列比較.html#cb6-34" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|&gt;</span> </span>
+<span id="cb6-35"><a href="厚生分析時系列比較.html#cb6-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求職&quot;</span>,</span>
+<span id="cb6-36"><a href="厚生分析時系列比較.html#cb6-36" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
+<span id="cb6-37"><a href="厚生分析時系列比較.html#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-38"><a href="厚生分析時系列比較.html#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.seeker.full) <span class="ot">&lt;-</span> col.label</span>
+<span id="cb6-39"><a href="厚生分析時系列比較.html#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="厚生分析時系列比較.html#cb6-40" aria-hidden="true" tabindex="-1"></a>raw.hir.full <span class="ot">&lt;-</span></span>
+<span id="cb6-41"><a href="厚生分析時系列比較.html#cb6-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第8表.xlsx&quot;</span>,</span>
+<span id="cb6-42"><a href="厚生分析時系列比較.html#cb6-42" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第８表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-43"><a href="厚生分析時系列比較.html#cb6-43" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|&gt;</span> </span>
+<span id="cb6-44"><a href="厚生分析時系列比較.html#cb6-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;新規就職&quot;</span>,</span>
+<span id="cb6-45"><a href="厚生分析時系列比較.html#cb6-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
+<span id="cb6-46"><a href="厚生分析時系列比較.html#cb6-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-47"><a href="厚生分析時系列比較.html#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.hir.full) <span class="ot">&lt;-</span> col.label</span>
+<span id="cb6-48"><a href="厚生分析時系列比較.html#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-49"><a href="厚生分析時系列比較.html#cb6-49" aria-hidden="true" tabindex="-1"></a>raw.vacancy.part <span class="ot">&lt;-</span></span>
+<span id="cb6-50"><a href="厚生分析時系列比較.html#cb6-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第6表.xlsx&quot;</span>,</span>
+<span id="cb6-51"><a href="厚生分析時系列比較.html#cb6-51" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第６表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-52"><a href="厚生分析時系列比較.html#cb6-52" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|&gt;</span> </span>
+<span id="cb6-53"><a href="厚生分析時系列比較.html#cb6-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求人&quot;</span>,</span>
+<span id="cb6-54"><a href="厚生分析時系列比較.html#cb6-54" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
+<span id="cb6-55"><a href="厚生分析時系列比較.html#cb6-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-56"><a href="厚生分析時系列比較.html#cb6-56" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.vacancy.part) <span class="ot">&lt;-</span> col.label</span>
+<span id="cb6-57"><a href="厚生分析時系列比較.html#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-58"><a href="厚生分析時系列比較.html#cb6-58" aria-hidden="true" tabindex="-1"></a>raw.seeker.part <span class="ot">&lt;-</span></span>
+<span id="cb6-59"><a href="厚生分析時系列比較.html#cb6-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第7表.xlsx&quot;</span>,</span>
+<span id="cb6-60"><a href="厚生分析時系列比較.html#cb6-60" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第７表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-61"><a href="厚生分析時系列比較.html#cb6-61" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|&gt;</span> </span>
+<span id="cb6-62"><a href="厚生分析時系列比較.html#cb6-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求職&quot;</span>,</span>
+<span id="cb6-63"><a href="厚生分析時系列比較.html#cb6-63" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
+<span id="cb6-64"><a href="厚生分析時系列比較.html#cb6-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-65"><a href="厚生分析時系列比較.html#cb6-65" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.seeker.part) <span class="ot">&lt;-</span> col.label</span>
+<span id="cb6-66"><a href="厚生分析時系列比較.html#cb6-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-67"><a href="厚生分析時系列比較.html#cb6-67" aria-hidden="true" tabindex="-1"></a>raw.hir.part <span class="ot">&lt;-</span></span>
+<span id="cb6-68"><a href="厚生分析時系列比較.html#cb6-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第8表.xlsx&quot;</span>,</span>
+<span id="cb6-69"><a href="厚生分析時系列比較.html#cb6-69" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第８表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-70"><a href="厚生分析時系列比較.html#cb6-70" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|&gt;</span> </span>
+<span id="cb6-71"><a href="厚生分析時系列比較.html#cb6-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;新規就職&quot;</span>,</span>
+<span id="cb6-72"><a href="厚生分析時系列比較.html#cb6-72" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
+<span id="cb6-73"><a href="厚生分析時系列比較.html#cb6-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-74"><a href="厚生分析時系列比較.html#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.hir.part) <span class="ot">&lt;-</span> col.label</span>
+<span id="cb6-75"><a href="厚生分析時系列比較.html#cb6-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-76"><a href="厚生分析時系列比較.html#cb6-76" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span></span>
+<span id="cb6-77"><a href="厚生分析時系列比較.html#cb6-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(raw.hir.full,</span>
+<span id="cb6-78"><a href="厚生分析時系列比較.html#cb6-78" aria-hidden="true" tabindex="-1"></a>        raw.hir.part,</span>
+<span id="cb6-79"><a href="厚生分析時系列比較.html#cb6-79" aria-hidden="true" tabindex="-1"></a>        raw.vacancy.full,</span>
+<span id="cb6-80"><a href="厚生分析時系列比較.html#cb6-80" aria-hidden="true" tabindex="-1"></a>        raw.vacancy.part,</span>
+<span id="cb6-81"><a href="厚生分析時系列比較.html#cb6-81" aria-hidden="true" tabindex="-1"></a>        raw.seeker.full,</span>
+<span id="cb6-82"><a href="厚生分析時系列比較.html#cb6-82" aria-hidden="true" tabindex="-1"></a>        raw.seeker.part</span>
+<span id="cb6-83"><a href="厚生分析時系列比較.html#cb6-83" aria-hidden="true" tabindex="-1"></a>        ) <span class="sc">|&gt;</span> </span>
+<span id="cb6-84"><a href="厚生分析時系列比較.html#cb6-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">13</span>,</span>
+<span id="cb6-85"><a href="厚生分析時系列比較.html#cb6-85" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;month&quot;</span>,</span>
+<span id="cb6-86"><a href="厚生分析時系列比較.html#cb6-86" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-87"><a href="厚生分析時系列比較.html#cb6-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> n <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb6-88"><a href="厚生分析時系列比較.html#cb6-88" aria-hidden="true" tabindex="-1"></a>         <span class="at">year =</span> year <span class="sc">|&gt;</span> <span class="fu">str_sub</span>(<span class="dv">1</span>,<span class="dv">4</span>) <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb6-89"><a href="厚生分析時系列比較.html#cb6-89" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> month <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb6-90"><a href="厚生分析時系列比較.html#cb6-90" aria-hidden="true" tabindex="-1"></a>         <span class="at">quaterly =</span> month <span class="sc">|&gt;</span> <span class="fu">cut</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">12</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)),</span>
+<span id="cb6-91"><a href="厚生分析時系列比較.html#cb6-91" aria-hidden="true" tabindex="-1"></a>         <span class="at">date =</span> <span class="fu">yq</span>(<span class="fu">str_c</span>(year,quaterly,<span class="at">sep =</span> <span class="st">&quot;:Q&quot;</span>))</span>
+<span id="cb6-92"><a href="厚生分析時系列比較.html#cb6-92" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|&gt;</span> </span>
+<span id="cb6-93"><a href="厚生分析時系列比較.html#cb6-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date,type) <span class="sc">|&gt;</span> </span>
+<span id="cb6-94"><a href="厚生分析時系列比較.html#cb6-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> n <span class="sc">|&gt;</span> <span class="fu">sum</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb6-95"><a href="厚生分析時系列比較.html#cb6-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb6-96"><a href="厚生分析時系列比較.html#cb6-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(year,quaterly,date,type,n) <span class="sc">|&gt;</span> </span>
+<span id="cb6-97"><a href="厚生分析時系列比較.html#cb6-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(<span class="at">key =</span> type, <span class="at">value =</span> n) <span class="sc">|&gt;</span> </span>
+<span id="cb6-98"><a href="厚生分析時系列比較.html#cb6-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(quaterly) <span class="sc">|&gt;</span> </span>
+<span id="cb6-99"><a href="厚生分析時系列比較.html#cb6-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(サーチ活動からの余剰 <span class="ot">=</span> (<span class="fu">lag</span>(求職)<span class="sc">/</span><span class="fu">lag</span>(求人))<span class="sc">*</span>((求人<span class="sc">/</span>求職) <span class="sc">-</span> (<span class="fu">lag</span>(求人)<span class="sc">/</span><span class="fu">lag</span>(求職))),</span>
+<span id="cb6-100"><a href="厚生分析時系列比較.html#cb6-100" aria-hidden="true" tabindex="-1"></a>                   入職率 <span class="ot">=</span> (<span class="fu">lag</span>(求職)<span class="sc">/</span><span class="fu">lag</span>(求人))<span class="sc">*</span>(<span class="fu">lag</span>(求人)<span class="sc">/</span><span class="fu">lag</span>(新規就職))<span class="sc">*</span>((新規就職<span class="sc">/</span>求職) <span class="sc">-</span> (<span class="fu">lag</span>(新規就職)<span class="sc">/</span><span class="fu">lag</span>(求職))),</span>
+<span id="cb6-101"><a href="厚生分析時系列比較.html#cb6-101" aria-hidden="true" tabindex="-1"></a>                   入職からの余剰 <span class="ot">=</span> (<span class="fu">lag</span>(求職)<span class="sc">/</span><span class="fu">lag</span>(求人))<span class="sc">*</span>(新規就職<span class="sc">/</span>求職)<span class="sc">*</span>((求人<span class="sc">/</span>新規就職) <span class="sc">-</span> (<span class="fu">lag</span>(求人)<span class="sc">/</span><span class="fu">lag</span>(新規就職)))</span>
+<span id="cb6-102"><a href="厚生分析時系列比較.html#cb6-102" aria-hidden="true" tabindex="-1"></a>           ) <span class="sc">|&gt;</span> </span>
+<span id="cb6-103"><a href="厚生分析時系列比較.html#cb6-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb6-104"><a href="厚生分析時系列比較.html#cb6-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>求職,</span>
+<span id="cb6-105"><a href="厚生分析時系列比較.html#cb6-105" aria-hidden="true" tabindex="-1"></a>         <span class="sc">-</span>求人,</span>
+<span id="cb6-106"><a href="厚生分析時系列比較.html#cb6-106" aria-hidden="true" tabindex="-1"></a>         <span class="sc">-</span>新規就職) <span class="sc">|&gt;</span> </span>
+<span id="cb6-107"><a href="厚生分析時系列比較.html#cb6-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>),</span>
+<span id="cb6-108"><a href="厚生分析時系列比較.html#cb6-108" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>,</span>
+<span id="cb6-109"><a href="厚生分析時系列比較.html#cb6-109" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-110"><a href="厚生分析時系列比較.html#cb6-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="厚生分析時系列比較.html#cb7-1" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span></span>
+<span id="cb7-2"><a href="厚生分析時系列比較.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href="厚生分析時系列比較.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date,</span>
+<span id="cb7-4"><a href="厚生分析時系列比較.html#cb7-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> N)</span>
+<span id="cb7-5"><a href="厚生分析時系列比較.html#cb7-5" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="厚生分析時系列比較.html#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb7-7"><a href="厚生分析時系列比較.html#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="厚生分析時系列比較.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span><span class="fu">factor</span>(type,</span>
+<span id="cb7-9"><a href="厚生分析時系列比較.html#cb7-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;入職からの余剰&quot;</span>,</span>
+<span id="cb7-10"><a href="厚生分析時系列比較.html#cb7-10" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;入職率&quot;</span>,</span>
+<span id="cb7-11"><a href="厚生分析時系列比較.html#cb7-11" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;サーチ活動からの余剰&quot;</span>)),</span>
+<span id="cb7-12"><a href="厚生分析時系列比較.html#cb7-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb7-13"><a href="厚生分析時系列比較.html#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-14"><a href="厚生分析時系列比較.html#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-15"><a href="厚生分析時系列比較.html#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuPro-W3&quot;</span>)</span></code></pre></div>
 </div>
 <div id="結果-1" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> 結果</h2>
-<p><img src="test_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="test_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <ul>
 <li><p>サーチ活動からの余剰、入職率、入職からの余剰は、すべて景気変動と正循環していることが確認できる。</p></li>
-<li><p>COVID-19がもたらしたサーチ活動からの余剰への影響を他の経済ショックと比べた場合、平成不況と同程度の水準である。</p></li>
+<li><p>COVID-19がもたらしたサーチ活動からの余剰への影響を他の経済ショックと比べた場合、平成不況と同程度の水準である。</p>
+<ul>
 <li><p>COVID-19の影響は、2020年第2・3四半期については、入職率の低下により生じている。これは、入職からの余剰低下の影響も大きい、他の経済ショックとは大きく異なっている。</p></li>
 <li><p>入職率への影響は2021年第2四半期期において下げ止まりの傾向を見せているが、入職からの余剰は2020年第2四半期と比べても低下している。</p></li>
+</ul></li>
 </ul>
+</div>
+<div id="環境-1" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> 環境</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="厚生分析時系列比較.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>## R version 4.1.1 (2021-08-10)
+## Platform: aarch64-apple-darwin20 (64-bit)
+## Running under: macOS Big Sur 11.2.2
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] lubridate_1.7.10 readxl_1.3.1     forcats_0.5.1    stringr_1.4.0   
+##  [5] dplyr_1.0.7      purrr_0.3.4      readr_2.0.1      tidyr_1.1.3     
+##  [9] tibble_3.1.3     ggplot2_3.3.5    tidyverse_1.3.1 
+## 
+## loaded via a namespace (and not attached):
+##  [1] tidyselect_1.1.1  xfun_0.25         haven_2.4.3       colorspace_2.0-2 
+##  [5] vctrs_0.3.8       generics_0.1.0    htmltools_0.5.1.1 yaml_2.2.1       
+##  [9] utf8_1.2.2        rlang_0.4.11      jquerylib_0.1.4   pillar_1.6.2     
+## [13] withr_2.4.2       glue_1.4.2        DBI_1.1.1         dbplyr_2.1.1     
+## [17] modelr_0.1.8      lifecycle_1.0.0   munsell_0.5.0     gtable_0.3.0     
+## [21] cellranger_1.1.0  rvest_1.0.1       evaluate_0.14     labeling_0.4.2   
+## [25] knitr_1.33        tzdb_0.1.2        fansi_0.5.0       highr_0.9        
+## [29] broom_0.7.9       Rcpp_1.0.7        backports_1.2.1   scales_1.1.1     
+## [33] jsonlite_1.7.2    farver_2.1.0      fs_1.5.0          hms_1.1.0        
+## [37] digest_0.6.27     stringi_1.7.3     bookdown_0.23     grid_4.1.1       
+## [41] cli_3.0.1         tools_4.1.1       magrittr_2.0.1    pacman_0.5.1     
+## [45] crayon_1.4.1      pkgconfig_2.0.3   ellipsis_0.3.2    xml2_1.3.2       
+## [49] reprex_2.0.1      assertthat_0.2.1  rmarkdown_2.10    httr_1.4.2       
+## [53] rstudioapi_0.13   R6_2.5.1          compiler_4.1.1</code></pre>
 
 </div>
 </div>
@@ -438,7 +504,7 @@ Rogerson, Richard, Robert Shimer, and Randall Wright. 2005. <span>“Search-Theo
         </div>
       </div>
 <a href="記述統計量.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="session-information.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="厚生分析セクター別分解分析.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -482,6 +548,10 @@ gitbook.start({
 "text": null
 },
 "download": ["test.epub"],
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
