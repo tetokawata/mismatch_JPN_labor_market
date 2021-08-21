@@ -1,0 +1,292 @@
+# 厚生分析:セクター別分解分析
+
+- 職種別の就職・求人件数が観察可能な2012年から2021年6月までの月次データ、@kawata2021first の手法を拡張し、求職者の厚生変化に対する各職種の貢献を記述する。
+
+  - 四半期ごとに集計する
+
+## 方法
+
+- 標準的なDiamond-Mortencen-Pissarides型サーチモデル[@rogerson2005search]に準じて、以下の4条件式を仮定する
+
+- 失業状態の価値観
+
+$$rU=b + \sum_j\Delta_j$$
+
+ただし
+
+$$\Delta_j = \underbrace{\frac{m_{j}}{u}(W_j-U)}_{セクターjにおけるサーチ活動からの余剰}$$
+
+$m_j:$ セクターjにおける新規就職件数、$u:$ （総）求職者数、$W_j-U:$ セクターjにおける新規就職から生じる余剰
+
+- 自由参入条件
+
+$$k=\frac{m_j}{v_j}J_j$$
+
+- ナッシュ交渉
+
+$$(1-\beta)(W_j-U)=\beta J_j$$
+
+- 自由参入条件とナッシュ交渉を連立すると、
+
+$$W_j-U=\frac{\beta}{1-\beta}k\frac{v_j}{m_j}$$
+
+よって
+
+$$\Delta_j = \underbrace{\frac{m_j}{u}}_{入職率}\times \underbrace{\frac{\beta}{1-\beta}k\frac{v_j}{m_j}}_{入職からの余剰}\ \ (1)$$
+
+- (1)式を用いて、以下のような厚生指標が識別できる
+
+### セクターの貢献率
+
+- (1)式より$\sum_j\Delta_j = k\beta/(1-\beta)\sum_j v/u$なので、あるセクターjが生み出す余剰が全体に占める割合を以下のように識別できる。
+
+$$\frac{\Delta_j}{\sum_j\Delta_j}=\frac{v_j}{v}$$
+
+### 余剰の変化に対する貢献
+
+- （１）式より、サーチからの余剰の変化率は以下のように書き換えられる
+
+$$\frac{\Delta - \Delta'}{\Delta'}=\frac{1}{\sum_j \frac{m_j}{u}(W_j-U)}\sum_j [\frac{m_j}{u}(W_j-U)- \frac{m'_j}{u'}(W'_j-U')]$$
+
+$$=\frac{u'}{v'}\sum_j [\underbrace{\frac{m_j}{u}}_{入職率}\times\underbrace{\frac{v_j}{m_j}}_{入職からの余剰}- \underbrace{\frac{m'_j}{u'}}_{入職率}\times\underbrace{\frac{v'_j}{m'_j}}_{入職からの余剰}]$$
+
+- よって各セクターが生み出す余剰は以下のように書き換えられる
+
+$$\frac{\Delta - \Delta'}{\Delta'}=\frac{u'}{v'}\sum_{j}\underbrace{[\frac{v_j}{u}-\frac{v_j'}{u'}]}_{セクターjが生み出す余剰}$$
+
+- さらに分解すると
+
+$$=\frac{u'}{v'}\sum_j [\underbrace{\frac{m_j}{u}[\frac{v_j}{m_j}-\frac{v'_j}{m'_j}]}_{入職からの余剰変化の貢献}+\underbrace{[\frac{m_j}{u}- \frac{m'_j}{u'}]\frac{v'_j}{m'_j}}_{入職率変化の貢献}]$$
+
+- 以上の議論は、セクター別の就職・求人件数のみを用いて、厚生変化をセクター別の貢献に分解可能であることを示している
+
+  - さらにセクター別に入職からの余剰と入職率の変化それぞれの貢献も識別可能である。
+  
+- 上記の識別を可能とする重要な仮定は、パラメータ$\beta$,$k$がセクター間で同一であるという仮定である。
+
+## 職業大分類
+
+- セクター$=$職業大分類別
+
+- 大分類別に就職、求人件数を集計し、厚生指標を示す。
+
+### Rコード
+
+
+```{r}
+pacman::p_load("tidyverse",
+               "readxl",
+               "lubridate")
+```
+
+
+```{r}
+number.industry = 68
+
+year <- c(rep(2012,10),
+          rep(2013,12),
+          rep(2014,12),
+          rep(2015,12),
+          rep(2016,12),
+          rep(2017,12),
+          rep(2018,12),
+          rep(2019,12),
+          rep(2020,12),
+          rep(2021,6)
+                  )
+
+month <- c(3:12,
+           rep(1:12,8),
+           1:6)
+
+sel.row <- 5:72
+sel.col <- c(1,19:130)
+re.sel.col <- 2:113
+
+raw.vacancy <-
+  read_excel("data/第21表.xlsx",
+             sheet = "第２１表ー２　有効求人（パート含む常用）") %>%
+  .[sel.row,sel.col] |> 
+  pivot_longer(cols = re.sel.col,
+               values_to = "n") |> 
+  mutate(year = rep(year, number.industry),
+         month = rep(month,number.industry),
+         type = "求人",
+         occupation = `職業別有効求人数（パートタイムを含む常用）`
+         ) |> 
+  select(-`職業別有効求人数（パートタイムを含む常用）`,-name)
+
+raw.seeker <-
+  read_excel("data/第21表.xlsx",
+             sheet = " 第２１表ー４　有効求職（パート含む常用）") %>%
+  .[sel.row,sel.col] |> 
+  pivot_longer(cols = re.sel.col,
+               values_to = "n") |> 
+  mutate(year = rep(year, number.industry),
+         month = rep(month,number.industry),
+         type = "求職",
+         occupation = `職業別有効求職者数（パートタイムを含む常用）`
+         ) |> 
+  select(-`職業別有効求職者数（パートタイムを含む常用）`,-name)
+
+raw.hir <-
+  read_excel("data/第21表.xlsx",
+             sheet = "第２１表ー５　 就職件数（パート含む常用）") %>%
+  .[sel.row,sel.col] |> 
+  pivot_longer(cols = re.sel.col,
+               values_to = "n") |> 
+  mutate(year = rep(year, number.industry),
+         month = rep(month,number.industry),
+         type = "新規就職",
+         occupation = `職業別就職件数（パートタイムを含む常用）`
+         ) |> 
+  select(-`職業別就職件数（パートタイムを含む常用）`,-name)
+
+df <-
+  rbind(raw.hir,
+        raw.vacancy,
+        raw.seeker) |> 
+  filter(occupation == "管理的職業" |
+           occupation == "専門的・技術的職業" | 
+           occupation == "事務的職業" |
+           occupation == "販売の職業" |
+           occupation == "サービスの職業" |
+           occupation == "輸送・機械運転の職業" |
+           occupation == "生産工程の職業" |
+           occupation == "建設・採掘の職業" |
+           occupation == "運搬・清掃・包装等の職業"|
+           occupation == "分類不能の職業") |> 
+  mutate(quaterly = month |> cut(c(0,3,6,9,12), labels = c(1,2,3,4)),
+         date = yq(str_c(year,quaterly,sep = ":Q")),
+         n = as.numeric(n)
+         ) |> 
+  group_by(date,type,occupation) |> 
+  mutate(n = n |> sum()) |> 
+  ungroup() |> 
+  distinct(year,quaterly,date,type,n,occupation) |> 
+  pivot_wider(names_from = type,
+              values_from = n) |> 
+  group_by(date) |> 
+  mutate(総求職 = sum(求職),
+            総求人 = sum(求人),
+            総新規就職 = sum(新規就職)) |> 
+  ungroup()
+```
+
+### セクターの貢献率
+
+- 余剰全体に占める各セクターの割合を示す。
+
+```{r}
+df |> 
+  filter(occupation != "分類不能の職業") |> 
+  filter(date >= make_date(2012,4)) |> 
+  mutate(余剰の割合 = 求人/総求人) |> 
+  ggplot(aes(x = date,
+             y = 余剰の割合,
+             group = occupation,
+             color = occupation,
+             shape = occupation)
+         ) +
+  geom_line() + 
+  geom_point() +
+  theme_bw(base_family = "HiraKakuPro-W3")
+```
+
+- サービス/技術・専門の職種が各々、余剰全体の２割以上を生み出している
+
+  - 技術・専門の職種には介護職が含まれており、当該職種が生み出す余剰が特に大きい
+
+### 総余剰の変化
+
+- 総余剰の前年同期変化率について、各セクターの貢献率を示す。
+
+```{r}
+df |> 
+  filter(occupation != "分類不能の職業") |> 
+  group_by(occupation, quaterly) |> 
+  mutate(change = (lag(総求職)/lag(総求人))*((求人/総求職) - (lag(求人)/lag(総求職)))
+         ) |> 
+  ungroup() |> 
+  filter(date >= make_date(2013,4)) |> 
+  ggplot(aes(x = date,
+             y = change,
+             group = occupation,
+             color = occupation,
+             shape = occupation)
+         ) +
+  geom_line() + 
+  geom_point() +
+  geom_hline(yintercept = 0) +
+  theme_bw(base_family = "HiraKakuPro-W3") +
+  ylim(-0.12,0.06)
+```
+
+- サービスの職種が、2020年間の総余剰の急落の大きな源泉となっている。
+
+- 2021年においても依然として低水準にとどまっている
+
+  - 2020年の水準を上回るのは、生産工程の職種のみ
+
+#### 入職からの余剰の貢献
+
+- 各セクターごとに、入職からの余剰の貢献を示す
+
+```{r}
+df |> 
+  filter(occupation != "分類不能の職業") |> 
+  group_by(occupation, quaterly) |> 
+  mutate(change = (lag(総求職)/lag(総求人))*(新規就職/総求職)*((求人/新規就職) - (lag(求人)/lag(新規就職)))
+         ) |> 
+  ungroup() |> 
+  filter(date >= make_date(2013,4)) |> 
+  ggplot(aes(x = date,
+             y = change,
+             group = occupation,
+             color = occupation,
+             shape = occupation)
+         ) +
+  geom_line() + 
+  geom_point() +
+  geom_hline(yintercept = 0) +
+  theme_bw(base_family = "HiraKakuPro-W3") +
+  ylim(-0.12,0.06)
+```
+
+- サービスの職種において急落がみられ、かつ下落傾向が拡大している。
+
+#### 入職率の貢献
+
+- 各セクター別に、入職率の貢献を示す。
+
+```{r}
+df |> 
+  filter(occupation != "分類不能の職業") |> 
+  group_by(occupation, quaterly) |> 
+  mutate(change = (lag(総求職)/lag(総求人))*(lag(求人)/lag(新規就職))*((新規就職/総求職) - (lag(新規就職)/lag(総求職)))
+         ) |> 
+  ungroup() |> 
+  filter(date >= make_date(2013,4)) |> 
+  ggplot(aes(x = date,
+             y = change,
+             group = occupation,
+             color = occupation,
+             shape = occupation)
+         ) +
+  geom_line() + 
+  geom_point() +
+  geom_hline(yintercept = 0) +
+  theme_bw(base_family = "HiraKakuPro-W3") +
+  ylim(-0.12,0.06)
+```
+
+- ２０２０年間には、サービスの職種が最も下落している。
+
+- ２０２１年には、全職種において下げ止まりが見られる。
+
+## 環境
+
+```{r}
+sessionInfo()
+```
+

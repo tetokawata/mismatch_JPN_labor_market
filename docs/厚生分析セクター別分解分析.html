@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 厚生分析:セクター別分解分析 | ハローワークデータからみる労働市場</title>
+  <meta name="description" content="TBA" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 厚生分析:セクター別分解分析 | ハローワークデータからみる労働市場" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="TBA" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 厚生分析:セクター別分解分析 | ハローワークデータからみる労働市場" />
+  
+  <meta name="twitter:description" content="TBA" />
+  
+
+<meta name="author" content="川田恵介" />
+
+
+<meta name="date" content="2021-08-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="厚生分析時系列比較.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Labor Market Mismatch in Japan</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 要約</a></li>
+<li class="chapter" data-level="2" data-path="記述統計量.html"><a href="記述統計量.html"><i class="fa fa-check"></i><b>2</b> 記述統計量</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="記述統計量.html"><a href="記述統計量.html#方法"><i class="fa fa-check"></i><b>2.1</b> 方法</a></li>
+<li class="chapter" data-level="2.2" data-path="記述統計量.html"><a href="記述統計量.html#rコード"><i class="fa fa-check"></i><b>2.2</b> Rコード</a></li>
+<li class="chapter" data-level="2.3" data-path="記述統計量.html"><a href="記述統計量.html#結果"><i class="fa fa-check"></i><b>2.3</b> 結果</a></li>
+<li class="chapter" data-level="2.4" data-path="記述統計量.html"><a href="記述統計量.html#環境"><i class="fa fa-check"></i><b>2.4</b> 環境</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html"><i class="fa fa-check"></i><b>3</b> 厚生分析:時系列比較</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html#方法-1"><i class="fa fa-check"></i><b>3.1</b> 方法</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html#識別"><i class="fa fa-check"></i><b>3.1.1</b> 識別</a></li>
+<li class="chapter" data-level="3.1.2" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html#時系列比較への応用"><i class="fa fa-check"></i><b>3.1.2</b> 時系列比較への応用</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html#rコード-1"><i class="fa fa-check"></i><b>3.2</b> Rコード</a></li>
+<li class="chapter" data-level="3.3" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html#結果-1"><i class="fa fa-check"></i><b>3.3</b> 結果</a></li>
+<li class="chapter" data-level="3.4" data-path="厚生分析時系列比較.html"><a href="厚生分析時系列比較.html#環境-1"><i class="fa fa-check"></i><b>3.4</b> 環境</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html"><i class="fa fa-check"></i><b>4</b> 厚生分析:セクター別分解分析</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#方法-2"><i class="fa fa-check"></i><b>4.1</b> 方法</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#セクターの貢献率"><i class="fa fa-check"></i><b>4.1.1</b> セクターの貢献率</a></li>
+<li class="chapter" data-level="4.1.2" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#余剰の変化に対する貢献"><i class="fa fa-check"></i><b>4.1.2</b> 余剰の変化に対する貢献</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#職業大分類"><i class="fa fa-check"></i><b>4.2</b> 職業大分類</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#rコード-2"><i class="fa fa-check"></i><b>4.2.1</b> Rコード</a></li>
+<li class="chapter" data-level="4.2.2" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#セクターの貢献率-1"><i class="fa fa-check"></i><b>4.2.2</b> セクターの貢献率</a></li>
+<li class="chapter" data-level="4.2.3" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#総余剰の変化"><i class="fa fa-check"></i><b>4.2.3</b> 総余剰の変化</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="厚生分析セクター別分解分析.html"><a href="厚生分析セクター別分解分析.html#環境-2"><i class="fa fa-check"></i><b>4.3</b> 環境</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ハローワークデータからみる労働市場</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="厚生分析セクター別分解分析" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> 厚生分析:セクター別分解分析</h1>
+<ul>
+<li><p>職種別の就職・求人件数が観察可能な2012年から2021年6月までの月次データ、<span class="citation"><a href="#ref-kawata2021first" role="doc-biblioref">Kawata and Sato</a> (<a href="#ref-kawata2021first" role="doc-biblioref">2021</a>)</span> の手法を拡張し、求職者の厚生変化に対する各職種の貢献を記述する。</p>
+<ul>
+<li>四半期ごとに集計する</li>
+</ul></li>
+</ul>
+<div id="方法-2" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> 方法</h2>
+<ul>
+<li><p>標準的なDiamond-Mortencen-Pissarides型サーチモデル<span class="citation">(<a href="#ref-rogerson2005search" role="doc-biblioref">Rogerson, Shimer, and Wright 2005</a>)</span>に準じて、以下の4条件式を仮定する</p></li>
+<li><p>失業状態の価値観</p></li>
+</ul>
+<p><span class="math display">\[rU=b + \sum_j\Delta_j\]</span></p>
+<p>ただし</p>
+<p><span class="math display">\[\Delta_j = \underbrace{\frac{m_{j}}{u}(W_j-U)}_{セクターjにおけるサーチ活動からの余剰}\]</span></p>
+<p><span class="math inline">\(m_j:\)</span> セクターjにおける新規就職件数、<span class="math inline">\(u:\)</span> （総）求職者数、<span class="math inline">\(W_j-U:\)</span> セクターjにおける新規就職から生じる余剰</p>
+<ul>
+<li>自由参入条件</li>
+</ul>
+<p><span class="math display">\[k=\frac{m_j}{v_j}J_j\]</span></p>
+<ul>
+<li>ナッシュ交渉</li>
+</ul>
+<p><span class="math display">\[(1-\beta)(W_j-U)=\beta J_j\]</span></p>
+<ul>
+<li>自由参入条件とナッシュ交渉を連立すると、</li>
+</ul>
+<p><span class="math display">\[W_j-U=\frac{\beta}{1-\beta}k\frac{v_j}{m_j}\]</span></p>
+<p>よって</p>
+<p><span class="math display">\[\Delta_j = \underbrace{\frac{m_j}{u}}_{入職率}\times \underbrace{\frac{\beta}{1-\beta}k\frac{v_j}{m_j}}_{入職からの余剰}\ \ (1)\]</span></p>
+<ul>
+<li>(1)式を用いて、以下のような厚生指標が識別できる</li>
+</ul>
+<div id="セクターの貢献率" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> セクターの貢献率</h3>
+<ul>
+<li>(1)式より<span class="math inline">\(\sum_j\Delta_j = k\beta/(1-\beta)\sum_j v/u\)</span>なので、あるセクターjが生み出す余剰が全体に占める割合を以下のように識別できる。</li>
+</ul>
+<p><span class="math display">\[\frac{\Delta_j}{\sum_j\Delta_j}=\frac{v_j}{v}\]</span></p>
+</div>
+<div id="余剰の変化に対する貢献" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> 余剰の変化に対する貢献</h3>
+<ul>
+<li>（１）式より、サーチからの余剰の変化率は以下のように書き換えられる</li>
+</ul>
+<p><span class="math display">\[\frac{\Delta - \Delta&#39;}{\Delta&#39;}=\frac{1}{\sum_j \frac{m_j}{u}(W_j-U)}\sum_j [\frac{m_j}{u}(W_j-U)- \frac{m&#39;_j}{u&#39;}(W&#39;_j-U&#39;)]\]</span></p>
+<p><span class="math display">\[=\frac{u&#39;}{v&#39;}\sum_j [\underbrace{\frac{m_j}{u}}_{入職率}\times\underbrace{\frac{v_j}{m_j}}_{入職からの余剰}- \underbrace{\frac{m&#39;_j}{u&#39;}}_{入職率}\times\underbrace{\frac{v&#39;_j}{m&#39;_j}}_{入職からの余剰}]\]</span></p>
+<ul>
+<li>よって各セクターが生み出す余剰は以下のように書き換えられる</li>
+</ul>
+<p><span class="math display">\[\frac{\Delta - \Delta&#39;}{\Delta&#39;}=\frac{u&#39;}{v&#39;}\sum_{j}\underbrace{[\frac{v_j}{u}-\frac{v_j&#39;}{u&#39;}]}_{セクターjが生み出す余剰}\]</span></p>
+<ul>
+<li>さらに分解すると</li>
+</ul>
+<p><span class="math display">\[=\frac{u&#39;}{v&#39;}\sum_j [\underbrace{\frac{m_j}{u}[\frac{v_j}{m_j}-\frac{v&#39;_j}{m&#39;_j}]}_{入職からの余剰変化の貢献}+\underbrace{[\frac{m_j}{u}- \frac{m&#39;_j}{u&#39;}]\frac{v&#39;_j}{m&#39;_j}}_{入職率変化の貢献}]\]</span></p>
+<ul>
+<li><p>以上の議論は、セクター別の就職・求人件数のみを用いて、厚生変化をセクター別の貢献に分解可能であることを示している</p>
+<ul>
+<li>さらにセクター別に入職からの余剰と入職率の変化それぞれの貢献も識別可能である。</li>
+</ul></li>
+<li><p>上記の識別を可能とする重要な仮定は、パラメータ<span class="math inline">\(\beta\)</span>,<span class="math inline">\(k\)</span>がセクター間で同一であるという仮定である。</p></li>
+</ul>
+</div>
+</div>
+<div id="職業大分類" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> 職業大分類</h2>
+<ul>
+<li><p>セクター<span class="math inline">\(=\)</span>職業大分類別</p></li>
+<li><p>大分類別に就職、求人件数を集計し、厚生指標を示す。</p></li>
+</ul>
+<div id="rコード-2" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Rコード</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="厚生分析セクター別分解分析.html#cb10-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(<span class="st">&quot;tidyverse&quot;</span>,</span>
+<span id="cb10-2"><a href="厚生分析セクター別分解分析.html#cb10-2" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;readxl&quot;</span>,</span>
+<span id="cb10-3"><a href="厚生分析セクター別分解分析.html#cb10-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;lubridate&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="厚生分析セクター別分解分析.html#cb11-1" aria-hidden="true" tabindex="-1"></a>number.industry <span class="ot">=</span> <span class="dv">68</span></span>
+<span id="cb11-2"><a href="厚生分析セクター別分解分析.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="厚生分析セクター別分解分析.html#cb11-3" aria-hidden="true" tabindex="-1"></a>year <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">2012</span>,<span class="dv">10</span>),</span>
+<span id="cb11-4"><a href="厚生分析セクター別分解分析.html#cb11-4" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2013</span>,<span class="dv">12</span>),</span>
+<span id="cb11-5"><a href="厚生分析セクター別分解分析.html#cb11-5" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2014</span>,<span class="dv">12</span>),</span>
+<span id="cb11-6"><a href="厚生分析セクター別分解分析.html#cb11-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2015</span>,<span class="dv">12</span>),</span>
+<span id="cb11-7"><a href="厚生分析セクター別分解分析.html#cb11-7" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2016</span>,<span class="dv">12</span>),</span>
+<span id="cb11-8"><a href="厚生分析セクター別分解分析.html#cb11-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2017</span>,<span class="dv">12</span>),</span>
+<span id="cb11-9"><a href="厚生分析セクター別分解分析.html#cb11-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2018</span>,<span class="dv">12</span>),</span>
+<span id="cb11-10"><a href="厚生分析セクター別分解分析.html#cb11-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2019</span>,<span class="dv">12</span>),</span>
+<span id="cb11-11"><a href="厚生分析セクター別分解分析.html#cb11-11" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2020</span>,<span class="dv">12</span>),</span>
+<span id="cb11-12"><a href="厚生分析セクター別分解分析.html#cb11-12" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2021</span>,<span class="dv">6</span>)</span>
+<span id="cb11-13"><a href="厚生分析セクター別分解分析.html#cb11-13" aria-hidden="true" tabindex="-1"></a>                  )</span>
+<span id="cb11-14"><a href="厚生分析セクター別分解分析.html#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="厚生分析セクター別分解分析.html#cb11-15" aria-hidden="true" tabindex="-1"></a>month <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>,</span>
+<span id="cb11-16"><a href="厚生分析セクター別分解分析.html#cb11-16" aria-hidden="true" tabindex="-1"></a>           <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,<span class="dv">8</span>),</span>
+<span id="cb11-17"><a href="厚生分析セクター別分解分析.html#cb11-17" aria-hidden="true" tabindex="-1"></a>           <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb11-18"><a href="厚生分析セクター別分解分析.html#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="厚生分析セクター別分解分析.html#cb11-19" aria-hidden="true" tabindex="-1"></a>sel.row <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">72</span></span>
+<span id="cb11-20"><a href="厚生分析セクター別分解分析.html#cb11-20" aria-hidden="true" tabindex="-1"></a>sel.col <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">19</span><span class="sc">:</span><span class="dv">130</span>)</span>
+<span id="cb11-21"><a href="厚生分析セクター別分解分析.html#cb11-21" aria-hidden="true" tabindex="-1"></a>re.sel.col <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">113</span></span>
+<span id="cb11-22"><a href="厚生分析セクター別分解分析.html#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="厚生分析セクター別分解分析.html#cb11-23" aria-hidden="true" tabindex="-1"></a>raw.vacancy <span class="ot">&lt;-</span></span>
+<span id="cb11-24"><a href="厚生分析セクター別分解分析.html#cb11-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第21表.xlsx&quot;</span>,</span>
+<span id="cb11-25"><a href="厚生分析セクター別分解分析.html#cb11-25" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第２１表ー２　有効求人（パート含む常用）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-26"><a href="厚生分析セクター別分解分析.html#cb11-26" aria-hidden="true" tabindex="-1"></a>  .[sel.row,sel.col] <span class="sc">|&gt;</span> </span>
+<span id="cb11-27"><a href="厚生分析セクター別分解分析.html#cb11-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> re.sel.col,</span>
+<span id="cb11-28"><a href="厚生分析セクター別分解分析.html#cb11-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb11-29"><a href="厚生分析セクター別分解分析.html#cb11-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">rep</span>(year, number.industry),</span>
+<span id="cb11-30"><a href="厚生分析セクター別分解分析.html#cb11-30" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> <span class="fu">rep</span>(month,number.industry),</span>
+<span id="cb11-31"><a href="厚生分析セクター別分解分析.html#cb11-31" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;求人&quot;</span>,</span>
+<span id="cb11-32"><a href="厚生分析セクター別分解分析.html#cb11-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">occupation =</span> <span class="st">`</span><span class="at">職業別有効求人数（パートタイムを含む常用）</span><span class="st">`</span></span>
+<span id="cb11-33"><a href="厚生分析セクター別分解分析.html#cb11-33" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|&gt;</span> </span>
+<span id="cb11-34"><a href="厚生分析セクター別分解分析.html#cb11-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">職業別有効求人数（パートタイムを含む常用）</span><span class="st">`</span>,<span class="sc">-</span>name)</span>
+<span id="cb11-35"><a href="厚生分析セクター別分解分析.html#cb11-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-36"><a href="厚生分析セクター別分解分析.html#cb11-36" aria-hidden="true" tabindex="-1"></a>raw.seeker <span class="ot">&lt;-</span></span>
+<span id="cb11-37"><a href="厚生分析セクター別分解分析.html#cb11-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第21表.xlsx&quot;</span>,</span>
+<span id="cb11-38"><a href="厚生分析セクター別分解分析.html#cb11-38" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot; 第２１表ー４　有効求職（パート含む常用）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-39"><a href="厚生分析セクター別分解分析.html#cb11-39" aria-hidden="true" tabindex="-1"></a>  .[sel.row,sel.col] <span class="sc">|&gt;</span> </span>
+<span id="cb11-40"><a href="厚生分析セクター別分解分析.html#cb11-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> re.sel.col,</span>
+<span id="cb11-41"><a href="厚生分析セクター別分解分析.html#cb11-41" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb11-42"><a href="厚生分析セクター別分解分析.html#cb11-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">rep</span>(year, number.industry),</span>
+<span id="cb11-43"><a href="厚生分析セクター別分解分析.html#cb11-43" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> <span class="fu">rep</span>(month,number.industry),</span>
+<span id="cb11-44"><a href="厚生分析セクター別分解分析.html#cb11-44" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;求職&quot;</span>,</span>
+<span id="cb11-45"><a href="厚生分析セクター別分解分析.html#cb11-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">occupation =</span> <span class="st">`</span><span class="at">職業別有効求職者数（パートタイムを含む常用）</span><span class="st">`</span></span>
+<span id="cb11-46"><a href="厚生分析セクター別分解分析.html#cb11-46" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|&gt;</span> </span>
+<span id="cb11-47"><a href="厚生分析セクター別分解分析.html#cb11-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">職業別有効求職者数（パートタイムを含む常用）</span><span class="st">`</span>,<span class="sc">-</span>name)</span>
+<span id="cb11-48"><a href="厚生分析セクター別分解分析.html#cb11-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-49"><a href="厚生分析セクター別分解分析.html#cb11-49" aria-hidden="true" tabindex="-1"></a>raw.hir <span class="ot">&lt;-</span></span>
+<span id="cb11-50"><a href="厚生分析セクター別分解分析.html#cb11-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第21表.xlsx&quot;</span>,</span>
+<span id="cb11-51"><a href="厚生分析セクター別分解分析.html#cb11-51" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第２１表ー５　 就職件数（パート含む常用）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-52"><a href="厚生分析セクター別分解分析.html#cb11-52" aria-hidden="true" tabindex="-1"></a>  .[sel.row,sel.col] <span class="sc">|&gt;</span> </span>
+<span id="cb11-53"><a href="厚生分析セクター別分解分析.html#cb11-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> re.sel.col,</span>
+<span id="cb11-54"><a href="厚生分析セクター別分解分析.html#cb11-54" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb11-55"><a href="厚生分析セクター別分解分析.html#cb11-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">rep</span>(year, number.industry),</span>
+<span id="cb11-56"><a href="厚生分析セクター別分解分析.html#cb11-56" aria-hidden="true" tabindex="-1"></a>         <span class="at">month =</span> <span class="fu">rep</span>(month,number.industry),</span>
+<span id="cb11-57"><a href="厚生分析セクター別分解分析.html#cb11-57" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;新規就職&quot;</span>,</span>
+<span id="cb11-58"><a href="厚生分析セクター別分解分析.html#cb11-58" aria-hidden="true" tabindex="-1"></a>         <span class="at">occupation =</span> <span class="st">`</span><span class="at">職業別就職件数（パートタイムを含む常用）</span><span class="st">`</span></span>
+<span id="cb11-59"><a href="厚生分析セクター別分解分析.html#cb11-59" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|&gt;</span> </span>
+<span id="cb11-60"><a href="厚生分析セクター別分解分析.html#cb11-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">職業別就職件数（パートタイムを含む常用）</span><span class="st">`</span>,<span class="sc">-</span>name)</span>
+<span id="cb11-61"><a href="厚生分析セクター別分解分析.html#cb11-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-62"><a href="厚生分析セクター別分解分析.html#cb11-62" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span></span>
+<span id="cb11-63"><a href="厚生分析セクター別分解分析.html#cb11-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(raw.hir,</span>
+<span id="cb11-64"><a href="厚生分析セクター別分解分析.html#cb11-64" aria-hidden="true" tabindex="-1"></a>        raw.vacancy,</span>
+<span id="cb11-65"><a href="厚生分析セクター別分解分析.html#cb11-65" aria-hidden="true" tabindex="-1"></a>        raw.seeker) <span class="sc">|&gt;</span> </span>
+<span id="cb11-66"><a href="厚生分析セクター別分解分析.html#cb11-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(occupation <span class="sc">==</span> <span class="st">&quot;管理的職業&quot;</span> <span class="sc">|</span></span>
+<span id="cb11-67"><a href="厚生分析セクター別分解分析.html#cb11-67" aria-hidden="true" tabindex="-1"></a>           occupation <span class="sc">==</span> <span class="st">&quot;専門的・技術的職業&quot;</span> <span class="sc">|</span> </span>
+<span id="cb11-68"><a href="厚生分析セクター別分解分析.html#cb11-68" aria-hidden="true" tabindex="-1"></a>           occupation <span class="sc">==</span> <span class="st">&quot;事務的職業&quot;</span> <span class="sc">|</span></span>
+<span id="cb11-69"><a href="厚生分析セクター別分解分析.html#cb11-69" aria-hidden="true" tabindex="-1"></a>           occupation <span class="sc">==</span> <span class="st">&quot;販売の職業&quot;</span> <span class="sc">|</span></span>
+<span id="cb11-70"><a href="厚生分析セクター別分解分析.html#cb11-70" aria-hidden="true" tabindex="-1"></a>           occupation <span class="sc">==</span> <span class="st">&quot;サービスの職業&quot;</span> <span class="sc">|</span></span>
+<span id="cb11-71"><a href="厚生分析セクター別分解分析.html#cb11-71" aria-hidden="true" tabindex="-1"></a>           occupation <span class="sc">==</span> <span class="st">&quot;輸送・機械運転の職業&quot;</span> <span class="sc">|</span></span>
+<span id="cb11-72"><a href="厚生分析セクター別分解分析.html#cb11-72" aria-hidden="true" tabindex="-1"></a>           occupation <span class="sc">==</span> <span class="st">&quot;生産工程の職業&quot;</span> <span class="sc">|</span></span>
+<span id="cb11-73"><a href="厚生分析セクター別分解分析.html#cb11-73" aria-hidden="true" tabindex="-1"></a>           occupation <span class="sc">==</span> <span class="st">&quot;建設・採掘の職業&quot;</span> <span class="sc">|</span></span>
+<span id="cb11-74"><a href="厚生分析セクター別分解分析.html#cb11-74" aria-hidden="true" tabindex="-1"></a>           occupation <span class="sc">==</span> <span class="st">&quot;運搬・清掃・包装等の職業&quot;</span><span class="sc">|</span></span>
+<span id="cb11-75"><a href="厚生分析セクター別分解分析.html#cb11-75" aria-hidden="true" tabindex="-1"></a>           occupation <span class="sc">==</span> <span class="st">&quot;分類不能の職業&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb11-76"><a href="厚生分析セクター別分解分析.html#cb11-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quaterly =</span> month <span class="sc">|&gt;</span> <span class="fu">cut</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">12</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)),</span>
+<span id="cb11-77"><a href="厚生分析セクター別分解分析.html#cb11-77" aria-hidden="true" tabindex="-1"></a>         <span class="at">date =</span> <span class="fu">yq</span>(<span class="fu">str_c</span>(year,quaterly,<span class="at">sep =</span> <span class="st">&quot;:Q&quot;</span>)),</span>
+<span id="cb11-78"><a href="厚生分析セクター別分解分析.html#cb11-78" aria-hidden="true" tabindex="-1"></a>         <span class="at">n =</span> <span class="fu">as.numeric</span>(n)</span>
+<span id="cb11-79"><a href="厚生分析セクター別分解分析.html#cb11-79" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|&gt;</span> </span>
+<span id="cb11-80"><a href="厚生分析セクター別分解分析.html#cb11-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date,type,occupation) <span class="sc">|&gt;</span> </span>
+<span id="cb11-81"><a href="厚生分析セクター別分解分析.html#cb11-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> n <span class="sc">|&gt;</span> <span class="fu">sum</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb11-82"><a href="厚生分析セクター別分解分析.html#cb11-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb11-83"><a href="厚生分析セクター別分解分析.html#cb11-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(year,quaterly,date,type,n,occupation) <span class="sc">|&gt;</span> </span>
+<span id="cb11-84"><a href="厚生分析セクター別分解分析.html#cb11-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> type,</span>
+<span id="cb11-85"><a href="厚生分析セクター別分解分析.html#cb11-85" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> n) <span class="sc">|&gt;</span> </span>
+<span id="cb11-86"><a href="厚生分析セクター別分解分析.html#cb11-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date) <span class="sc">|&gt;</span> </span>
+<span id="cb11-87"><a href="厚生分析セクター別分解分析.html#cb11-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(総求職 <span class="ot">=</span> <span class="fu">sum</span>(求職),</span>
+<span id="cb11-88"><a href="厚生分析セクター別分解分析.html#cb11-88" aria-hidden="true" tabindex="-1"></a>            総求人 <span class="ot">=</span> <span class="fu">sum</span>(求人),</span>
+<span id="cb11-89"><a href="厚生分析セクター別分解分析.html#cb11-89" aria-hidden="true" tabindex="-1"></a>            総新規就職 <span class="ot">=</span> <span class="fu">sum</span>(新規就職)) <span class="sc">|&gt;</span> </span>
+<span id="cb11-90"><a href="厚生分析セクター別分解分析.html#cb11-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+</div>
+<div id="セクターの貢献率-1" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> セクターの貢献率</h3>
+<ul>
+<li>余剰全体に占める各セクターの割合を示す。</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="厚生分析セクター別分解分析.html#cb12-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="厚生分析セクター別分解分析.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(occupation <span class="sc">!=</span> <span class="st">&quot;分類不能の職業&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href="厚生分析セクター別分解分析.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2012</span>,<span class="dv">4</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb12-4"><a href="厚生分析セクター別分解分析.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(余剰の割合 <span class="ot">=</span> 求人<span class="sc">/</span>総求人) <span class="sc">|&gt;</span> </span>
+<span id="cb12-5"><a href="厚生分析セクター別分解分析.html#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date,</span>
+<span id="cb12-6"><a href="厚生分析セクター別分解分析.html#cb12-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> 余剰の割合,</span>
+<span id="cb12-7"><a href="厚生分析セクター別分解分析.html#cb12-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">group =</span> occupation,</span>
+<span id="cb12-8"><a href="厚生分析セクター別分解分析.html#cb12-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> occupation,</span>
+<span id="cb12-9"><a href="厚生分析セクター別分解分析.html#cb12-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> occupation)</span>
+<span id="cb12-10"><a href="厚生分析セクター別分解分析.html#cb12-10" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="厚生分析セクター別分解分析.html#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb12-12"><a href="厚生分析セクター別分解分析.html#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb12-13"><a href="厚生分析セクター別分解分析.html#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuPro-W3&quot;</span>)</span></code></pre></div>
+<p><img src="test_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<ul>
+<li><p>サービス/技術・専門の職種が各々、余剰全体の２割以上を生み出している</p>
+<ul>
+<li>技術・専門の職種には介護職が含まれており、当該職種が生み出す余剰が特に大きい</li>
+</ul></li>
+</ul>
+</div>
+<div id="総余剰の変化" class="section level3" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> 総余剰の変化</h3>
+<ul>
+<li>総余剰の前年同期変化率について、各セクターの貢献率を示す。</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="厚生分析セクター別分解分析.html#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="厚生分析セクター別分解分析.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(occupation <span class="sc">!=</span> <span class="st">&quot;分類不能の職業&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="厚生分析セクター別分解分析.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(occupation, quaterly) <span class="sc">|&gt;</span> </span>
+<span id="cb13-4"><a href="厚生分析セクター別分解分析.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">change =</span> (<span class="fu">lag</span>(総求職)<span class="sc">/</span><span class="fu">lag</span>(総求人))<span class="sc">*</span>((求人<span class="sc">/</span>総求職) <span class="sc">-</span> (<span class="fu">lag</span>(求人)<span class="sc">/</span><span class="fu">lag</span>(総求職)))</span>
+<span id="cb13-5"><a href="厚生分析セクター別分解分析.html#cb13-5" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|&gt;</span> </span>
+<span id="cb13-6"><a href="厚生分析セクター別分解分析.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb13-7"><a href="厚生分析セクター別分解分析.html#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2013</span>,<span class="dv">4</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb13-8"><a href="厚生分析セクター別分解分析.html#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date,</span>
+<span id="cb13-9"><a href="厚生分析セクター別分解分析.html#cb13-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> change,</span>
+<span id="cb13-10"><a href="厚生分析セクター別分解分析.html#cb13-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">group =</span> occupation,</span>
+<span id="cb13-11"><a href="厚生分析セクター別分解分析.html#cb13-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> occupation,</span>
+<span id="cb13-12"><a href="厚生分析セクター別分解分析.html#cb13-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> occupation)</span>
+<span id="cb13-13"><a href="厚生分析セクター別分解分析.html#cb13-13" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb13-14"><a href="厚生分析セクター別分解分析.html#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb13-15"><a href="厚生分析セクター別分解分析.html#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb13-16"><a href="厚生分析セクター別分解分析.html#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb13-17"><a href="厚生分析セクター別分解分析.html#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuPro-W3&quot;</span>) <span class="sc">+</span></span>
+<span id="cb13-18"><a href="厚生分析セクター別分解分析.html#cb13-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.12</span>,<span class="fl">0.06</span>)</span></code></pre></div>
+<p><img src="test_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<ul>
+<li><p>サービスの職種が、2020年間の総余剰の急落の大きな源泉となっている。</p></li>
+<li><p>2021年においても依然として低水準にとどまっている</p>
+<ul>
+<li>2020年の水準を上回るのは、生産工程の職種のみ</li>
+</ul></li>
+</ul>
+<div id="入職からの余剰の貢献" class="section level4" number="4.2.3.1">
+<h4><span class="header-section-number">4.2.3.1</span> 入職からの余剰の貢献</h4>
+<ul>
+<li>各セクターごとに、入職からの余剰の貢献を示す</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="厚生分析セクター別分解分析.html#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="厚生分析セクター別分解分析.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(occupation <span class="sc">!=</span> <span class="st">&quot;分類不能の職業&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="厚生分析セクター別分解分析.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(occupation, quaterly) <span class="sc">|&gt;</span> </span>
+<span id="cb14-4"><a href="厚生分析セクター別分解分析.html#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">change =</span> (<span class="fu">lag</span>(総求職)<span class="sc">/</span><span class="fu">lag</span>(総求人))<span class="sc">*</span>(新規就職<span class="sc">/</span>総求職)<span class="sc">*</span>((求人<span class="sc">/</span>新規就職) <span class="sc">-</span> (<span class="fu">lag</span>(求人)<span class="sc">/</span><span class="fu">lag</span>(新規就職)))</span>
+<span id="cb14-5"><a href="厚生分析セクター別分解分析.html#cb14-5" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|&gt;</span> </span>
+<span id="cb14-6"><a href="厚生分析セクター別分解分析.html#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb14-7"><a href="厚生分析セクター別分解分析.html#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2013</span>,<span class="dv">4</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb14-8"><a href="厚生分析セクター別分解分析.html#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date,</span>
+<span id="cb14-9"><a href="厚生分析セクター別分解分析.html#cb14-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> change,</span>
+<span id="cb14-10"><a href="厚生分析セクター別分解分析.html#cb14-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">group =</span> occupation,</span>
+<span id="cb14-11"><a href="厚生分析セクター別分解分析.html#cb14-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> occupation,</span>
+<span id="cb14-12"><a href="厚生分析セクター別分解分析.html#cb14-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> occupation)</span>
+<span id="cb14-13"><a href="厚生分析セクター別分解分析.html#cb14-13" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb14-14"><a href="厚生分析セクター別分解分析.html#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb14-15"><a href="厚生分析セクター別分解分析.html#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-16"><a href="厚生分析セクター別分解分析.html#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb14-17"><a href="厚生分析セクター別分解分析.html#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuPro-W3&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-18"><a href="厚生分析セクター別分解分析.html#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.12</span>,<span class="fl">0.06</span>)</span></code></pre></div>
+<p><img src="test_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<ul>
+<li>サービスの職種において急落がみられ、かつ下落傾向が拡大している。</li>
+</ul>
+</div>
+<div id="入職率の貢献" class="section level4" number="4.2.3.2">
+<h4><span class="header-section-number">4.2.3.2</span> 入職率の貢献</h4>
+<ul>
+<li>各セクター別に、入職率の貢献を示す。</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="厚生分析セクター別分解分析.html#cb15-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="厚生分析セクター別分解分析.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(occupation <span class="sc">!=</span> <span class="st">&quot;分類不能の職業&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="厚生分析セクター別分解分析.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(occupation, quaterly) <span class="sc">|&gt;</span> </span>
+<span id="cb15-4"><a href="厚生分析セクター別分解分析.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">change =</span> (<span class="fu">lag</span>(総求職)<span class="sc">/</span><span class="fu">lag</span>(総求人))<span class="sc">*</span>(<span class="fu">lag</span>(求人)<span class="sc">/</span><span class="fu">lag</span>(新規就職))<span class="sc">*</span>((新規就職<span class="sc">/</span>総求職) <span class="sc">-</span> (<span class="fu">lag</span>(新規就職)<span class="sc">/</span><span class="fu">lag</span>(総求職)))</span>
+<span id="cb15-5"><a href="厚生分析セクター別分解分析.html#cb15-5" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|&gt;</span> </span>
+<span id="cb15-6"><a href="厚生分析セクター別分解分析.html#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb15-7"><a href="厚生分析セクター別分解分析.html#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2013</span>,<span class="dv">4</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb15-8"><a href="厚生分析セクター別分解分析.html#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date,</span>
+<span id="cb15-9"><a href="厚生分析セクター別分解分析.html#cb15-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> change,</span>
+<span id="cb15-10"><a href="厚生分析セクター別分解分析.html#cb15-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">group =</span> occupation,</span>
+<span id="cb15-11"><a href="厚生分析セクター別分解分析.html#cb15-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> occupation,</span>
+<span id="cb15-12"><a href="厚生分析セクター別分解分析.html#cb15-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> occupation)</span>
+<span id="cb15-13"><a href="厚生分析セクター別分解分析.html#cb15-13" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb15-14"><a href="厚生分析セクター別分解分析.html#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb15-15"><a href="厚生分析セクター別分解分析.html#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb15-16"><a href="厚生分析セクター別分解分析.html#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb15-17"><a href="厚生分析セクター別分解分析.html#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuPro-W3&quot;</span>) <span class="sc">+</span></span>
+<span id="cb15-18"><a href="厚生分析セクター別分解分析.html#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.12</span>,<span class="fl">0.06</span>)</span></code></pre></div>
+<p><img src="test_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<ul>
+<li><p>２０２０年間には、サービスの職種が最も下落している。</p></li>
+<li><p>２０２１年には、全職種において下げ止まりが見られる。</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="環境-2" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> 環境</h2>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="厚生分析セクター別分解分析.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>## R version 4.1.1 (2021-08-10)
+## Platform: aarch64-apple-darwin20 (64-bit)
+## Running under: macOS Big Sur 11.2.2
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] lubridate_1.7.10 readxl_1.3.1     forcats_0.5.1    stringr_1.4.0   
+##  [5] dplyr_1.0.7      purrr_0.3.4      readr_2.0.1      tidyr_1.1.3     
+##  [9] tibble_3.1.3     ggplot2_3.3.5    tidyverse_1.3.1 
+## 
+## loaded via a namespace (and not attached):
+##  [1] tidyselect_1.1.1  xfun_0.25         haven_2.4.3       colorspace_2.0-2 
+##  [5] vctrs_0.3.8       generics_0.1.0    htmltools_0.5.1.1 yaml_2.2.1       
+##  [9] utf8_1.2.2        rlang_0.4.11      jquerylib_0.1.4   pillar_1.6.2     
+## [13] withr_2.4.2       glue_1.4.2        DBI_1.1.1         dbplyr_2.1.1     
+## [17] modelr_0.1.8      lifecycle_1.0.0   munsell_0.5.0     gtable_0.3.0     
+## [21] cellranger_1.1.0  rvest_1.0.1       evaluate_0.14     labeling_0.4.2   
+## [25] knitr_1.33        tzdb_0.1.2        fansi_0.5.0       highr_0.9        
+## [29] broom_0.7.9       Rcpp_1.0.7        backports_1.2.1   scales_1.1.1     
+## [33] jsonlite_1.7.2    farver_2.1.0      fs_1.5.0          hms_1.1.0        
+## [37] digest_0.6.27     stringi_1.7.3     bookdown_0.23     grid_4.1.1       
+## [41] cli_3.0.1         tools_4.1.1       magrittr_2.0.1    pacman_0.5.1     
+## [45] crayon_1.4.1      pkgconfig_2.0.3   ellipsis_0.3.2    xml2_1.3.2       
+## [49] reprex_2.0.1      assertthat_0.2.1  rmarkdown_2.10    httr_1.4.2       
+## [53] rstudioapi_0.13   R6_2.5.1          compiler_4.1.1</code></pre>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-kawata2021first" class="csl-entry">
+Kawata, Keisuke, and Yasuhiro Sato. 2021. <span>“A First Aid Kit to Assess Welfare Impacts.”</span> <em>Economics Letters</em>, 109928.
+</div>
+<div id="ref-rogerson2005search" class="csl-entry">
+Rogerson, Richard, Robert Shimer, and Randall Wright. 2005. <span>“Search-Theoretic Models of the Labor Market: A Survey.”</span> <em>Journal of Economic Literature</em> 43 (4): 959–88.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="厚生分析時系列比較.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["test.epub"],
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
