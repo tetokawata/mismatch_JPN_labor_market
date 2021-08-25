@@ -24,7 +24,7 @@
 <meta name="author" content="川田恵介" />
 
 
-<meta name="date" content="2021-08-25" />
+<meta name="date" content="2021-08-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -551,7 +551,7 @@ div.csl-indent {
 <span id="cb16-36"><a href="厚生分析セクター別分解分析.html#cb16-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb16-37"><a href="厚生分析セクター別分解分析.html#cb16-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(occupation,</span>
 <span id="cb16-38"><a href="厚生分析セクター別分解分析.html#cb16-38" aria-hidden="true" tabindex="-1"></a>           share) <span class="sc">|&gt;</span> </span>
-<span id="cb16-39"><a href="厚生分析セクター別分解分析.html#cb16-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">if_else</span>(share <span class="sc">&lt;=</span> <span class="fu">quantile</span>(share, <span class="at">prob =</span> <span class="fl">0.8</span>),<span class="st">&quot;その他&quot;</span>,occupation))</span>
+<span id="cb16-39"><a href="厚生分析セクター別分解分析.html#cb16-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">if_else</span>(share <span class="sc">&lt;=</span> <span class="fu">quantile</span>(share, <span class="at">prob =</span> <span class="fl">0.9</span>),<span class="st">&quot;その他&quot;</span>,occupation))</span>
 <span id="cb16-40"><a href="厚生分析セクター別分解分析.html#cb16-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-41"><a href="厚生分析セクター別分解分析.html#cb16-41" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span></span>
 <span id="cb16-42"><a href="厚生分析セクター別分解分析.html#cb16-42" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
