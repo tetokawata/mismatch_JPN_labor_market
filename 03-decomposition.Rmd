@@ -203,24 +203,28 @@ df |>
 - 総余剰の前年同期変化率について、各セクターの貢献率を示す。
 
 ```{r}
-df |> 
+df.1 <-
+  df |> 
   filter(occupation != "分類不能の職業") |> 
   group_by(occupation, quaterly) |> 
   mutate(change = (lag(総求職)/lag(総求人))*((求人/総求職) - (lag(求人)/lag(総求職)))
+         
          ) |> 
   ungroup() |> 
-  filter(date >= make_date(2013,4)) |> 
+  filter(date >= make_date(2013,4))
+
+df.1 |> 
+  mutate(符号 = if_else(change >= 0, "増加", "減少")) |> 
   ggplot(aes(x = date,
              y = change,
-             group = occupation,
-             color = occupation,
-             shape = occupation)
+             fill = 符号)
          ) +
-  geom_line() + 
-  geom_point() +
-  geom_hline(yintercept = 0) +
+  geom_bar(stat = "identity") +
+  geom_line(aes(y=0)) +
+  facet_wrap(~occupation) +
   theme_bw(base_family = "HiraKakuPro-W3") +
-  ylim(-0.12,0.06)
+  ylim(-0.10,0.06)
+
 ```
 
 - サービスの職種が、2020年間の総余剰の急落の大きな源泉となっている。
@@ -234,24 +238,26 @@ df |>
 - 各セクターごとに、入職からの余剰の貢献を示す
 
 ```{r}
-df |> 
+df.1 <-
+  df |> 
   filter(occupation != "分類不能の職業") |> 
   group_by(occupation, quaterly) |> 
   mutate(change = (lag(総求職)/lag(総求人))*(新規就職/総求職)*((求人/新規就職) - (lag(求人)/lag(新規就職)))
          ) |> 
   ungroup() |> 
-  filter(date >= make_date(2013,4)) |> 
+  filter(date >= make_date(2013,4))
+
+df.1 |> 
+  mutate(符号 = if_else(change>= 0, "増加", "減少")) |> 
   ggplot(aes(x = date,
              y = change,
-             group = occupation,
-             color = occupation,
-             shape = occupation)
+             fill = 符号)
          ) +
-  geom_line() + 
-  geom_point() +
-  geom_hline(yintercept = 0) +
+  geom_bar(stat = "identity") +
+  geom_line(aes(y=0)) +
+  facet_wrap(~occupation) +
   theme_bw(base_family = "HiraKakuPro-W3") +
-  ylim(-0.12,0.06)
+  ylim(-0.10,0.06)
 ```
 
 - サービスの職種において急落がみられ、かつ下落傾向が拡大している。
@@ -260,25 +266,28 @@ df |>
 
 - 各セクター別に、入職率の貢献を示す。
 
+
 ```{r}
-df |> 
+df.1 <-
+  df |> 
   filter(occupation != "分類不能の職業") |> 
   group_by(occupation, quaterly) |> 
   mutate(change = (lag(総求職)/lag(総求人))*(lag(求人)/lag(新規就職))*((新規就職/総求職) - (lag(新規就職)/lag(総求職)))
          ) |> 
   ungroup() |> 
-  filter(date >= make_date(2013,4)) |> 
+  filter(date >= make_date(2013,4))
+
+df.1 |> 
+  mutate(符号 = if_else(change>= 0, "増加", "減少")) |> 
   ggplot(aes(x = date,
              y = change,
-             group = occupation,
-             color = occupation,
-             shape = occupation)
+             fill = 符号)
          ) +
-  geom_line() + 
-  geom_point() +
-  geom_hline(yintercept = 0) +
+  geom_bar(stat = "identity") +
+  geom_line(aes(y=0)) +
+  facet_wrap(~occupation) +
   theme_bw(base_family = "HiraKakuPro-W3") +
-  ylim(-0.12,0.06)
+  ylim(-0.10,0.06)
 ```
 
 - ２０２０年間には、サービスの職種が最も下落している。
@@ -312,7 +321,7 @@ df <-
            occupation != "運搬・清掃・包装等の職業"&
            occupation != "分類不能の職業") |> 
   mutate(quaterly = month |> cut(c(0,3,6,9,12), labels = c(1,2,3,4)),
-         date = yq(str_c(year,quaterly,sep = ":Q")),
+         date = str_c(year,quaterly,sep = ":Q") |> yq(),
          n = as.numeric(n)
          ) |> 
   group_by(date,type,occupation) |> 
@@ -370,24 +379,27 @@ df |>
 - 総余剰の前年同期変化率について、各セクターの貢献率を示す。
 
 ```{r}
-df |> 
+df.1 <-
+  df |> 
   filter(occupation != "分類不能の職業") |> 
-  group_by(occupation, quaterly) |> 
+  filter(group != "その他") |> 
+  group_by(group, quaterly) |> 
   mutate(change = (lag(総求職)/lag(総求人))*((求人/総求職) - (lag(求人)/lag(総求職)))
          ) |> 
   ungroup() |> 
-  filter(date >= make_date(2013,4)) |> 
+  filter(date >= make_date(2013,4))
+
+df.1 |> 
+  mutate(符号 = if_else(change>= 0, "増加", "減少")) |> 
   ggplot(aes(x = date,
              y = change,
-             group = occupation,
-             color = group,
-             shape = group)
+             fill = 符号)
          ) +
-  geom_line() + 
-  geom_point() +
-  geom_hline(yintercept = 0) +
+  geom_bar(stat = "identity") +
+  geom_line(aes(y=0)) +
+  facet_wrap(~group) +
   theme_bw(base_family = "HiraKakuPro-W3") +
-  ylim(-0.12,0.06)
+  ylim(-0.04,0.03)
 ```
 
 - サービスの職種が、2020年間の総余剰の急落の大きな源泉となっている。
@@ -401,24 +413,27 @@ df |>
 - 各セクターごとに、入職からの余剰の貢献を示す
 
 ```{r}
-df |> 
+df.1 <-
+  df |> 
   filter(occupation != "分類不能の職業") |> 
-  group_by(occupation, quaterly) |> 
+  filter(group != "その他") |> 
+  group_by(group, quaterly) |> 
   mutate(change = (lag(総求職)/lag(総求人))*(新規就職/総求職)*((求人/新規就職) - (lag(求人)/lag(新規就職)))
          ) |> 
   ungroup() |> 
-  filter(date >= make_date(2013,4)) |> 
+  filter(date >= make_date(2013,4))
+
+df.1 |> 
+  mutate(符号 = if_else(change>= 0, "増加", "減少")) |> 
   ggplot(aes(x = date,
              y = change,
-             group = occupation,
-             color = group,
-             shape = group)
+             fill = 符号)
          ) +
-  geom_line() + 
-  geom_point() +
-  geom_hline(yintercept = 0) +
+  geom_bar(stat = "identity") +
+  geom_line(aes(y=0)) +
+  facet_wrap(~group) +
   theme_bw(base_family = "HiraKakuPro-W3") +
-  ylim(-0.12,0.06)
+  ylim(-0.04,0.03)
 ```
 
 - サービスの職種において急落がみられ、かつ下落傾向が拡大している。
@@ -428,24 +443,27 @@ df |>
 - 各セクター別に、入職率の貢献を示す。
 
 ```{r}
-df |> 
+df.1 <-
+  df |> 
   filter(occupation != "分類不能の職業") |> 
-  group_by(occupation, quaterly) |> 
+  filter(group != "その他") |> 
+  group_by(group, quaterly) |> 
   mutate(change = (lag(総求職)/lag(総求人))*(lag(求人)/lag(新規就職))*((新規就職/総求職) - (lag(新規就職)/lag(総求職)))
          ) |> 
   ungroup() |> 
-  filter(date >= make_date(2013,4)) |> 
+  filter(date >= make_date(2013,4))
+
+df.1 |> 
+  mutate(符号 = if_else(change>= 0, "増加", "減少")) |> 
   ggplot(aes(x = date,
              y = change,
-             group = occupation,
-             color = group,
-             shape = group)
+             fill = 符号)
          ) +
-  geom_line() + 
-  geom_point() +
-  geom_hline(yintercept = 0) +
+  geom_bar(stat = "identity") +
+  geom_line(aes(y=0)) +
+  facet_wrap(~group) +
   theme_bw(base_family = "HiraKakuPro-W3") +
-  ylim(-0.12,0.06)
+  ylim(-0.04,0.03)
 ```
 
 - ２０２０年間には、サービスの職種が最も下落している。

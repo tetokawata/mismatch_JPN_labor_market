@@ -215,11 +215,13 @@ df <-
 ```{r}
 fig <-
   df |> 
+  mutate(符号 = if_else(N >= 0, "増加", "減少")) |> 
   ggplot(aes(x = date,
-             y = N)
+             y = N,
+             fill = 符号)
          ) +
-  geom_line() +
-  geom_hline(yintercept = 0) +
+  geom_bar(stat = "identity") +
+  geom_line(aes(y=0)) +
   facet_wrap(~factor(type,
                      levels = c("入職からの余剰",
                                 "入職率",
