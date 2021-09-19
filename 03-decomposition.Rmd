@@ -77,7 +77,8 @@ $$=\frac{u'}{v'}\sum_j [\underbrace{\frac{m_j}{u}[\frac{v_j}{m_j}-\frac{v'_j}{m'
 pacman::p_load("tidyverse",
                "readxl",
                "lubridate",
-               "tidymodels")
+               "tidymodels",
+               "Rfast")
 ```
 
 
@@ -343,7 +344,8 @@ df.agre <-
   ungroup() |> 
   distinct(occupation,
            share) |> 
-  mutate(group = if_else(share <= quantile(share, prob = 0.9),"その他",occupation))
+  mutate(group = if_else(share <= nth(share, 49),"その他",occupation))
+
 
 df <-
   df |> 
@@ -356,18 +358,37 @@ df <-
 - 余剰全体に占める各セクターの割合を示す。
 
 ```{r}
-df |> 
+df.select <-
+  df |> 
   filter(date >= make_date(2012,4)) |> 
-  mutate(余剰の割合 = 求人/総求人) |> 
-  ggplot(aes(x = date,
-             y = 余剰の割合,
-             group = occupation,
-             color = group,
-             shape = group)
-         ) +
-  geom_line() + 
-  geom_point() +
-  theme_bw(base_family = "HiraKakuPro-W3")
+  filter(group != "その他") |> 
+  mutate(余剰の割合 = 求人/総求人) 
+
+df.other <-
+  df |> 
+  filter(date >= make_date(2012,4)) |> 
+  filter(group == "その他") |> 
+  mutate(余剰の割合 = 求人/総求人) 
+
+ggplot() +
+  geom_line(aes(y = 余剰の割合, 
+                x = date, 
+                group = occupation), 
+            data = df.other, 
+            colour = alpha("grey", 0.7)
+            ) +
+  geom_line(aes(y = 余剰の割合, 
+                x = date, 
+                color = occupation), 
+            data = df.select
+            ) +
+  geom_point(aes(y = 余剰の割合, 
+                x = date, 
+                color = occupation), 
+            data = df.select) +
+  xlab("") +
+  theme_bw(base_family = "HiraKakuPro-W3") +
+  theme(legend.title = element_blank())
 ```
 
 - 介護サービスの職業が全体の10%近くの余剰を生み出してきた
@@ -403,7 +424,8 @@ df.1 |>
          ) +
   geom_bar(stat = "identity") +
   geom_line(aes(y=0)) +
-  facet_wrap(~group) +
+  facet_wrap(~group,
+             ncol = 2) +
   theme_bw(base_family = "HiraKakuPro-W3") +
   ylim(-0.04,0.03)
 ```
@@ -445,7 +467,8 @@ df.1 |>
          ) +
   geom_bar(stat = "identity") +
   geom_line(aes(y=0)) +
-  facet_wrap(~group) +
+  facet_wrap(~group,
+             ncol = 2) +
   theme_bw(base_family = "HiraKakuPro-W3") +
   ylim(-0.04,0.03)
 ```
@@ -477,7 +500,8 @@ df.1 |>
          ) +
   geom_bar(stat = "identity") +
   geom_line(aes(y=0)) +
-  facet_wrap(~group) +
+  facet_wrap(~group,
+             ncol = 2) +
   theme_bw(base_family = "HiraKakuPro-W3") +
   ylim(-0.04,0.03)
 ```

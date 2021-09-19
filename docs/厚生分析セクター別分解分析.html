@@ -24,7 +24,7 @@
 <meta name="author" content="川田恵介" />
 
 
-<meta name="date" content="2021-09-05" />
+<meta name="date" content="2021-09-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -305,7 +305,8 @@ div.csl-indent {
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="厚生分析セクター別分解分析.html#cb11-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(<span class="st">&quot;tidyverse&quot;</span>,</span>
 <span id="cb11-2"><a href="厚生分析セクター別分解分析.html#cb11-2" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;readxl&quot;</span>,</span>
 <span id="cb11-3"><a href="厚生分析セクター別分解分析.html#cb11-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;lubridate&quot;</span>,</span>
-<span id="cb11-4"><a href="厚生分析セクター別分解分析.html#cb11-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;tidymodels&quot;</span>)</span></code></pre></div>
+<span id="cb11-4"><a href="厚生分析セクター別分解分析.html#cb11-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;tidymodels&quot;</span>,</span>
+<span id="cb11-5"><a href="厚生分析セクター別分解分析.html#cb11-5" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;Rfast&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="厚生分析セクター別分解分析.html#cb12-1" aria-hidden="true" tabindex="-1"></a>number.industry <span class="ot">=</span> <span class="dv">68</span></span>
 <span id="cb12-2"><a href="厚生分析セクター別分解分析.html#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="厚生分析セクター別分解分析.html#cb12-3" aria-hidden="true" tabindex="-1"></a>year <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">2012</span>,<span class="dv">10</span>),</span>
@@ -566,30 +567,50 @@ div.csl-indent {
 <span id="cb17-36"><a href="厚生分析セクター別分解分析.html#cb17-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb17-37"><a href="厚生分析セクター別分解分析.html#cb17-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(occupation,</span>
 <span id="cb17-38"><a href="厚生分析セクター別分解分析.html#cb17-38" aria-hidden="true" tabindex="-1"></a>           share) <span class="sc">|&gt;</span> </span>
-<span id="cb17-39"><a href="厚生分析セクター別分解分析.html#cb17-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">if_else</span>(share <span class="sc">&lt;=</span> <span class="fu">quantile</span>(share, <span class="at">prob =</span> <span class="fl">0.9</span>),<span class="st">&quot;その他&quot;</span>,occupation))</span>
+<span id="cb17-39"><a href="厚生分析セクター別分解分析.html#cb17-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">if_else</span>(share <span class="sc">&lt;=</span> <span class="fu">nth</span>(share, <span class="dv">49</span>),<span class="st">&quot;その他&quot;</span>,occupation))</span>
 <span id="cb17-40"><a href="厚生分析セクター別分解分析.html#cb17-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-41"><a href="厚生分析セクター別分解分析.html#cb17-41" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span></span>
-<span id="cb17-42"><a href="厚生分析セクター別分解分析.html#cb17-42" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
-<span id="cb17-43"><a href="厚生分析セクター別分解分析.html#cb17-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(df.agre,</span>
-<span id="cb17-44"><a href="厚生分析セクター別分解分析.html#cb17-44" aria-hidden="true" tabindex="-1"></a>            <span class="at">by =</span> <span class="st">&quot;occupation&quot;</span>)</span></code></pre></div>
+<span id="cb17-41"><a href="厚生分析セクター別分解分析.html#cb17-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-42"><a href="厚生分析セクター別分解分析.html#cb17-42" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span></span>
+<span id="cb17-43"><a href="厚生分析セクター別分解分析.html#cb17-43" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb17-44"><a href="厚生分析セクター別分解分析.html#cb17-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(df.agre,</span>
+<span id="cb17-45"><a href="厚生分析セクター別分解分析.html#cb17-45" aria-hidden="true" tabindex="-1"></a>            <span class="at">by =</span> <span class="st">&quot;occupation&quot;</span>)</span></code></pre></div>
 </div>
 <div id="セクターの貢献率-2" class="section level3" number="4.3.2">
 <h3><span class="header-section-number">4.3.2</span> セクターの貢献率</h3>
 <ul>
 <li>余剰全体に占める各セクターの割合を示す。</li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="厚生分析セクター別分解分析.html#cb18-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb18-2"><a href="厚生分析セクター別分解分析.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2012</span>,<span class="dv">4</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb18-3"><a href="厚生分析セクター別分解分析.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(余剰の割合 <span class="ot">=</span> 求人<span class="sc">/</span>総求人) <span class="sc">|&gt;</span> </span>
-<span id="cb18-4"><a href="厚生分析セクター別分解分析.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date,</span>
-<span id="cb18-5"><a href="厚生分析セクター別分解分析.html#cb18-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> 余剰の割合,</span>
-<span id="cb18-6"><a href="厚生分析セクター別分解分析.html#cb18-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">group =</span> occupation,</span>
-<span id="cb18-7"><a href="厚生分析セクター別分解分析.html#cb18-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> group,</span>
-<span id="cb18-8"><a href="厚生分析セクター別分解分析.html#cb18-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> group)</span>
-<span id="cb18-9"><a href="厚生分析セクター別分解分析.html#cb18-9" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
-<span id="cb18-10"><a href="厚生分析セクター別分解分析.html#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb18-11"><a href="厚生分析セクター別分解分析.html#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb18-12"><a href="厚生分析セクター別分解分析.html#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuPro-W3&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="厚生分析セクター別分解分析.html#cb18-1" aria-hidden="true" tabindex="-1"></a>df.select <span class="ot">&lt;-</span></span>
+<span id="cb18-2"><a href="厚生分析セクター別分解分析.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb18-3"><a href="厚生分析セクター別分解分析.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2012</span>,<span class="dv">4</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb18-4"><a href="厚生分析セクター別分解分析.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">!=</span> <span class="st">&quot;その他&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb18-5"><a href="厚生分析セクター別分解分析.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(余剰の割合 <span class="ot">=</span> 求人<span class="sc">/</span>総求人) </span>
+<span id="cb18-6"><a href="厚生分析セクター別分解分析.html#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="厚生分析セクター別分解分析.html#cb18-7" aria-hidden="true" tabindex="-1"></a>df.other <span class="ot">&lt;-</span></span>
+<span id="cb18-8"><a href="厚生分析セクター別分解分析.html#cb18-8" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb18-9"><a href="厚生分析セクター別分解分析.html#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2012</span>,<span class="dv">4</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb18-10"><a href="厚生分析セクター別分解分析.html#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">==</span> <span class="st">&quot;その他&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb18-11"><a href="厚生分析セクター別分解分析.html#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(余剰の割合 <span class="ot">=</span> 求人<span class="sc">/</span>総求人) </span>
+<span id="cb18-12"><a href="厚生分析セクター別分解分析.html#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="厚生分析セクター別分解分析.html#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb18-14"><a href="厚生分析セクター別分解分析.html#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> 余剰の割合, </span>
+<span id="cb18-15"><a href="厚生分析セクター別分解分析.html#cb18-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">x =</span> date, </span>
+<span id="cb18-16"><a href="厚生分析セクター別分解分析.html#cb18-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">group =</span> occupation), </span>
+<span id="cb18-17"><a href="厚生分析セクター別分解分析.html#cb18-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> df.other, </span>
+<span id="cb18-18"><a href="厚生分析セクター別分解分析.html#cb18-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">colour =</span> <span class="fu">alpha</span>(<span class="st">&quot;grey&quot;</span>, <span class="fl">0.7</span>)</span>
+<span id="cb18-19"><a href="厚生分析セクター別分解分析.html#cb18-19" aria-hidden="true" tabindex="-1"></a>            ) <span class="sc">+</span></span>
+<span id="cb18-20"><a href="厚生分析セクター別分解分析.html#cb18-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> 余剰の割合, </span>
+<span id="cb18-21"><a href="厚生分析セクター別分解分析.html#cb18-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">x =</span> date, </span>
+<span id="cb18-22"><a href="厚生分析セクター別分解分析.html#cb18-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> occupation), </span>
+<span id="cb18-23"><a href="厚生分析セクター別分解分析.html#cb18-23" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> df.select</span>
+<span id="cb18-24"><a href="厚生分析セクター別分解分析.html#cb18-24" aria-hidden="true" tabindex="-1"></a>            ) <span class="sc">+</span></span>
+<span id="cb18-25"><a href="厚生分析セクター別分解分析.html#cb18-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> 余剰の割合, </span>
+<span id="cb18-26"><a href="厚生分析セクター別分解分析.html#cb18-26" aria-hidden="true" tabindex="-1"></a>                <span class="at">x =</span> date, </span>
+<span id="cb18-27"><a href="厚生分析セクター別分解分析.html#cb18-27" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> occupation), </span>
+<span id="cb18-28"><a href="厚生分析セクター別分解分析.html#cb18-28" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> df.select) <span class="sc">+</span></span>
+<span id="cb18-29"><a href="厚生分析セクター別分解分析.html#cb18-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb18-30"><a href="厚生分析セクター別分解分析.html#cb18-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuPro-W3&quot;</span>) <span class="sc">+</span></span>
+<span id="cb18-31"><a href="厚生分析セクター別分解分析.html#cb18-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <p><img src="test_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <ul>
 <li><p>介護サービスの職業が全体の10%近くの余剰を生み出してきた</p>
@@ -626,9 +647,10 @@ div.csl-indent {
 <span id="cb19-16"><a href="厚生分析セクター別分解分析.html#cb19-16" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
 <span id="cb19-17"><a href="厚生分析セクター別分解分析.html#cb19-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
 <span id="cb19-18"><a href="厚生分析セクター別分解分析.html#cb19-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb19-19"><a href="厚生分析セクター別分解分析.html#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>group) <span class="sc">+</span></span>
-<span id="cb19-20"><a href="厚生分析セクター別分解分析.html#cb19-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuPro-W3&quot;</span>) <span class="sc">+</span></span>
-<span id="cb19-21"><a href="厚生分析セクター別分解分析.html#cb19-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.04</span>,<span class="fl">0.03</span>)</span></code></pre></div>
+<span id="cb19-19"><a href="厚生分析セクター別分解分析.html#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>group,</span>
+<span id="cb19-20"><a href="厚生分析セクター別分解分析.html#cb19-20" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb19-21"><a href="厚生分析セクター別分解分析.html#cb19-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuPro-W3&quot;</span>) <span class="sc">+</span></span>
+<span id="cb19-22"><a href="厚生分析セクター別分解分析.html#cb19-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.04</span>,<span class="fl">0.03</span>)</span></code></pre></div>
 <p><img src="test_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <ul>
 <li><p>2013年以降余剰の増加傾向が続いていた</p>
@@ -666,9 +688,10 @@ div.csl-indent {
 <span id="cb20-16"><a href="厚生分析セクター別分解分析.html#cb20-16" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
 <span id="cb20-17"><a href="厚生分析セクター別分解分析.html#cb20-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
 <span id="cb20-18"><a href="厚生分析セクター別分解分析.html#cb20-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb20-19"><a href="厚生分析セクター別分解分析.html#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>group) <span class="sc">+</span></span>
-<span id="cb20-20"><a href="厚生分析セクター別分解分析.html#cb20-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuPro-W3&quot;</span>) <span class="sc">+</span></span>
-<span id="cb20-21"><a href="厚生分析セクター別分解分析.html#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.04</span>,<span class="fl">0.03</span>)</span></code></pre></div>
+<span id="cb20-19"><a href="厚生分析セクター別分解分析.html#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>group,</span>
+<span id="cb20-20"><a href="厚生分析セクター別分解分析.html#cb20-20" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb20-21"><a href="厚生分析セクター別分解分析.html#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuPro-W3&quot;</span>) <span class="sc">+</span></span>
+<span id="cb20-22"><a href="厚生分析セクター別分解分析.html#cb20-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.04</span>,<span class="fl">0.03</span>)</span></code></pre></div>
 <p><img src="test_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <ul>
 <li><p>特に商品販売、接客・給仕、飲食物調理において減少が大きい</p>
@@ -700,9 +723,10 @@ div.csl-indent {
 <span id="cb21-16"><a href="厚生分析セクター別分解分析.html#cb21-16" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
 <span id="cb21-17"><a href="厚生分析セクター別分解分析.html#cb21-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
 <span id="cb21-18"><a href="厚生分析セクター別分解分析.html#cb21-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb21-19"><a href="厚生分析セクター別分解分析.html#cb21-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>group) <span class="sc">+</span></span>
-<span id="cb21-20"><a href="厚生分析セクター別分解分析.html#cb21-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuPro-W3&quot;</span>) <span class="sc">+</span></span>
-<span id="cb21-21"><a href="厚生分析セクター別分解分析.html#cb21-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.04</span>,<span class="fl">0.03</span>)</span></code></pre></div>
+<span id="cb21-19"><a href="厚生分析セクター別分解分析.html#cb21-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>group,</span>
+<span id="cb21-20"><a href="厚生分析セクター別分解分析.html#cb21-20" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb21-21"><a href="厚生分析セクター別分解分析.html#cb21-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuPro-W3&quot;</span>) <span class="sc">+</span></span>
+<span id="cb21-22"><a href="厚生分析セクター別分解分析.html#cb21-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.04</span>,<span class="fl">0.03</span>)</span></code></pre></div>
 <p><img src="test_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <ul>
 <li><p>COVID-19下で入職率も急落した。</p>
@@ -732,35 +756,36 @@ div.csl-indent {
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] yardstick_0.0.8    workflowsets_0.1.0 workflows_0.2.3    tune_0.1.6        
-##  [5] rsample_0.1.0      recipes_0.1.16     parsnip_0.1.7      modeldata_0.1.1   
-##  [9] infer_1.0.0        dials_0.0.9        scales_1.1.1       broom_0.7.9       
-## [13] tidymodels_0.1.3   lubridate_1.7.10   readxl_1.3.1       forcats_0.5.1     
-## [17] stringr_1.4.0      dplyr_1.0.7        purrr_0.3.4        readr_2.0.1       
-## [21] tidyr_1.1.3        tibble_3.1.3       ggplot2_3.3.5      tidyverse_1.3.1   
+##  [1] Rfast_2.0.3        RcppZiggurat_0.1.6 Rcpp_1.0.7         yardstick_0.0.8   
+##  [5] workflowsets_0.1.0 workflows_0.2.3    tune_0.1.6         rsample_0.1.0     
+##  [9] recipes_0.1.16     parsnip_0.1.7      modeldata_0.1.1    infer_1.0.0       
+## [13] dials_0.0.9        scales_1.1.1       broom_0.7.9        tidymodels_0.1.3  
+## [17] lubridate_1.7.10   readxl_1.3.1       forcats_0.5.1      stringr_1.4.0     
+## [21] dplyr_1.0.7        purrr_0.3.4        readr_2.0.1        tidyr_1.1.3       
+## [25] tibble_3.1.3       ggplot2_3.3.5      tidyverse_1.3.1   
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] fs_1.5.0           DiceDesign_1.9     httr_1.4.2         tools_4.1.1       
-##  [5] backports_1.2.1    bslib_0.3.0        utf8_1.2.2         R6_2.5.1          
-##  [9] rpart_4.1-15       DBI_1.1.1          colorspace_2.0-2   nnet_7.3-16       
-## [13] withr_2.4.2        tidyselect_1.1.1   compiler_4.1.1     cli_3.0.1         
-## [17] rvest_1.0.1        pacman_0.5.1       xml2_1.3.2         labeling_0.4.2    
-## [21] bookdown_0.23      sass_0.4.0         digest_0.6.27      rmarkdown_2.10    
-## [25] pkgconfig_2.0.3    htmltools_0.5.2    parallelly_1.27.0  lhs_1.1.1         
-## [29] dbplyr_2.1.1       fastmap_1.1.0      highr_0.9          rlang_0.4.11      
-## [33] rstudioapi_0.13    jquerylib_0.1.4    farver_2.1.0       generics_0.1.0    
-## [37] jsonlite_1.7.2     magrittr_2.0.1     Matrix_1.3-4       GPfit_1.0-8       
-## [41] Rcpp_1.0.7         munsell_0.5.0      fansi_0.5.0        furrr_0.2.3       
-## [45] lifecycle_1.0.0    pROC_1.17.0.1      stringi_1.7.3      yaml_2.2.1        
-## [49] MASS_7.3-54        plyr_1.8.6         grid_4.1.1         parallel_4.1.1    
-## [53] listenv_0.8.0      crayon_1.4.1       lattice_0.20-44    haven_2.4.3       
-## [57] splines_4.1.1      hms_1.1.0          knitr_1.33         pillar_1.6.2      
-## [61] codetools_0.2-18   reprex_2.0.1       glue_1.4.2         evaluate_0.14     
-## [65] modelr_0.1.8       foreach_1.5.1      vctrs_0.3.8        tzdb_0.1.2        
-## [69] cellranger_1.1.0   gtable_0.3.0       future_1.21.0      assertthat_0.2.1  
-## [73] xfun_0.25          gower_0.2.2        prodlim_2019.11.13 class_7.3-19      
-## [77] survival_3.2-12    timeDate_3043.102  iterators_1.0.13   hardhat_0.1.6     
-## [81] lava_1.6.9         globals_0.14.0     ellipsis_0.3.2     ipred_0.9-11</code></pre>
+##  [1] colorspace_2.0-2   ellipsis_0.3.2     class_7.3-19       fs_1.5.0          
+##  [5] rstudioapi_0.13    listenv_0.8.0      furrr_0.2.3        farver_2.1.0      
+##  [9] prodlim_2019.11.13 fansi_0.5.0        xml2_1.3.2         codetools_0.2-18  
+## [13] splines_4.1.1      knitr_1.33         jsonlite_1.7.2     pROC_1.17.0.1     
+## [17] dbplyr_2.1.1       compiler_4.1.1     httr_1.4.2         backports_1.2.1   
+## [21] assertthat_0.2.1   Matrix_1.3-4       fastmap_1.1.0      cli_3.0.1         
+## [25] htmltools_0.5.2    tools_4.1.1        gtable_0.3.0       glue_1.4.2        
+## [29] cellranger_1.1.0   jquerylib_0.1.4    DiceDesign_1.9     vctrs_0.3.8       
+## [33] iterators_1.0.13   timeDate_3043.102  gower_0.2.2        xfun_0.25         
+## [37] globals_0.14.0     rvest_1.0.1        lifecycle_1.0.0    pacman_0.5.1      
+## [41] future_1.21.0      MASS_7.3-54        ipred_0.9-11       hms_1.1.0         
+## [45] parallel_4.1.1     yaml_2.2.1         sass_0.4.0         rpart_4.1-15      
+## [49] stringi_1.7.3      highr_0.9          foreach_1.5.1      lhs_1.1.1         
+## [53] hardhat_0.1.6      lava_1.6.9         rlang_0.4.11       pkgconfig_2.0.3   
+## [57] evaluate_0.14      lattice_0.20-44    labeling_0.4.2     tidyselect_1.1.1  
+## [61] parallelly_1.27.0  plyr_1.8.6         magrittr_2.0.1     bookdown_0.23     
+## [65] R6_2.5.1           generics_0.1.0     DBI_1.1.1          pillar_1.6.2      
+## [69] haven_2.4.3        withr_2.4.2        survival_3.2-12    nnet_7.3-16       
+## [73] modelr_0.1.8       crayon_1.4.1       utf8_1.2.2         tzdb_0.1.2        
+## [77] rmarkdown_2.10     grid_4.1.1         reprex_2.0.1       digest_0.6.27     
+## [81] munsell_0.5.0      GPfit_1.0-8        bslib_0.3.0</code></pre>
 
 </div>
 </div>
