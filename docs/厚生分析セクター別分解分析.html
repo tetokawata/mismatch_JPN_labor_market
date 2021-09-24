@@ -24,7 +24,7 @@
 <meta name="author" content="川田恵介" />
 
 
-<meta name="date" content="2021-09-19" />
+<meta name="date" content="2021-09-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -266,7 +266,7 @@ div.csl-indent {
 <div id="セクターの貢献率" class="section level3" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> セクターの貢献率</h3>
 <ul>
-<li>(1)式より<span class="math inline">\(\sum_j\Delta_j = k\beta/(1-\beta)\sum_j v/u\)</span>なので、あるセクターjが生み出す余剰が全体に占める割合を以下のように識別できる。</li>
+<li>(1)式より<span class="math inline">\(\sum_j\Delta_j = k\beta/(1-\beta)\sum_j v/u\)</span>なので、あるセクター<span class="math inline">\(j\)</span>が生み出す余剰が全体に占める割合は、以下のように識別できる。</li>
 </ul>
 <p><span class="math display">\[\frac{\Delta_j}{\sum_j\Delta_j}=\frac{v_j}{v}\]</span></p>
 </div>
@@ -286,9 +286,9 @@ div.csl-indent {
 </ul>
 <p><span class="math display">\[=\frac{u&#39;}{v&#39;}\sum_j [\underbrace{\frac{m_j}{u}[\frac{v_j}{m_j}-\frac{v&#39;_j}{m&#39;_j}]}_{入職からの余剰変化の貢献}+\underbrace{[\frac{m_j}{u}- \frac{m&#39;_j}{u&#39;}]\frac{v&#39;_j}{m&#39;_j}}_{入職率変化の貢献}]\]</span></p>
 <ul>
-<li><p>以上の議論は、セクター別の就職・求人件数のみを用いて、厚生変化をセクター別の貢献に分解可能であることを示している</p>
+<li><p>以上の議論は、セクター別の就職・求人件数のみを用いて、厚生変化をセクター別の貢献に分解可能であることを示している。</p>
 <ul>
-<li>さらにセクター別に入職からの余剰と入職率の変化それぞれの貢献も識別可能である。</li>
+<li>セクター別の入職からの余剰と入職率の変化、それぞれの貢献も識別可能である。</li>
 </ul></li>
 <li><p>上記の識別を可能とする重要な仮定は、パラメータ<span class="math inline">\(\beta\)</span>,<span class="math inline">\(k\)</span>がセクター間で同一であるという仮定である。</p></li>
 </ul>
@@ -330,8 +330,8 @@ div.csl-indent {
 <span id="cb12-21"><a href="厚生分析セクター別分解分析.html#cb12-21" aria-hidden="true" tabindex="-1"></a>re.sel.col <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">113</span></span>
 <span id="cb12-22"><a href="厚生分析セクター別分解分析.html#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-23"><a href="厚生分析セクター別分解分析.html#cb12-23" aria-hidden="true" tabindex="-1"></a>raw.vacancy <span class="ot">&lt;-</span></span>
-<span id="cb12-24"><a href="厚生分析セクター別分解分析.html#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第21表.xlsx&quot;</span>,</span>
-<span id="cb12-25"><a href="厚生分析セクター別分解分析.html#cb12-25" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第２１表ー２　有効求人（パート含む常用）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-24"><a href="厚生分析セクター別分解分析.html#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/第21表.xlsx&quot;</span> <span class="sc">|&gt;</span> </span>
+<span id="cb12-25"><a href="厚生分析セクター別分解分析.html#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="at">sheet =</span> <span class="st">&quot;第２１表ー２　有効求人（パート含む常用）&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb12-26"><a href="厚生分析セクター別分解分析.html#cb12-26" aria-hidden="true" tabindex="-1"></a>  .[sel.row,sel.col] <span class="sc">|&gt;</span> </span>
 <span id="cb12-27"><a href="厚生分析セクター別分解分析.html#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> re.sel.col,</span>
 <span id="cb12-28"><a href="厚生分析セクター別分解分析.html#cb12-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">|&gt;</span> </span>
@@ -343,8 +343,8 @@ div.csl-indent {
 <span id="cb12-34"><a href="厚生分析セクター別分解分析.html#cb12-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">職業別有効求人数（パートタイムを含む常用）</span><span class="st">`</span>,<span class="sc">-</span>name)</span>
 <span id="cb12-35"><a href="厚生分析セクター別分解分析.html#cb12-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-36"><a href="厚生分析セクター別分解分析.html#cb12-36" aria-hidden="true" tabindex="-1"></a>raw.seeker <span class="ot">&lt;-</span></span>
-<span id="cb12-37"><a href="厚生分析セクター別分解分析.html#cb12-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第21表.xlsx&quot;</span>,</span>
-<span id="cb12-38"><a href="厚生分析セクター別分解分析.html#cb12-38" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot; 第２１表ー４　有効求職（パート含む常用）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-37"><a href="厚生分析セクター別分解分析.html#cb12-37" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/第21表.xlsx&quot;</span> <span class="sc">|&gt;</span> </span>
+<span id="cb12-38"><a href="厚生分析セクター別分解分析.html#cb12-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="at">sheet =</span> <span class="st">&quot; 第２１表ー４　有効求職（パート含む常用）&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb12-39"><a href="厚生分析セクター別分解分析.html#cb12-39" aria-hidden="true" tabindex="-1"></a>  .[sel.row,sel.col] <span class="sc">|&gt;</span> </span>
 <span id="cb12-40"><a href="厚生分析セクター別分解分析.html#cb12-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> re.sel.col,</span>
 <span id="cb12-41"><a href="厚生分析セクター別分解分析.html#cb12-41" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">|&gt;</span> </span>
@@ -356,8 +356,8 @@ div.csl-indent {
 <span id="cb12-47"><a href="厚生分析セクター別分解分析.html#cb12-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">職業別有効求職者数（パートタイムを含む常用）</span><span class="st">`</span>,<span class="sc">-</span>name)</span>
 <span id="cb12-48"><a href="厚生分析セクター別分解分析.html#cb12-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-49"><a href="厚生分析セクター別分解分析.html#cb12-49" aria-hidden="true" tabindex="-1"></a>raw.hir <span class="ot">&lt;-</span></span>
-<span id="cb12-50"><a href="厚生分析セクター別分解分析.html#cb12-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第21表.xlsx&quot;</span>,</span>
-<span id="cb12-51"><a href="厚生分析セクター別分解分析.html#cb12-51" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第２１表ー５　 就職件数（パート含む常用）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-50"><a href="厚生分析セクター別分解分析.html#cb12-50" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/第21表.xlsx&quot;</span> <span class="sc">|&gt;</span> </span>
+<span id="cb12-51"><a href="厚生分析セクター別分解分析.html#cb12-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="at">sheet =</span> <span class="st">&quot;第２１表ー５　 就職件数（パート含む常用）&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb12-52"><a href="厚生分析セクター別分解分析.html#cb12-52" aria-hidden="true" tabindex="-1"></a>  .[sel.row,sel.col] <span class="sc">|&gt;</span> </span>
 <span id="cb12-53"><a href="厚生分析セクター別分解分析.html#cb12-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> re.sel.col,</span>
 <span id="cb12-54"><a href="厚生分析セクター別分解分析.html#cb12-54" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;n&quot;</span>) <span class="sc">|&gt;</span> </span>
@@ -418,7 +418,7 @@ div.csl-indent {
 <span id="cb13-13"><a href="厚生分析セクター別分解分析.html#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuPro-W3&quot;</span>)</span></code></pre></div>
 <p><img src="test_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <ul>
-<li><p>サービス/技術・専門の職種が各々、余剰全体の２割以上を生み出している</p>
+<li><p>サービス/技術・専門の職種はそれぞれで余剰全体の２割以上を生み出している</p>
 <ul>
 <li>技術・専門の職種には介護職が含まれており、当該職種が生み出す余剰が特に大きい</li>
 </ul></li>
@@ -452,8 +452,9 @@ div.csl-indent {
 <span id="cb14-21"><a href="厚生分析セクター別分解分析.html#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.10</span>,<span class="fl">0.06</span>)</span></code></pre></div>
 <p><img src="test_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <ul>
+<li><p>2020年第二四半期以降、全職種で余剰が低下している。</p></li>
 <li><p>サービスの職種が、2020年間の総余剰の急落の大きな源泉となっている。</p></li>
-<li><p>2021年においても依然として低水準にとどまっている</p>
+<li><p>2021年においても依然として減少は続いている。</p>
 <ul>
 <li>2020年の水準を上回るのは、生産工程の職種のみ</li>
 </ul></li>
@@ -516,7 +517,7 @@ div.csl-indent {
 <p><img src="test_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <ul>
 <li><p>２０２０年間には、サービスの職種が最も下落している。</p></li>
-<li><p>２０２１年には、全職種において下げ止まりが見られる。</p></li>
+<li><p>2021年第二四半期には、全職種において下げ止まりが見られる。</p></li>
 </ul>
 </div>
 </div>
@@ -613,15 +614,13 @@ div.csl-indent {
 <span id="cb18-31"><a href="厚生分析セクター別分解分析.html#cb18-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <p><img src="test_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <ul>
-<li><p>介護サービスの職業が全体の10%近くの余剰を生み出してきた</p>
+<li><p>介護サービスの職業が全体の10%近くの余剰を生み出している。</p>
 <ul>
-<li>COVID-19下で割合はさらに増加し、11%近くになっている</li>
+<li>COVID-19下で割合はさらに増加し、11%近くになっている。</li>
 </ul></li>
-<li><p>商品販売の職業も余剰の大きな割合を生み出しているが、低下傾向にあり、COVID-19後急落している</p>
-<ul>
-<li><p>接客・給仕の職業、飲食調理の職業についても、割合の急落が認められる</p></li>
-<li><p>保険師、助産師、看護士については、COVID-19下で割合が増加している</p></li>
-</ul></li>
+<li><p>商品販売の職業も余剰の大きな割合を生み出しているが、長期低下傾向にあり、COVID-19後急落している</p></li>
+<li><p>接客・給仕の職業、飲食調理の職業についても、急落が認められる</p></li>
+<li><p>保険師、助産師、看護士については、COVID-19下で増加している</p></li>
 </ul>
 </div>
 <div id="総余剰の変化-1" class="section level3" number="4.3.3">
@@ -653,17 +652,17 @@ div.csl-indent {
 <span id="cb19-22"><a href="厚生分析セクター別分解分析.html#cb19-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.04</span>,<span class="fl">0.03</span>)</span></code></pre></div>
 <p><img src="test_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <ul>
-<li><p>2013年以降余剰の増加傾向が続いていた</p>
+<li><p>2013年以降、余剰の増加傾向が続いていた。</p>
 <ul>
 <li><p>特に介護サービスの職業で顕著</p></li>
-<li><p>徐々に頭打ち傾向になってきた</p></li>
+<li><p>近年は頭打ち傾向がみられていた</p></li>
 </ul></li>
-<li><p>COVID-19下において、全職種において余剰が急落した</p>
+<li><p>COVID-19下において、全職種において余剰が急落した。</p>
 <ul>
-<li><p>相対的に保健師、助産師、介護師への影響は小さい</p></li>
+<li><p>相対的に保健師、助産師、介護サービスへの影響は小さい</p></li>
 <li><p>相対的に商品販売、接客・給仕、飲食物調理への影響が大きい</p></li>
 </ul></li>
-<li><p>2021年になっても減少は続いている</p></li>
+<li><p>全職種で2021年になっても減少は続いている</p></li>
 </ul>
 <div id="入職からの余剰の貢献-1" class="section level4" number="4.3.3.1">
 <h4><span class="header-section-number">4.3.3.1</span> 入職からの余剰の貢献</h4>
@@ -696,7 +695,7 @@ div.csl-indent {
 <ul>
 <li><p>特に商品販売、接客・給仕、飲食物調理において減少が大きい</p>
 <ul>
-<li>下げ止まりの傾向すら明確に見えていない</li>
+<li>下げ止まりの傾向も明確ではない</li>
 </ul></li>
 </ul>
 </div>
@@ -743,7 +742,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="厚生分析セクター別分解分析.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.1.1 (2021-08-10)
 ## Platform: aarch64-apple-darwin20 (64-bit)
-## Running under: macOS Big Sur 11.5.2
+## Running under: macOS Big Sur 11.6
 ## 
 ## Matrix products: default
 ## BLAS:   /Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/lib/libRblas.0.dylib

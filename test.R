@@ -4,7 +4,8 @@
 pacman::p_load("tidyverse",
                "readxl",
                "lubridate",
-               "tidymodels")
+               "tidymodels",
+               "Rfast")
 
 # Data ----
 

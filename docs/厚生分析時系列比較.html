@@ -24,7 +24,7 @@
 <meta name="author" content="川田恵介" />
 
 
-<meta name="date" content="2021-09-19" />
+<meta name="date" content="2021-09-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -233,7 +233,7 @@ div.csl-indent {
 <ul>
 <li><p>1963年から2021年6月までの年次データ、<span class="citation"><a href="#ref-kawata2021first" role="doc-biblioref">Kawata and Sato</a> (<a href="#ref-kawata2021first" role="doc-biblioref">2021</a>)</span> の手法を用いて、求職者の厚生変化を記述する</p>
 <ul>
-<li>引き続き四半期ごとに集計する</li>
+<li>四半期ごとに集計する</li>
 </ul></li>
 </ul>
 <div id="方法-1" class="section level2" number="3.1">
@@ -241,7 +241,7 @@ div.csl-indent {
 <ul>
 <li><p>同質な求職者・求人からなるモデルを用いて、定常状態における厚生変化の識別方法を紹介する。</p>
 <ul>
-<li><span class="citation"><a href="#ref-kawata2021first" role="doc-biblioref">Kawata and Sato</a> (<a href="#ref-kawata2021first" role="doc-biblioref">2021</a>)</span> では異質性を導入し・非定常状態であったとしても、同じ結果を得れることを示している。</li>
+<li><span class="citation"><a href="#ref-kawata2021first" role="doc-biblioref">Kawata and Sato</a> (<a href="#ref-kawata2021first" role="doc-biblioref">2021</a>)</span> では異質性を導入・非定常状態であったとしても、同じ結果が得れることを示している。</li>
 </ul></li>
 <li><p>標準的なDiamond-Mortencen-Pissarides型サーチモデル<span class="citation">(<a href="#ref-rogerson2005search" role="doc-biblioref">Rogerson, Shimer, and Wright 2005</a>)</span>に準じて、以下の4条件式を仮定する</p></li>
 </ul>
@@ -253,10 +253,10 @@ div.csl-indent {
 <p><span class="math display">\[\Delta = \underbrace{\frac{m}{u}}_{入職率}\times \underbrace{(W-U)}_{入職からの余剰}\]</span></p>
 <p><span class="math inline">\(m:\)</span> 新規就職件数、<span class="math inline">\(u:\)</span>求職者数、<span class="math inline">\(U:\)</span>求職者の期待効用、<span class="math inline">\(W:\)</span>就業者の期待効用、<span class="math inline">\(r,b:\)</span> パラメータ</p>
 <ul>
-<li><p>サーチ活動の余剰をデータから識別することを目指す。</p>
+<li><p>入職からの余剰を識別する。</p>
 <ul>
 <li><p>同値はサーチ活動がもたらす期待余剰であり、入職率と入職がもたらす余剰<span class="math inline">\(W-U\)</span>の積として定義される。</p></li>
-<li><p>識別の障害となるのは、入職からの余剰をデータから直接観察できない点にある。以下では他の均衡条件を用いることで、この観察できない値の”変化”は復元できることを示している。</p></li>
+<li><p>識別の障害となるのは、入職からの余剰をデータから直接観察できない点にある。以下では他の均衡条件を用いることで、この観察できない値の”変化”は識別できることを示している。</p></li>
 </ul></li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
@@ -277,7 +277,7 @@ div.csl-indent {
 <p><span class="math display">\[(1-\beta)(W-U)=\beta(J-V)\]</span></p>
 <p><span class="math inline">\(\beta:\)</span> パラメータ</p>
 <ul>
-<li>この条件は、マッチングによる余剰が、労働者と企業間でパラメータ<span class="math inline">\(\beta\)</span>の割合で分配されることを仮定している。同パラメータをデータから推定することは困難であるが、以下の議論は、入職からの期待余剰<span class="math inline">\(\Delta\)</span>の”変化”の識別は、<span class="math inline">\(\beta\)</span>の識別を要求しないことを示している。</li>
+<li>この条件は、入職からの余剰が、労働者と企業間でパラメータ<span class="math inline">\(\beta\)</span>の割合で分配されることを仮定している。同パラメータをデータから推定することは困難であるが、以下の議論は、入職からの期待余剰<span class="math inline">\(\Delta\)</span>の”変化”の識別は、<span class="math inline">\(\beta\)</span>の識別を要求しないことを示している。</li>
 </ul>
 <div id="識別" class="section level3" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> 識別</h3>
@@ -286,16 +286,18 @@ div.csl-indent {
 </ul>
 <p><span class="math display">\[\Delta = \underbrace{\frac{m}{u}}_{入職率}\times \underbrace{(W-U)}_{入職からの余剰}=\underbrace{\frac{m}{u}}_{入職率}\times \underbrace{\frac{\beta}{1-\beta}(J-V)}_{入職からの余剰}\]</span></p>
 <ul>
-<li>自由参入条件からさらに書き換えられる</li>
+<li>自由参入条件からさらに書き換えられる。</li>
 </ul>
 <p><span class="math display">\[\Delta = \underbrace{\frac{m}{u}}_{入職率}\times \underbrace{(W-U)}_{入職からの余剰}=\underbrace{\frac{m}{u}}_{入職率}\times \underbrace{\frac{\beta}{1-\beta}k\times\frac{v}{m}}_{入職からの余剰}\]</span></p>
 <ul>
-<li><p>同式からは、新規就職、求人、求職件数とパラメータの積により、新規就職からの余剰は書き下せる
+<li><p>同式からは、新規就職、求人、求職件数とパラメータの積により、就職からの余剰は書き下せる
 ことを示している。</p></li>
 <li><p>未知のパラメータ(<span class="math inline">\(\beta\)</span>,<span class="math inline">\(k\)</span>)を含んでいるため<span class="math inline">\(\Delta\)</span>そのものをデータから識別することはできない。
-他方変化率は、未知のパラメータを推定せずに、識別できる。</p></li>
-<li><p>異なる状態（2019年 VS 2020年, “With COVID-19” VS “Without COVID-19”等）におけるサーチ活動からの余剰を<span class="math inline">\(\Delta,\Delta&#39;\)</span>で記す。
-状態が異なっても<span class="math inline">\(¥beta\)</span>,<span class="math inline">\(k\)</span>は変化しないとすると、サーチ活動からの余剰の変化率は</p></li>
+他方変化率は、未知のパラメータを推定せずに、識別できる。</p>
+<ul>
+<li>異なる状態（2019年 VS 2020年, “With COVID-19” VS “Without COVID-19”等）におけるサーチ活動からの余剰を<span class="math inline">\(\Delta,\Delta&#39;\)</span>で記す。
+状態が異なっても<span class="math inline">\(¥beta\)</span>,<span class="math inline">\(k\)</span>は変化しないとすると、サーチ活動からの余剰の変化率は</li>
+</ul></li>
 </ul>
 <p><span class="math display">\[\frac{\Delta - \Delta&#39;}{\Delta&#39;}=\frac{\frac{m}{u}(W-U)-\frac{m&#39;}{u&#39;}(W&#39;-U&#39;)}{\frac{m&#39;}{u&#39;}(W&#39;-U&#39;)}\]</span></p>
 <p><span class="math display">\[=\frac{1}{\frac{m&#39;}{u&#39;}(W&#39;-U&#39;)}[\underbrace{\frac{m}{u}(W-U-(W&#39;-U&#39;))}_{マッチからの余剰の貢献}+\underbrace{(\frac{m}{u}-\frac{m&#39;}{u&#39;})(W&#39;-U&#39;)}_{入職率の貢献}]\]</span></p>
@@ -304,7 +306,7 @@ div.csl-indent {
 <ul>
 <li><p>同式から総余剰は、求人倍率<span class="math inline">\(v/u\)</span>の変化率により識別されることを示している。</p>
 <ul>
-<li><p>さらにサーチ活動からの総余剰は入職率、入職からの余剰の対数変化に分解でき、それぞれも新規就職・求人・求職件数のみで識別できることを示している。</p></li>
+<li><p>さらにサーチ活動からの総余剰は入職率、入職からの余剰の対数変化に分解でき、それぞれ新規就職・求人・求職件数のみで識別できることを示している。</p></li>
 <li><p>これらは職業紹介業務統計において継続的に報告されており、公開データのみを用いて、求職活動の厚生評価を行う事ができる。</p></li>
 </ul></li>
 </ul>
@@ -312,9 +314,9 @@ div.csl-indent {
 <div id="時系列比較への応用" class="section level3" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> 時系列比較への応用</h3>
 <ul>
-<li><p>以下では前年同月と比べたサーチ活動からの余剰変化を推定している。</p>
+<li><p>以下では前年同期と比べたサーチ活動からの余剰変化を推定している。</p>
 <ul>
-<li><p>例えば2020年4月については、<span class="math inline">\(\Delta=\)</span> 2020年4月の余剰、<span class="math inline">\(\Delta&#39;=\)</span> 2019年4月の余剰を示す。</p></li>
+<li><p>例えば<span class="math inline">\(\Delta=\)</span> 2020年第二四半期の余剰を示すのであれば、<span class="math inline">\(\Delta&#39;=\)</span> 2019年第二四半期の余剰を示す。</p></li>
 <li><p>同推定値は、前年に比べて求職者が置かれている状況が、どの程度改善ないし悪化しているのかを示す指標となる。</p></li>
 </ul></li>
 </ul>
@@ -347,8 +349,8 @@ div.csl-indent {
 <span id="cb7-20"><a href="厚生分析時系列比較.html#cb7-20" aria-hidden="true" tabindex="-1"></a>select.column <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">14</span>)</span>
 <span id="cb7-21"><a href="厚生分析時系列比較.html#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-22"><a href="厚生分析時系列比較.html#cb7-22" aria-hidden="true" tabindex="-1"></a>raw.vacancy.full <span class="ot">&lt;-</span></span>
-<span id="cb7-23"><a href="厚生分析時系列比較.html#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第6表.xlsx&quot;</span>,</span>
-<span id="cb7-24"><a href="厚生分析時系列比較.html#cb7-24" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第６表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-23"><a href="厚生分析時系列比較.html#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/第6表.xlsx&quot;</span> <span class="sc">|&gt;</span> </span>
+<span id="cb7-24"><a href="厚生分析時系列比較.html#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="at">sheet =</span> <span class="st">&quot;第６表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb7-25"><a href="厚生分析時系列比較.html#cb7-25" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|&gt;</span> </span>
 <span id="cb7-26"><a href="厚生分析時系列比較.html#cb7-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求人&quot;</span>,</span>
 <span id="cb7-27"><a href="厚生分析時系列比較.html#cb7-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
@@ -356,8 +358,8 @@ div.csl-indent {
 <span id="cb7-29"><a href="厚生分析時系列比較.html#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.vacancy.full) <span class="ot">&lt;-</span> col.label</span>
 <span id="cb7-30"><a href="厚生分析時系列比較.html#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-31"><a href="厚生分析時系列比較.html#cb7-31" aria-hidden="true" tabindex="-1"></a>raw.seeker.full <span class="ot">&lt;-</span></span>
-<span id="cb7-32"><a href="厚生分析時系列比較.html#cb7-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第7表.xlsx&quot;</span>,</span>
-<span id="cb7-33"><a href="厚生分析時系列比較.html#cb7-33" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第７表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-32"><a href="厚生分析時系列比較.html#cb7-32" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/第7表.xlsx&quot;</span> <span class="sc">|&gt;</span> </span>
+<span id="cb7-33"><a href="厚生分析時系列比較.html#cb7-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="at">sheet =</span> <span class="st">&quot;第７表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb7-34"><a href="厚生分析時系列比較.html#cb7-34" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|&gt;</span> </span>
 <span id="cb7-35"><a href="厚生分析時系列比較.html#cb7-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求職&quot;</span>,</span>
 <span id="cb7-36"><a href="厚生分析時系列比較.html#cb7-36" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
@@ -365,8 +367,8 @@ div.csl-indent {
 <span id="cb7-38"><a href="厚生分析時系列比較.html#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.seeker.full) <span class="ot">&lt;-</span> col.label</span>
 <span id="cb7-39"><a href="厚生分析時系列比較.html#cb7-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-40"><a href="厚生分析時系列比較.html#cb7-40" aria-hidden="true" tabindex="-1"></a>raw.hir.full <span class="ot">&lt;-</span></span>
-<span id="cb7-41"><a href="厚生分析時系列比較.html#cb7-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第8表.xlsx&quot;</span>,</span>
-<span id="cb7-42"><a href="厚生分析時系列比較.html#cb7-42" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第８表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-41"><a href="厚生分析時系列比較.html#cb7-41" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/第8表.xlsx&quot;</span> <span class="sc">|&gt;</span> </span>
+<span id="cb7-42"><a href="厚生分析時系列比較.html#cb7-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="at">sheet =</span> <span class="st">&quot;第８表ー２（パート除く）&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb7-43"><a href="厚生分析時系列比較.html#cb7-43" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|&gt;</span> </span>
 <span id="cb7-44"><a href="厚生分析時系列比較.html#cb7-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;新規就職&quot;</span>,</span>
 <span id="cb7-45"><a href="厚生分析時系列比較.html#cb7-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;フルタイム&quot;</span>)</span>
@@ -374,8 +376,8 @@ div.csl-indent {
 <span id="cb7-47"><a href="厚生分析時系列比較.html#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.hir.full) <span class="ot">&lt;-</span> col.label</span>
 <span id="cb7-48"><a href="厚生分析時系列比較.html#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-49"><a href="厚生分析時系列比較.html#cb7-49" aria-hidden="true" tabindex="-1"></a>raw.vacancy.part <span class="ot">&lt;-</span></span>
-<span id="cb7-50"><a href="厚生分析時系列比較.html#cb7-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第6表.xlsx&quot;</span>,</span>
-<span id="cb7-51"><a href="厚生分析時系列比較.html#cb7-51" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第６表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-50"><a href="厚生分析時系列比較.html#cb7-50" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/第6表.xlsx&quot;</span> <span class="sc">|&gt;</span> </span>
+<span id="cb7-51"><a href="厚生分析時系列比較.html#cb7-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="at">sheet =</span> <span class="st">&quot;第６表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb7-52"><a href="厚生分析時系列比較.html#cb7-52" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|&gt;</span> </span>
 <span id="cb7-53"><a href="厚生分析時系列比較.html#cb7-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求人&quot;</span>,</span>
 <span id="cb7-54"><a href="厚生分析時系列比較.html#cb7-54" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
@@ -383,8 +385,8 @@ div.csl-indent {
 <span id="cb7-56"><a href="厚生分析時系列比較.html#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.vacancy.part) <span class="ot">&lt;-</span> col.label</span>
 <span id="cb7-57"><a href="厚生分析時系列比較.html#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-58"><a href="厚生分析時系列比較.html#cb7-58" aria-hidden="true" tabindex="-1"></a>raw.seeker.part <span class="ot">&lt;-</span></span>
-<span id="cb7-59"><a href="厚生分析時系列比較.html#cb7-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第7表.xlsx&quot;</span>,</span>
-<span id="cb7-60"><a href="厚生分析時系列比較.html#cb7-60" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第７表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-59"><a href="厚生分析時系列比較.html#cb7-59" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/第7表.xlsx&quot;</span> <span class="sc">|&gt;</span> </span>
+<span id="cb7-60"><a href="厚生分析時系列比較.html#cb7-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="at">sheet =</span> <span class="st">&quot;第７表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb7-61"><a href="厚生分析時系列比較.html#cb7-61" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|&gt;</span> </span>
 <span id="cb7-62"><a href="厚生分析時系列比較.html#cb7-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;求職&quot;</span>,</span>
 <span id="cb7-63"><a href="厚生分析時系列比較.html#cb7-63" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
@@ -392,8 +394,8 @@ div.csl-indent {
 <span id="cb7-65"><a href="厚生分析時系列比較.html#cb7-65" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(raw.seeker.part) <span class="ot">&lt;-</span> col.label</span>
 <span id="cb7-66"><a href="厚生分析時系列比較.html#cb7-66" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-67"><a href="厚生分析時系列比較.html#cb7-67" aria-hidden="true" tabindex="-1"></a>raw.hir.part <span class="ot">&lt;-</span></span>
-<span id="cb7-68"><a href="厚生分析時系列比較.html#cb7-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="st">&quot;data/第8表.xlsx&quot;</span>,</span>
-<span id="cb7-69"><a href="厚生分析時系列比較.html#cb7-69" aria-hidden="true" tabindex="-1"></a>             <span class="at">sheet =</span> <span class="st">&quot;第８表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-68"><a href="厚生分析時系列比較.html#cb7-68" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/第8表.xlsx&quot;</span> <span class="sc">|&gt;</span> </span>
+<span id="cb7-69"><a href="厚生分析時系列比較.html#cb7-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_excel</span>(<span class="at">sheet =</span> <span class="st">&quot;第８表ー３（パート）&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb7-70"><a href="厚生分析時系列比較.html#cb7-70" aria-hidden="true" tabindex="-1"></a>  .[select.raw,select.column] <span class="sc">|&gt;</span> </span>
 <span id="cb7-71"><a href="厚生分析時系列比較.html#cb7-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;新規就職&quot;</span>,</span>
 <span id="cb7-72"><a href="厚生分析時系列比較.html#cb7-72" aria-hidden="true" tabindex="-1"></a>         <span class="at">group =</span> <span class="st">&quot;パートタイム&quot;</span>)</span>
@@ -460,7 +462,7 @@ div.csl-indent {
 <li><p>サーチ活動からの余剰、入職率、入職からの余剰は、すべて景気変動と正循環していることが確認できる。</p></li>
 <li><p>COVID-19がもたらしたサーチ活動からの余剰への影響を他の経済ショックと比べた場合、平成不況と同程度の水準である。</p>
 <ul>
-<li><p>COVID-19の影響は、2020年第2・3四半期については、入職率の低下により生じている。これは、入職からの余剰低下の影響も大きい、他の経済ショックとは大きく異なっている。</p></li>
+<li><p>2020年第2・3四半期については、主として入職率の低下により生じている。これは、入職からの余剰低下の影響が大きい他の経済ショックと大きく異なっている。</p></li>
 <li><p>入職率への影響は2021年第2四半期期において下げ止まりの傾向を見せているが、入職からの余剰は2020年第2四半期と比べても低下している。</p></li>
 </ul></li>
 </ul>
@@ -470,7 +472,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="厚生分析時系列比較.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.1.1 (2021-08-10)
 ## Platform: aarch64-apple-darwin20 (64-bit)
-## Running under: macOS Big Sur 11.5.2
+## Running under: macOS Big Sur 11.6
 ## 
 ## Matrix products: default
 ## BLAS:   /Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/lib/libRblas.0.dylib
