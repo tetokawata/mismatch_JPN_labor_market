@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 厚生分析:セクター別分解分析 | ハローワークデータからみる労働市場</title>
   <meta name="description" content="TBA" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 厚生分析:セクター別分解分析 | ハローワークデータからみる労働市場" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="川田恵介" />
 
 
-<meta name="date" content="2021-09-24" />
+<meta name="date" content="2021-10-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="厚生分析時系列比較.html"/>
 <link rel="next" href="references.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -231,7 +231,7 @@ div.csl-indent {
 <div id="厚生分析セクター別分解分析" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> 厚生分析:セクター別分解分析</h1>
 <ul>
-<li><p>職種別の就職・求人件数が観察可能な2012年から2021年6月までの月次データ、<span class="citation"><a href="#ref-kawata2021first" role="doc-biblioref">Kawata and Sato</a> (<a href="#ref-kawata2021first" role="doc-biblioref">2021</a>)</span> の手法を拡張し、求職者の厚生変化に対する各職種の貢献を記述する。</p>
+<li><p>職種別の就職・求人件数が観察可能な2012年から2021年9月までの月次データ、<span class="citation"><a href="#ref-kawata2021first" role="doc-biblioref">Kawata and Sato</a> (<a href="#ref-kawata2021first" role="doc-biblioref">2021</a>)</span> の手法を拡張し、求職者の厚生変化に対する各職種の貢献を記述する。</p>
 <ul>
 <li>四半期ごとに集計する</li>
 </ul></li>
@@ -318,16 +318,16 @@ div.csl-indent {
 <span id="cb12-9"><a href="厚生分析セクター別分解分析.html#cb12-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2018</span>,<span class="dv">12</span>),</span>
 <span id="cb12-10"><a href="厚生分析セクター別分解分析.html#cb12-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2019</span>,<span class="dv">12</span>),</span>
 <span id="cb12-11"><a href="厚生分析セクター別分解分析.html#cb12-11" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2020</span>,<span class="dv">12</span>),</span>
-<span id="cb12-12"><a href="厚生分析セクター別分解分析.html#cb12-12" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2021</span>,<span class="dv">6</span>)</span>
+<span id="cb12-12"><a href="厚生分析セクター別分解分析.html#cb12-12" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rep</span>(<span class="dv">2021</span>,<span class="dv">9</span>)</span>
 <span id="cb12-13"><a href="厚生分析セクター別分解分析.html#cb12-13" aria-hidden="true" tabindex="-1"></a>                  )</span>
 <span id="cb12-14"><a href="厚生分析セクター別分解分析.html#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-15"><a href="厚生分析セクター別分解分析.html#cb12-15" aria-hidden="true" tabindex="-1"></a>month <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>,</span>
 <span id="cb12-16"><a href="厚生分析セクター別分解分析.html#cb12-16" aria-hidden="true" tabindex="-1"></a>           <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,<span class="dv">8</span>),</span>
-<span id="cb12-17"><a href="厚生分析セクター別分解分析.html#cb12-17" aria-hidden="true" tabindex="-1"></a>           <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb12-17"><a href="厚生分析セクター別分解分析.html#cb12-17" aria-hidden="true" tabindex="-1"></a>           <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
 <span id="cb12-18"><a href="厚生分析セクター別分解分析.html#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-19"><a href="厚生分析セクター別分解分析.html#cb12-19" aria-hidden="true" tabindex="-1"></a>sel.row <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">72</span></span>
-<span id="cb12-20"><a href="厚生分析セクター別分解分析.html#cb12-20" aria-hidden="true" tabindex="-1"></a>sel.col <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">19</span><span class="sc">:</span><span class="dv">130</span>)</span>
-<span id="cb12-21"><a href="厚生分析セクター別分解分析.html#cb12-21" aria-hidden="true" tabindex="-1"></a>re.sel.col <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">113</span></span>
+<span id="cb12-20"><a href="厚生分析セクター別分解分析.html#cb12-20" aria-hidden="true" tabindex="-1"></a>sel.col <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">19</span><span class="sc">:</span><span class="dv">133</span>)</span>
+<span id="cb12-21"><a href="厚生分析セクター別分解分析.html#cb12-21" aria-hidden="true" tabindex="-1"></a>re.sel.col <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">116</span></span>
 <span id="cb12-22"><a href="厚生分析セクター別分解分析.html#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-23"><a href="厚生分析セクター別分解分析.html#cb12-23" aria-hidden="true" tabindex="-1"></a>raw.vacancy <span class="ot">&lt;-</span></span>
 <span id="cb12-24"><a href="厚生分析セクター別分解分析.html#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/第21表.xlsx&quot;</span> <span class="sc">|&gt;</span> </span>
@@ -454,10 +454,7 @@ div.csl-indent {
 <ul>
 <li><p>2020年第二四半期以降、全職種で余剰が低下している。</p></li>
 <li><p>サービスの職種が、2020年間の総余剰の急落の大きな源泉となっている。</p></li>
-<li><p>2021年においても依然として減少は続いている。</p>
-<ul>
-<li>2020年の水準を上回るのは、生産工程の職種のみ</li>
-</ul></li>
+<li><p>2021年第3四半期において、多くの職種において余剰減少が底打ち傾向にある。</p></li>
 </ul>
 <div id="入職からの余剰の貢献" class="section level4" number="4.2.3.1">
 <h4><span class="header-section-number">4.2.3.1</span> 入職からの余剰の貢献</h4>
@@ -486,7 +483,8 @@ div.csl-indent {
 <span id="cb15-20"><a href="厚生分析セクター別分解分析.html#cb15-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.10</span>,<span class="fl">0.06</span>)</span></code></pre></div>
 <p><img src="test_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <ul>
-<li>サービスの職種において急落がみられ、かつ下落傾向が拡大している。</li>
+<li><p>サービスの職種において急落がみらる。</p></li>
+<li><p>2021年第3四半期において、多くの職種で下げ止まり・反転傾向が見られる。</p></li>
 </ul>
 </div>
 <div id="入職率の貢献" class="section level4" number="4.2.3.2">
@@ -517,7 +515,7 @@ div.csl-indent {
 <p><img src="test_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <ul>
 <li><p>２０２０年間には、サービスの職種が最も下落している。</p></li>
-<li><p>2021年第二四半期には、全職種において下げ止まりが見られる。</p></li>
+<li><p>2021年第３四半期においては、職種間のばらつきが大きい。</p></li>
 </ul>
 </div>
 </div>
@@ -662,7 +660,7 @@ div.csl-indent {
 <li><p>相対的に保健師、助産師、介護サービスへの影響は小さい</p></li>
 <li><p>相対的に商品販売、接客・給仕、飲食物調理への影響が大きい</p></li>
 </ul></li>
-<li><p>全職種で2021年になっても減少は続いている</p></li>
+<li><p>2021年第三四半期においては、下げ止まり傾向が見られる。</p></li>
 </ul>
 <div id="入職からの余剰の貢献-1" class="section level4" number="4.3.3.1">
 <h4><span class="header-section-number">4.3.3.1</span> 入職からの余剰の貢献</h4>
@@ -693,10 +691,8 @@ div.csl-indent {
 <span id="cb20-22"><a href="厚生分析セクター別分解分析.html#cb20-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.04</span>,<span class="fl">0.03</span>)</span></code></pre></div>
 <p><img src="test_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <ul>
-<li><p>特に商品販売、接客・給仕、飲食物調理において減少が大きい</p>
-<ul>
-<li>下げ止まりの傾向も明確ではない</li>
-</ul></li>
+<li><p>特に商品販売、接客・給仕、飲食物調理において減少が大きい</p></li>
+<li><p>2021年第3四半期において、多くの職種で下げ止まり・反転傾向が見られる。</p></li>
 </ul>
 </div>
 <div id="入職率の貢献-1" class="section level4" number="4.3.3.2">
@@ -733,6 +729,7 @@ div.csl-indent {
 <li><p>入職からの余剰と比べて、底打ち傾向が顕著</p></li>
 <li><p>特に接客・給仕の職業、保健師、助産師、看護師の職業においては2021年第二四半期に底打ちしている</p></li>
 </ul></li>
+<li><p>2021年第3四半期においても、ばらつきが大きい。</p></li>
 </ul>
 </div>
 </div>
@@ -756,35 +753,35 @@ div.csl-indent {
 ## 
 ## other attached packages:
 ##  [1] Rfast_2.0.3        RcppZiggurat_0.1.6 Rcpp_1.0.7         yardstick_0.0.8   
-##  [5] workflowsets_0.1.0 workflows_0.2.3    tune_0.1.6         rsample_0.1.0     
-##  [9] recipes_0.1.16     parsnip_0.1.7      modeldata_0.1.1    infer_1.0.0       
-## [13] dials_0.0.9        scales_1.1.1       broom_0.7.9        tidymodels_0.1.3  
-## [17] lubridate_1.7.10   readxl_1.3.1       forcats_0.5.1      stringr_1.4.0     
-## [21] dplyr_1.0.7        purrr_0.3.4        readr_2.0.1        tidyr_1.1.3       
-## [25] tibble_3.1.3       ggplot2_3.3.5      tidyverse_1.3.1   
+##  [5] workflowsets_0.1.0 workflows_0.2.4    tune_0.1.6         rsample_0.1.0     
+##  [9] recipes_0.1.17     parsnip_0.1.7      modeldata_0.1.1    infer_1.0.0       
+## [13] dials_0.0.10       scales_1.1.1       broom_0.7.9        tidymodels_0.1.4  
+## [17] lubridate_1.8.0    readxl_1.3.1       forcats_0.5.1      stringr_1.4.0     
+## [21] dplyr_1.0.7        purrr_0.3.4        readr_2.0.2        tidyr_1.1.4       
+## [25] tibble_3.1.5       ggplot2_3.3.5      tidyverse_1.3.1   
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] colorspace_2.0-2   ellipsis_0.3.2     class_7.3-19       fs_1.5.0          
 ##  [5] rstudioapi_0.13    listenv_0.8.0      furrr_0.2.3        farver_2.1.0      
 ##  [9] prodlim_2019.11.13 fansi_0.5.0        xml2_1.3.2         codetools_0.2-18  
-## [13] splines_4.1.1      knitr_1.33         jsonlite_1.7.2     pROC_1.17.0.1     
-## [17] dbplyr_2.1.1       compiler_4.1.1     httr_1.4.2         backports_1.2.1   
-## [21] assertthat_0.2.1   Matrix_1.3-4       fastmap_1.1.0      cli_3.0.1         
+## [13] splines_4.1.1      knitr_1.36         jsonlite_1.7.2     pROC_1.18.0       
+## [17] dbplyr_2.1.1       compiler_4.1.1     httr_1.4.2         backports_1.3.0   
+## [21] assertthat_0.2.1   Matrix_1.3-4       fastmap_1.1.0      cli_3.1.0         
 ## [25] htmltools_0.5.2    tools_4.1.1        gtable_0.3.0       glue_1.4.2        
 ## [29] cellranger_1.1.0   jquerylib_0.1.4    DiceDesign_1.9     vctrs_0.3.8       
-## [33] iterators_1.0.13   timeDate_3043.102  gower_0.2.2        xfun_0.25         
-## [37] globals_0.14.0     rvest_1.0.1        lifecycle_1.0.0    pacman_0.5.1      
-## [41] future_1.21.0      MASS_7.3-54        ipred_0.9-11       hms_1.1.0         
+## [33] iterators_1.0.13   timeDate_3043.102  gower_0.2.2        xfun_0.27         
+## [37] globals_0.14.0     rvest_1.0.2        lifecycle_1.0.1    pacman_0.5.1      
+## [41] future_1.22.1      MASS_7.3-54        ipred_0.9-12       hms_1.1.1         
 ## [45] parallel_4.1.1     yaml_2.2.1         sass_0.4.0         rpart_4.1-15      
-## [49] stringi_1.7.3      highr_0.9          foreach_1.5.1      lhs_1.1.1         
-## [53] hardhat_0.1.6      lava_1.6.9         rlang_0.4.11       pkgconfig_2.0.3   
-## [57] evaluate_0.14      lattice_0.20-44    labeling_0.4.2     tidyselect_1.1.1  
-## [61] parallelly_1.27.0  plyr_1.8.6         magrittr_2.0.1     bookdown_0.23     
-## [65] R6_2.5.1           generics_0.1.0     DBI_1.1.1          pillar_1.6.2      
-## [69] haven_2.4.3        withr_2.4.2        survival_3.2-12    nnet_7.3-16       
-## [73] modelr_0.1.8       crayon_1.4.1       utf8_1.2.2         tzdb_0.1.2        
-## [77] rmarkdown_2.10     grid_4.1.1         reprex_2.0.1       digest_0.6.27     
-## [81] munsell_0.5.0      GPfit_1.0-8        bslib_0.3.0</code></pre>
+## [49] stringi_1.7.5      highr_0.9          foreach_1.5.1      lhs_1.1.3         
+## [53] hardhat_0.1.6      lava_1.6.10        rlang_0.4.12       pkgconfig_2.0.3   
+## [57] evaluate_0.14      lattice_0.20-45    labeling_0.4.2     tidyselect_1.1.1  
+## [61] parallelly_1.28.1  plyr_1.8.6         magrittr_2.0.1     bookdown_0.24     
+## [65] R6_2.5.1           generics_0.1.1     DBI_1.1.1          pillar_1.6.4      
+## [69] haven_2.4.3        withr_2.4.2        survival_3.2-13    nnet_7.3-16       
+## [73] future.apply_1.8.1 modelr_0.1.8       crayon_1.4.1       utf8_1.2.2        
+## [77] tzdb_0.2.0         rmarkdown_2.11     grid_4.1.1         reprex_2.0.1      
+## [81] digest_0.6.28      munsell_0.5.0      GPfit_1.0-8        bslib_0.3.1</code></pre>
 
 </div>
 </div>
@@ -807,7 +804,6 @@ Rogerson, Richard, Robert Shimer, and Randall Wright. 2005. <span>“Search-Theo
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -848,7 +844,7 @@ gitbook.start({
 },
 "download": ["test.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

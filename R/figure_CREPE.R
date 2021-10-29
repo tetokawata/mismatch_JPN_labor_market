@@ -120,10 +120,15 @@ df <-
                values_to = "N") |> 
   na.omit()
 
+unique(df$type)
+
 fig <-
   df |> 
   filter(year >= 2000) |> 
   mutate(増減 = if_else(N >= 0, "増加", "減少")) |> 
+  mutate(type = factor(type, 
+                        levels = c("求人","求職","新規就職"))
+         ) |> 
   ggplot(aes(x = date,
              y = N,
              fill = 増減)
@@ -151,7 +156,6 @@ ggsave("figure/aggregate_index.png",
        dpi = "retina",
        width = 6.4, 
        height = 4.8)
-
 
 
 # Aggregate rate ----
