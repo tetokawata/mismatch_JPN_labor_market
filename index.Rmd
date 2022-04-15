@@ -1,6 +1,6 @@
 --- 
 title: "ハローワークデータからみる労働市場"
-author: "川田恵介"
+author: "川田恵介 (東京大学 社会科学研究所)"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
